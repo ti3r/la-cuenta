@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#123456"
+    >
+	<LinearLayout android:id="@+id/LinearLayout01" 
+		android:layout_width="fill_parent" android:layout_height="wrap_content">
+		<TextView android:id="@+id/MainActivity_TxtBillTotal"
+		android:layout_width="wrap_content" android:layout_height="fill_parent"
+		android:text="@string/TxtBillTotal"	/>
+		<EditText android:id="@+id/MainActivity_EdtBillTotal"
+		android:layout_width="fill_parent" android:layout_height="wrap_content" />
+	</LinearLayout>
+	<LinearLayout android:id="@+id/LinearLayout02" 
+		android:layout_width="fill_parent" android:layout_height="wrap_content">
+		<TextView android:id="@+id/MainAcivity_TxtTip" 
+		android:layout_width="wrap_content" android:layout_height="wrap_content" 
+		android:text="@string/TxtTip"/>
+		<Spinner android:id="@+id/MainActivity_spnTip" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:entries="@array/tip_options" />
+		<TextView android:id="@+id/MainAcivity_TxtPercentSimbol" 
+		android:layout_width="wrap_content" android:layout_height="wrap_content" 
+		android:text="@string/TxtPercentSimbol"/>
+	</LinearLayout>
+	<LinearLayout android:id="@+id/LinearLayout03"
+		android:layout_width="fill_parent" android:layout_height="wrap_content">
+		<TextView android:id="@+id/MainAcivity_TxtPeople" 
+		android:layout_width="wrap_content" android:layout_height="wrap_content" 
+		android:text="@string/TxtPeople"/>
+		<Spinner android:id="@+id/MainActivity_spnPeople" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:entries="@array/people_options" />
+	</LinearLayout>
+	<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+	android:orientation="horizontal" android:gravity="right">
+	<Button android:id="@+id/MainActivity_BtnCalculate" android:layout_width="wrap_content"
+	android:layout_height="wrap_content" android:text="@string/BtnCalculate" />
+	</LinearLayout>
+	<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+	android:orientation="horizontal">
+		<TextView android:id="@+id/MainActivity_TxtResult" 	android:text="@string/TxtResult" 
+			android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+	</LinearLayout>
+</LinearLayout>
