@@ -1,11 +1,14 @@
 package org.blanco.lacuenta;
 
+
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.DigitsKeyListener;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -16,11 +19,14 @@ public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main);
         initComponents();
     }
     
     public void initComponents(){
+    	//Set Background
+    	
     	
     	edtTotal = (EditText) findViewById(R.id.MainActivity_EdtBillTotal);
     	edtTotal.setKeyListener(new DigitsKeyListener(false,true));
@@ -51,12 +57,61 @@ public class MainActivity extends Activity {
 				setResult(0);
 				finish();
 			break;
+		case R.id.main_activity_main_menu_settings_item:
+				startConfiguration();
+			break;
 		default:
 			return super.onMenuItemSelected(featureId, item);
 		}
 		return true;
 	}
 
+	@Override
+	protected void onPause() {
+		boolean savePrefs = 
+			getSharedPreferences("settings",MODE_WORLD_WRITEABLE).getBoolean("save_prefs", false);
+		if (savePrefs)
+			saveControlPreferences();
+		super.onPause();
+	}
+	
+	@Override
+	protected void onStart() {
+		boolean savePrefs = 
+			getSharedPreferences("settings",MODE_WORLD_WRITEABLE).getBoolean("save_prefs", false);
+		if (savePrefs)
+			loadControlPreferences();
+		edtTotal.selectAll();
+		super.onStart();
+	}
+
+	/***
+	 * Starts the configuration Activity
+	 */
+	private void startConfiguration() {
+		Intent settingsIntent = new Intent(this, SettingsActivity.class);
+		startActivityForResult(settingsIntent, 0);
+	}
+
+	/***
+	 * Save the control values in a preferences file in order to be
+	 * restored on the next application execution.
+	 */
+	private void saveControlPreferences(){
+		getSharedPreferences("control_preferences", MODE_PRIVATE).edit().putString("edtTotal", edtTotal.getText().toString()).commit();
+		getSharedPreferences("control_preferences", MODE_PRIVATE).edit().putInt("spnTip", spnTip.getSelectedItemPosition()).commit();
+		getSharedPreferences("control_preferences", MODE_PRIVATE).edit().putInt("spnPeople", spnPeople.getSelectedItemPosition()).commit();
+	}
+	/***
+	 * Load the control values from a preferences file in order to 
+	 * present the user the same interface that when it left
+	 */
+	private void loadControlPreferences(){
+		edtTotal.setText(getSharedPreferences("control_preferences", MODE_PRIVATE).getString("edtTotal", "0"));
+		spnTip.setSelection(getSharedPreferences("control_preferences", MODE_PRIVATE).getInt("spnTip", 0));
+		spnPeople.setSelection(getSharedPreferences("control_preferences", MODE_PRIVATE).getInt("spnPeople", 0));
+	}
+	
 	EditText edtTotal = null;
     Button btnCalculate = null;
     Spinner spnTip = null;

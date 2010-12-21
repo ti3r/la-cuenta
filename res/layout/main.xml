@@ -3,13 +3,16 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="#123456"
+    android:background="@drawable/background"
+    android:paddingLeft="5dip"
     >
 	<LinearLayout android:id="@+id/LinearLayout01" 
-		android:layout_width="fill_parent" android:layout_height="wrap_content">
+		android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		android:paddingTop="50dip">
 		<TextView android:id="@+id/MainActivity_TxtBillTotal"
 		android:layout_width="wrap_content" android:layout_height="fill_parent"
-		android:text="@string/TxtBillTotal"	/>
+		android:text="@string/TxtBillTotal" android:textColor="#000000" 
+		android:gravity="bottom"	/>
 		<EditText android:id="@+id/MainActivity_EdtBillTotal"
 		android:layout_width="fill_parent" android:layout_height="wrap_content" 
 		android:text="0"/>
@@ -18,19 +21,18 @@
 		android:layout_width="fill_parent" android:layout_height="wrap_content">
 		<TextView android:id="@+id/MainAcivity_TxtTip" 
 		android:layout_width="wrap_content" android:layout_height="wrap_content" 
-		android:text="@string/TxtTip"/>
+		android:text="@string/TxtTip" android:textColor="#000000" 
+		android:gravity="bottom"/>
 		<Spinner android:id="@+id/MainActivity_spnTip" android:layout_width="fill_parent"
 		android:layout_height="wrap_content" 
 		android:entries="@array/tip_options" />
-		<TextView android:id="@+id/MainAcivity_TxtPercentSimbol" 
-		android:layout_width="wrap_content" android:layout_height="wrap_content" 
-		android:text="@string/TxtPercentSimbol"/>
 	</LinearLayout>
 	<LinearLayout android:id="@+id/LinearLayout03"
 		android:layout_width="fill_parent" android:layout_height="wrap_content">
 		<TextView android:id="@+id/MainAcivity_TxtPeople" 
 		android:layout_width="wrap_content" android:layout_height="wrap_content" 
-		android:text="@string/TxtPeople"/>
+		android:text="@string/TxtPeople" android:textColor="#000000"
+		android:gravity="bottom"/>
 		<Spinner android:id="@+id/MainActivity_spnPeople" android:layout_width="fill_parent"
 		android:layout_height="wrap_content" 
 		android:entries="@array/people_options" />
@@ -43,6 +45,7 @@
 	<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
 	android:orientation="horizontal">
 		<TextView android:id="@+id/MainActivity_TxtResult" 	android:text="@string/TxtResult" 
-			android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:textColor="#000000" android:gravity="bottom"/>
 	</LinearLayout>
 </LinearLayout>
