@@ -21,15 +21,20 @@ public class MainActivity extends Activity {
     }
     
     public void initComponents(){
+    	
     	edtTotal = (EditText) findViewById(R.id.MainActivity_EdtBillTotal);
     	edtTotal.setKeyListener(new DigitsKeyListener(false,true));
+    	
+    	txtResult = (TextView) findViewById(R.id.MainActivity_TxtResult);
     	spnTip = (Spinner) findViewById(R.id.MainActivity_spnTip);
     	spnPeople = (Spinner) findViewById(R.id.MainActivity_spnPeople);
-    	txtResult = (TextView) findViewById(R.id.MainActivity_TxtResult);
+    	
     	TextViewResultReceiver resultReceiver = new TextViewResultReceiver(this, txtResult);
+    	CalculateClickListener calculateListener = new CalculateClickListener(edtTotal, spnTip, 
+    			spnPeople, resultReceiver); 
+    	
     	btnCalculate = (Button) findViewById(R.id.MainActivity_BtnCalculate);
-    	btnCalculate.setOnClickListener(new CalculateClickListener(edtTotal, spnTip, 
-    			spnPeople, resultReceiver));
+    	btnCalculate.setOnClickListener(calculateListener);
     }
         
     @Override

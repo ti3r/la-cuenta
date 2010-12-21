@@ -9,6 +9,7 @@
 <string name="BtnCalculate">Calcular</string>
 <string name="TxtResult">Resultado:</string>
 <string name="StrExit">Salir</string>
+<string name="StrSettings">Configuraciones</string>
 <string-array name="tip_options">
         <item>0</item>
 <item>5</item>

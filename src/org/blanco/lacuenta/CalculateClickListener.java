@@ -5,7 +5,7 @@ import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-public class CalculateClickListener implements OnClickListener {
+public class CalculateClickListener implements OnClickListener{
 
 	private EditText txtTotal = null;
 	private Spinner spnTip = null;
@@ -20,13 +20,23 @@ public class CalculateClickListener implements OnClickListener {
 		this.resultShower=result;
 	}
 	
-	@Override
-	public void onClick(View view) {
+	public void calculate(){
+		
+		//android.os.Debug.startMethodTracing("calculate.trace");
 		double total = Double.valueOf(this.txtTotal.getText().toString());
-		int tip = Integer.valueOf(this.spnTip.getSelectedItem().toString());
-		int people = Integer.valueOf(this.spnPeople.getSelectedItem().toString());
+	
+		int tip = (this.spnTip.getSelectedItem() != null)? 
+				Integer.valueOf(this.spnTip.getSelectedItem().toString()):0;
+		int people = (this.spnPeople.getSelectedItem() != null)? 
+				Integer.valueOf(this.spnPeople.getSelectedItem().toString()):1;
 		double t = (total * (1 + (0.01*tip)))/people;
 		resultShower.showResult(t);
+		//android.os.Debug.stopMethodTracing();
+	}
+	
+	@Override
+	public void onClick(View view) {
+		calculate();
 	}
 
 }
