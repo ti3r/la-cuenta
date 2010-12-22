@@ -1,4 +1,7 @@
 12/21/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+Added icons to the drawable-ldpi and drawable-mdpi directories.
+----------------------------------------------------------------------------------
+12/21/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Added icons, background and settings activity to save the values of the controls
 when the activity stops.
 ----------------------------------------------------------------------------------
