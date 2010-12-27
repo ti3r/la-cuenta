@@ -2,15 +2,15 @@
 <resources>
     
 <string name="app_name">La Cuenta</string>
-<string name="TxtBillTotal">Total:</string>
+<string name="TxtBillTotal">Total de Cuenta</string>
 <string name="TxtTip">Propina</string>
-<string name="TxtPeople">Personas:</string>
-<string name="TxtPercentSimbol">%</string>
+<string name="TxtPeople">Personas</string>
+
 <string name="BtnCalculate">Calcular</string>
-<string name="TxtResult">Resultado:</string>
+<string name="TxtResult">Resultado</string>
 <string name="StrExit">Salir</string>
 <string name="StrSettings">Configuraciones</string>
-<string name="StrPreferences">Guardar Preferencias:</string>
+
 <string-array name="tip_options">
 <item>0</item>
 <item>5</item>
@@ -56,6 +56,7 @@
 <item>19</item>
 <item>20</item>
 </string-array>
-<string name="sample_tab_content">content.</string>
-    <string name="sample_tab_tab">Tab</string>
+
+    
+<string name="settings_activity_txt_save_prefs">Guardar Valores:</string>
 </resources>

@@ -8,12 +8,17 @@ import android.text.method.DigitsKeyListener;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+/***
+ * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
+ * Initial Activity of the Application.
+ */
 public class MainActivity extends Activity {
     /** Called when the activity is first created. */
     @Override
@@ -24,25 +29,46 @@ public class MainActivity extends Activity {
         initComponents();
     }
     
-    public void initComponents(){
-    	//Set Background
-    	
-    	
+    private void initComponents(){
     	edtTotal = (EditText) findViewById(R.id.MainActivity_EdtBillTotal);
     	edtTotal.setKeyListener(new DigitsKeyListener(false,true));
     	
     	txtResult = (TextView) findViewById(R.id.MainActivity_TxtResult);
     	spnTip = (Spinner) findViewById(R.id.MainActivity_spnTip);
     	spnPeople = (Spinner) findViewById(R.id.MainActivity_spnPeople);
+    	initCalculusControls();
+    }
+      
+    private void initCalculusControls(){
     	
-    	TextViewResultReceiver resultReceiver = new TextViewResultReceiver(this, txtResult);
+    	if (btnCalculate == null)
+    		btnCalculate = (Button) findViewById(R.id.MainActivity_BtnCalculate);
+    	
+    	ResultReceiver resultReceiver = getResultReceiver();
     	CalculateClickListener calculateListener = new CalculateClickListener(edtTotal, spnTip, 
     			spnPeople, resultReceiver); 
-    	
-    	btnCalculate = (Button) findViewById(R.id.MainActivity_BtnCalculate);
     	btnCalculate.setOnClickListener(calculateListener);
     }
-        
+    /***
+     * This method will return the result Receiver that will be used when displaying 
+     * the calculus results. It will return an instance of an object that implements the
+     * ResultReceiver interface depending on established application settings.
+     * @return an Object that implements ResultReceiver Interface.
+     */
+    private ResultReceiver getResultReceiver(){
+    	boolean showResOnDialog = 
+    	getSharedPreferences(SettingsActivity.SHARED_PREFS_NAME, MODE_PRIVATE).getBoolean(SettingsActivity.SHOW_RES_DIALOG_SETTING_NAME, false);
+    	if (showResOnDialog){
+    		//deactivate the Result Label
+    		this.txtResult.setVisibility(View.GONE);
+    		return new DialogResultReceiver(this);
+    	}
+    	else{
+    		this.txtResult.setVisibility(View.VISIBLE);
+    		return new TextViewResultReceiver(this,txtResult);
+    	}
+    }
+    
     @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
@@ -112,6 +138,15 @@ public class MainActivity extends Activity {
 		spnPeople.setSelection(getSharedPreferences("control_preferences", MODE_PRIVATE).getInt("spnPeople", 0));
 	}
 	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		boolean refresh = true;
+		if (refresh)
+			initCalculusControls();
+	}
+
+
+
 	EditText edtTotal = null;
     Button btnCalculate = null;
     Spinner spnTip = null;

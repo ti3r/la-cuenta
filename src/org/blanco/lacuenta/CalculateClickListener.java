@@ -5,6 +5,13 @@ import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+/***
+ * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
+ * Class that will implements the OnClickListener interface
+ * in order to execute the calculus of the bill split and 
+ * show the result to the user in the passed ResultReceiver.
+ * The class will not format the result.
+ */
 public class CalculateClickListener implements OnClickListener{
 
 	private EditText txtTotal = null;

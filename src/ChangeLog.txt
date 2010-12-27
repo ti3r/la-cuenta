@@ -1,3 +1,8 @@
+12/27/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+Added a new Result Receiver (DialogResultReceiver)
+Added a setting that will control the display of the result in the new receiver.
+Some code improvements.
+----------------------------------------------------------------------------------
 12/21/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Added icons to the drawable-ldpi and drawable-mdpi directories.
 ----------------------------------------------------------------------------------

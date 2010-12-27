@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:orientation="vertical">
+  
+  	<LinearLayout android:layout_width="fill_parent"  android:layout_height="wrap_content">  	
+  		<TextView android:layout_height="wrap_content" android:layout_width="wrap_content" 
+  		android:text="@string/settings_activity_txt_save_prefs"	/>
+  		<CheckBox android:id="@+id/settings_activity_chk_save_prefs"
+  		android:layout_height="wrap_content" android:layout_width="wrap_content" />
+  	</LinearLayout>
+  
+  	<LinearLayout android:layout_width="fill_parent"  android:layout_height="wrap_content">
+  		<TextView android:layout_height="wrap_content" android:layout_width="wrap_content"
+  		android:text="Mostrar Resultado en Dialogo:" />
+  		<CheckBox android:id="@+id/settings_activity_chk_show_res_on_dialog" 
+  		android:layout_height="wrap_content" android:layout_width="wrap_content" />
+  	</LinearLayout>
+  	
+</LinearLayout>
