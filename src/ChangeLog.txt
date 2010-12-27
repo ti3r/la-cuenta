@@ -1,4 +1,9 @@
 12/27/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+Move the tip and people spiner options to one extra file in order to 
+	create localised texts.
+Create the English texts.
+----------------------------------------------------------------------------------
+12/27/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Changed the minimum SDK required in the Android manifest to 8 (Android 2.2)
 Improve the packages layout:
 	org.blanco.lacuenta.listeners: Hold the Listeners that will perform the

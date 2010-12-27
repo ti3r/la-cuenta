@@ -3,7 +3,6 @@ package org.blanco.lacuenta.receivers;
 import java.text.DecimalFormat;
 
 import org.blanco.lacuenta.R;
-import org.blanco.lacuenta.R.string;
 
 import android.content.Context;
 import android.util.Log;
