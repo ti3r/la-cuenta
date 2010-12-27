@@ -1,4 +1,12 @@
 12/27/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+Changed the minimum SDK required in the Android manifest to 8 (Android 2.2)
+Improve the packages layout:
+	org.blanco.lacuenta.listeners: Hold the Listeners that will perform the
+		calculus
+	org.blanco.lacuenta.receivers: Hold the ResultReceivers that will display
+		the calculus result to the user.
+----------------------------------------------------------------------------------
+12/27/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Added a new Result Receiver (DialogResultReceiver)
 Added a setting that will control the display of the result in the new receiver.
 Some code improvements.

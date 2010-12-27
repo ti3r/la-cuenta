@@ -1,6 +1,11 @@
 package org.blanco.lacuenta;
 
 
+import org.blanco.lacuenta.listeners.CalculateClickListener;
+import org.blanco.lacuenta.receivers.DialogResultReceiver;
+import org.blanco.lacuenta.receivers.ResultReceiver;
+import org.blanco.lacuenta.receivers.TextViewResultReceiver;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,4 +1,6 @@
-package org.blanco.lacuenta;
+package org.blanco.lacuenta.listeners;
+
+import org.blanco.lacuenta.receivers.ResultReceiver;
 
 import android.view.View;
 import android.view.View.OnClickListener;

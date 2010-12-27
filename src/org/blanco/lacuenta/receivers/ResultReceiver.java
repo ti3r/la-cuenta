@@ -1,4 +1,4 @@
-package org.blanco.lacuenta;
+package org.blanco.lacuenta.receivers;
 
 /***
  * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
