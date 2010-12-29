@@ -41,9 +41,20 @@ public class MainActivity extends Activity {
     	txtResult = (TextView) findViewById(R.id.MainActivity_TxtResult);
     	spnTip = (Spinner) findViewById(R.id.MainActivity_spnTip);
     	spnPeople = (Spinner) findViewById(R.id.MainActivity_spnPeople);
+    	pad = new NumericPad(this, R.id.main_activity_num_pad_1, 
+    			R.id.main_activity_num_pad_2, R.id.main_activity_num_pad_3, 
+    			R.id.main_activity_num_pad_4, R.id.main_activity_num_pad_5, 
+    			R.id.main_activity_num_pad_6, R.id.main_activity_num_pad_7, 
+    			R.id.main_activity_num_pad_8, R.id.main_activity_num_pad_9, 
+    			R.id.main_activity_num_pad_0, R.id.main_activity_num_pad__, 
+    			R.id.main_activity_num_pad_c, this.edtTotal);
     	initCalculusControls();
     }
       
+    /***
+     * This method initialises all the needed controls and methods of the button 
+     * that executes all the process to get the split result. 
+     */
     private void initCalculusControls(){
     	
     	if (btnCalculate == null)
@@ -157,4 +168,5 @@ public class MainActivity extends Activity {
     Spinner spnTip = null;
     Spinner spnPeople = null;
     TextView txtResult = null;
+    NumericPad pad = null;
 }

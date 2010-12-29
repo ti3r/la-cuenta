@@ -1,4 +1,8 @@
 12/27/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+Added a numeric pad to input the bill total.
+Bases of application database created in order to keep track of expenses.
+----------------------------------------------------------------------------------
+12/27/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Move the tip and people spiner options to one extra file in order to 
 	create localised texts.
 Create the English texts.

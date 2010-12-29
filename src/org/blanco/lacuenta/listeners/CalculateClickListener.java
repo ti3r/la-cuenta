@@ -1,5 +1,6 @@
 package org.blanco.lacuenta.listeners;
 
+import org.blanco.lacuenta.db.entities.Split;
 import org.blanco.lacuenta.receivers.ResultReceiver;
 
 import android.view.View;
@@ -21,6 +22,8 @@ public class CalculateClickListener implements OnClickListener{
 	private Spinner spnPeople = null;
 	private ResultReceiver resultShower = null;
 	
+	private Split result = null;
+	
 	public CalculateClickListener(EditText txtTotal,
 			Spinner spnTip, Spinner spnPeople, ResultReceiver result){
 		this.txtTotal = txtTotal;
@@ -41,6 +44,7 @@ public class CalculateClickListener implements OnClickListener{
 		double t = (total * (1 + (0.01*tip)))/people;
 		resultShower.showResult(t);
 		//android.os.Debug.stopMethodTracing();
+		this.result = new Split(total, tip, people, t);
 	}
 	
 	@Override
@@ -48,4 +52,8 @@ public class CalculateClickListener implements OnClickListener{
 		calculate();
 	}
 
+	public Split getResult() {
+		return result;
+	}
+	
 }
