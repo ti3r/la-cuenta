@@ -35,36 +35,19 @@ public class MainActivity extends Activity {
     }
     
     private void initComponents(){
-    	edtTotal = (EditText) findViewById(R.id.MainActivity_EdtBillTotal);
-    	edtTotal.setKeyListener(new DigitsKeyListener(false,true));
+    	edtTotal = (EditText) findViewById(R.id.main_activity_edt_bill_total);
+    	edtTotal.setKeyListener(new DigitsKeyListener(false, true));
     	
-    	txtResult = (TextView) findViewById(R.id.MainActivity_TxtResult);
-    	spnTip = (Spinner) findViewById(R.id.MainActivity_spnTip);
-    	spnPeople = (Spinner) findViewById(R.id.MainActivity_spnPeople);
-    	pad = new NumericPad(this, R.id.main_activity_num_pad_1, 
-    			R.id.main_activity_num_pad_2, R.id.main_activity_num_pad_3, 
-    			R.id.main_activity_num_pad_4, R.id.main_activity_num_pad_5, 
-    			R.id.main_activity_num_pad_6, R.id.main_activity_num_pad_7, 
-    			R.id.main_activity_num_pad_8, R.id.main_activity_num_pad_9, 
-    			R.id.main_activity_num_pad_0, R.id.main_activity_num_pad__, 
-    			R.id.main_activity_num_pad_c, this.edtTotal);
-    	initCalculusControls();
+    	txtResult = (TextView) findViewById(R.id.main_activity_txt_result);
+    	spnTip = (Spinner) findViewById(R.id.main_activity_spn_tip);
+    	spnPeople = (Spinner) findViewById(R.id.main_activity_spn_people);
+    	btnCalculate = (Button) findViewById(R.id.main_activity_btn_calculate);
+    	btnCalculate.setOnClickListener(new CalculateClickListener(edtTotal, spnTip, spnPeople, getResultReceiver()));
+    	numPad = (NumPad) findViewById(R.id.main_activity_num_pad);
+    	if (numPad != null) //Landscape layout will not have numPad
+    	numPad.setText(edtTotal);
     }
       
-    /***
-     * This method initialises all the needed controls and methods of the button 
-     * that executes all the process to get the split result. 
-     */
-    private void initCalculusControls(){
-    	
-    	if (btnCalculate == null)
-    		btnCalculate = (Button) findViewById(R.id.MainActivity_BtnCalculate);
-    	
-    	ResultReceiver resultReceiver = getResultReceiver();
-    	CalculateClickListener calculateListener = new CalculateClickListener(edtTotal, spnTip, 
-    			spnPeople, resultReceiver); 
-    	btnCalculate.setOnClickListener(calculateListener);
-    }
     /***
      * This method will return the result Receiver that will be used when displaying 
      * the calculus results. It will return an instance of an object that implements the
@@ -123,7 +106,6 @@ public class MainActivity extends Activity {
 			getSharedPreferences("settings",MODE_WORLD_WRITEABLE).getBoolean("save_prefs", false);
 		if (savePrefs)
 			loadControlPreferences();
-		edtTotal.selectAll();
 		super.onStart();
 	}
 
@@ -154,13 +136,6 @@ public class MainActivity extends Activity {
 		spnPeople.setSelection(getSharedPreferences("control_preferences", MODE_PRIVATE).getInt("spnPeople", 0));
 	}
 	
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		boolean refresh = true;
-		if (refresh)
-			initCalculusControls();
-	}
-
 
 
 	EditText edtTotal = null;
@@ -168,5 +143,5 @@ public class MainActivity extends Activity {
     Spinner spnTip = null;
     Spinner spnPeople = null;
     TextView txtResult = null;
-    NumericPad pad = null;
+    NumPad numPad= null;
 }

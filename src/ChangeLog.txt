@@ -1,3 +1,8 @@
+1/24/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+Numeric Pad changed to a new class and input methods. 
+New landscape layout (not presenting numeric pad).
+Optimization of layouts.
+----------------------------------------------------------------------------------
 12/27/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Added a numeric pad to input the bill total.
 Bases of application database created in order to keep track of expenses.

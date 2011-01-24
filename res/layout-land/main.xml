@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent" android:layout_height="fill_parent"
+  android:scrollbars="horizontal|vertical"
+  android:background="@drawable/background">
+  			
+  			<LinearLayout  android:id="@+id/main_activity_total_row"
+			android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical" >
+	  		
+	  			<TextView android:id="@+id/main_activity_txt_bill_total"
+				android:layout_width="wrap_content" android:layout_height="fill_parent"
+				android:text="@string/TxtBillTotal" android:textColor="#000000" 
+				android:textStyle="bold"/>
+				
+				<EditText android:id="@+id/main_activity_edt_bill_total"
+				android:layout_width="fill_parent" android:layout_height="wrap_content" 
+				android:text="0" android:imeOptions="actionDone" android:inputType="phone" />
+				
+			</LinearLayout>
+			
+			<LinearLayout android:layout_below="@id/main_activity_total_row" android:id="@+id/main_activity_tip_row"
+			android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical">
+		
+				<TextView android:id="@+id/main_activity_txt_tip" 
+				android:layout_width="wrap_content" android:layout_height="wrap_content" 
+				android:text="@string/TxtTip" android:textColor="#000000" 
+				android:gravity="bottom" android:textStyle="bold"/>
+			
+				<Spinner android:id="@+id/main_activity_spn_tip" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" 
+				android:entries="@array/tip_options" />
+		
+			</LinearLayout>
+			
+			<LinearLayout  android:layout_below="@id/main_activity_tip_row" android:id="@+id/main_activity_people_row"
+				android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical"> 
+		
+				<TextView android:id="@+id/main_activity_txt_people" 
+				android:layout_width="wrap_content" android:layout_height="wrap_content" 
+				android:text="@string/TxtPeople" android:textColor="#000000"
+				android:gravity="bottom" android:textStyle="bold"/>
+				
+				<Spinner android:id="@+id/main_activity_spn_people" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" 
+				android:entries="@array/people_options" />
+
+			</LinearLayout>
+			
+			<LinearLayout  android:layout_below="@id/main_activity_people_row" android:id="@+id/main_activity_result_row"
+				android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical">
+				
+				<TextView android:id="@+id/main_activity_txt_result" android:text="@string/TxtResult" 
+				 android:layout_width="wrap_content" android:layout_height="wrap_content"
+				 android:gravity="bottom" android:textStyle="bold" android:textColor="#000000" />
+				
+				<Button android:id="@+id/main_activity_btn_calculate" android:layout_width="wrap_content" 
+					android:layout_height="wrap_content" android:text="@string/BtnCalculate" />
+			
+			</LinearLayout>
+</RelativeLayout>
