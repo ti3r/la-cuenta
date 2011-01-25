@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.Toast;
 
 /***
  * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
@@ -54,6 +55,15 @@ public class SettingsActivity extends Activity {
 		controlPtr.setChecked(getSharedPreferences(SHARED_PREFS_NAME, MODE_PRIVATE).getBoolean(settingName, false));
 	}
 	
+	@Override
+	protected void onStop() {
+		//Show the message to restar the application.
+		Toast.makeText(this, getString(R.string.restart_application), 500).show();
+		super.onStop();
+	}
+
+
+
 	CheckBox chkPreferences = null;
 	CheckBox chkShowResultOnDialog = null;
 }

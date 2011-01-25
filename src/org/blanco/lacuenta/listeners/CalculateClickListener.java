@@ -35,7 +35,7 @@ public class CalculateClickListener implements OnClickListener{
 	public void calculate(){
 		
 		//android.os.Debug.startMethodTracing("calculate.trace");
-		double total = Double.valueOf(this.txtTotal.getText().toString());
+		double total = ("".equals(this.txtTotal.getText().toString()))? 0 : Double.valueOf(this.txtTotal.getText().toString());
 	
 		int tip = (this.spnTip.getSelectedItem() != null)? 
 				Integer.valueOf(this.spnTip.getSelectedItem().toString()):0;
