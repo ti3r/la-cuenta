@@ -1,5 +1,6 @@
 package org.blanco.lacuenta.receivers;
 
+
 /***
  * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
  * Interface that must show the result of a bill split process
@@ -9,4 +10,6 @@ package org.blanco.lacuenta.receivers;
 public interface ResultReceiver {
 
 	public void showResult(double result);	
+	
+	public void destroy();
 }

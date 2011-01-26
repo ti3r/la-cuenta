@@ -43,4 +43,9 @@ public class TextViewResultReceiver implements ResultReceiver {
 		this.display.setText(prefix+" "+formatter.format(result));
 	}
 
+	@Override
+	public void destroy(){
+		//Do nothing, not cleaning necessary GC will take care of the objects		
+	}
+
 }

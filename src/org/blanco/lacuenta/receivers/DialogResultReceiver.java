@@ -1,6 +1,7 @@
 package org.blanco.lacuenta.receivers;
 
-import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 import org.blanco.lacuenta.R;
 
@@ -19,12 +20,12 @@ import android.widget.Toast;
 public class DialogResultReceiver implements ResultReceiver {
 	
 	private Context ctx = null;
-	private DecimalFormat formatter = null;
+	private NumberFormat formatter = null;
 	private String resultPrefix = null;
 	
 	public DialogResultReceiver(Context context){
 		this.ctx = context;
-		this.formatter = new DecimalFormat();
+		this.formatter = NumberFormat.getCurrencyInstance(Locale.getDefault());
 		this.resultPrefix = this.ctx.getString(R.string.TxtResult);
 	}
 
@@ -32,4 +33,12 @@ public class DialogResultReceiver implements ResultReceiver {
 	public void showResult(double result) {
 		Toast.makeText(this.ctx, this.resultPrefix+" "+formatter.format(result), 500).show();		
 	}
+
+	@Override
+	public void destroy(){
+		//clear the context reference
+		this.ctx = null;
+	}
+	
+	
 }

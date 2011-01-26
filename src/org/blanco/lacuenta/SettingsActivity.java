@@ -19,6 +19,7 @@ public class SettingsActivity extends Activity {
 	
 	public static final String SAVE_PREFS_SETTING_NAME = "save_prefs";
 	public static final String SHOW_RES_DIALOG_SETTING_NAME = "show_r_on_dialog";
+	public static final String SAY_RES_OUT_LOUD = "say_result_out_loud";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class SettingsActivity extends Activity {
 	private void initComponents(){
 		prepareSettingsCheckBox(this.chkPreferences, R.id.settings_activity_chk_save_prefs, SAVE_PREFS_SETTING_NAME);
 		prepareSettingsCheckBox(this.chkShowResultOnDialog, R.id.settings_activity_chk_show_res_on_dialog, SHOW_RES_DIALOG_SETTING_NAME);
+		prepareSettingsCheckBox(this.chkSayResultOutLoud, R.id.settings_activity_chk_say_result_out_loud, SAY_RES_OUT_LOUD);
 	}
 	
 	/***
@@ -66,4 +68,5 @@ public class SettingsActivity extends Activity {
 
 	CheckBox chkPreferences = null;
 	CheckBox chkShowResultOnDialog = null;
+	CheckBox chkSayResultOutLoud=null;
 }

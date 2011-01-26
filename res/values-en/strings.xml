@@ -14,4 +14,5 @@
 <string name="settings_activity_txt_save_prefs">Save Values:</string>
 <string name="settings_activity_txt_show_res_dialog">Show Result on Dialog</string>
 <string name="restart_application">Please Restart The Applicaiton!!!!</string>
+<string name="settings_activity_txt_say_result_out_loud">Say the result out loud!!!</string>
 </resources>

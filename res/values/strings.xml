@@ -14,4 +14,5 @@
 <string name="settings_activity_txt_save_prefs">Guardar Valores:</string>
 <string name="settings_activity_txt_show_res_dialog">Mostrar Resultado en Dialogo</string>
 <string name="restart_application">Por favor reinicia la aplicacióon!!!</string>
+<string name="settings_activity_txt_say_result_out_loud">Gritar el Resultado</string>
 </resources>

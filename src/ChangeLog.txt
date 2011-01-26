@@ -1,3 +1,9 @@
+1/26/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+Added a new ResultReceiver (SpeechResultReceiver) that will say the result to 
+	the user through Text to Speech.
+Added a new Setting to activate/deactivate the text to speech result
+Improved the layout of the settings activity (settings.xml) 
+----------------------------------------------------------------------------------
 1/24/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Bug Fix. Application failed when calculating the result with an empty
 	Total Field

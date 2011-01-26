@@ -1,5 +1,7 @@
 package org.blanco.lacuenta.listeners;
 
+import java.util.List;
+
 import org.blanco.lacuenta.db.entities.Split;
 import org.blanco.lacuenta.receivers.ResultReceiver;
 
@@ -20,12 +22,12 @@ public class CalculateClickListener implements OnClickListener{
 	private EditText txtTotal = null;
 	private Spinner spnTip = null;
 	private Spinner spnPeople = null;
-	private ResultReceiver resultShower = null;
+	private List<ResultReceiver> resultShower = null;
 	
 	private Split result = null;
 	
 	public CalculateClickListener(EditText txtTotal,
-			Spinner spnTip, Spinner spnPeople, ResultReceiver result){
+			Spinner spnTip, Spinner spnPeople, List<ResultReceiver> result){
 		this.txtTotal = txtTotal;
 		this.spnTip = spnTip;
 		this.spnPeople = spnPeople;
@@ -42,7 +44,8 @@ public class CalculateClickListener implements OnClickListener{
 		int people = (this.spnPeople.getSelectedItem() != null)? 
 				Integer.valueOf(this.spnPeople.getSelectedItem().toString()):1;
 		double t = (total * (1 + (0.01*tip)))/people;
-		resultShower.showResult(t);
+		for(ResultReceiver result : resultShower)
+			result.showResult(t);
 		//android.os.Debug.stopMethodTracing();
 		this.result = new Split(total, tip, people, t);
 	}
@@ -54,6 +57,13 @@ public class CalculateClickListener implements OnClickListener{
 
 	public Split getResult() {
 		return result;
+	}
+	/*Destroys the click listener and frees the memory and the services it could be
+	 * using. If the Text to Speech service is being used it will free the service
+	 * to the system*/
+	public void Destroy(){
+		for(ResultReceiver receiver : resultShower)
+			receiver.destroy();
 	}
 	
 }

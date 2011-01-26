@@ -1,9 +1,14 @@
 package org.blanco.lacuenta;
 
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
 import org.blanco.lacuenta.listeners.CalculateClickListener;
 import org.blanco.lacuenta.receivers.DialogResultReceiver;
 import org.blanco.lacuenta.receivers.ResultReceiver;
+import org.blanco.lacuenta.receivers.SpeechResultReceiver;
 import org.blanco.lacuenta.receivers.TextViewResultReceiver;
 
 import android.app.Activity;
@@ -34,7 +39,9 @@ public class MainActivity extends Activity {
         initComponents();
     }
     
-    private void initComponents(){
+       
+
+	private void initComponents(){
     	edtTotal = (EditText) findViewById(R.id.main_activity_edt_bill_total);
     	edtTotal.setKeyListener(new DigitsKeyListener(false, true));
     	
@@ -42,8 +49,10 @@ public class MainActivity extends Activity {
     	spnTip = (Spinner) findViewById(R.id.main_activity_spn_tip);
     	spnPeople = (Spinner) findViewById(R.id.main_activity_spn_people);
     	btnCalculate = (Button) findViewById(R.id.main_activity_btn_calculate);
-    	btnCalculate.setOnClickListener(new CalculateClickListener(edtTotal, spnTip, spnPeople, getResultReceiver()));
+    	clickListener = new CalculateClickListener(edtTotal, spnTip, spnPeople, getResultReceiver());
+    	btnCalculate.setOnClickListener(clickListener);
     	numPad = (NumPad) findViewById(R.id.main_activity_num_pad);
+    	
     	if (numPad != null) //Landscape layout will not have numPad
     	numPad.setText(edtTotal);
     }
@@ -54,18 +63,24 @@ public class MainActivity extends Activity {
      * ResultReceiver interface depending on established application settings.
      * @return an Object that implements ResultReceiver Interface.
      */
-    private ResultReceiver getResultReceiver(){
+    private List<ResultReceiver> getResultReceiver(){
     	boolean showResOnDialog = 
     	getSharedPreferences(SettingsActivity.SHARED_PREFS_NAME, MODE_PRIVATE).getBoolean(SettingsActivity.SHOW_RES_DIALOG_SETTING_NAME, false);
+    	List<ResultReceiver> result = new ArrayList<ResultReceiver>(2);
     	if (showResOnDialog){
     		//deactivate the Result Label
     		this.txtResult.setVisibility(View.GONE);
-    		return new DialogResultReceiver(this);
+    		result.add(new DialogResultReceiver(this));
     	}
     	else{
     		this.txtResult.setVisibility(View.VISIBLE);
-    		return new TextViewResultReceiver(this,txtResult);
+    		result.add(new TextViewResultReceiver(this,txtResult));
     	}
+    	boolean textToSpeech = getSharedPreferences(SettingsActivity.SHARED_PREFS_NAME, MODE_PRIVATE).getBoolean(SettingsActivity.SAY_RES_OUT_LOUD, false);
+    	if (textToSpeech)
+    		result.add(new SpeechResultReceiver(this, Locale.getDefault()));
+    	
+    	return result;
     }
     
     @Override
@@ -137,6 +152,17 @@ public class MainActivity extends Activity {
 	}
 	
 
+	
+	@Override
+	protected void onDestroy() {
+		//finalize the result receivers, it will free the text to speech service in case it is activated
+		if (clickListener != null)
+			clickListener.Destroy();
+		super.onDestroy();
+	}
+
+
+
 
 	EditText edtTotal = null;
     Button btnCalculate = null;
@@ -144,4 +170,6 @@ public class MainActivity extends Activity {
     Spinner spnPeople = null;
     TextView txtResult = null;
     NumPad numPad= null;
+    CalculateClickListener clickListener = null;
+	
 }
