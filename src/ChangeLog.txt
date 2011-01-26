@@ -1,3 +1,6 @@
+Changed the Version code and the version of the application to update it in
+	shop4apps de motorola.
+---------------------------------------------------------------------------------
 1/26/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Added a new ResultReceiver (SpeechResultReceiver) that will say the result to 
 	the user through Text to Speech.
