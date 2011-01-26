@@ -54,7 +54,7 @@ public class MainActivity extends Activity {
     	numPad = (NumPad) findViewById(R.id.main_activity_num_pad);
     	
     	if (numPad != null) //Landscape layout will not have numPad
-    	numPad.setText(edtTotal);
+    		numPad.setText(edtTotal);
     }
       
     /***
