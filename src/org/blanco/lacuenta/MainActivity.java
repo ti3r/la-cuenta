@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import org.blanco.lacuenta.db.SPLITSContentProvider;
+import org.blanco.lacuenta.db.entities.Split;
 import org.blanco.lacuenta.listeners.CalculateClickListener;
 import org.blanco.lacuenta.receivers.DialogResultReceiver;
 import org.blanco.lacuenta.receivers.ResultReceiver;
@@ -12,7 +14,11 @@ import org.blanco.lacuenta.receivers.SpeechResultReceiver;
 import org.blanco.lacuenta.receivers.TextViewResultReceiver;
 
 import android.app.Activity;
+import android.content.ContentResolver;
+import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.DigitsKeyListener;
 import android.view.Menu;
@@ -24,6 +30,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /***
  * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
@@ -38,9 +45,10 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main);
         initComponents();
     }
-    
-       
-
+    /***
+     * Initializes the components for the current activity. Visual and 
+     * non visual members of this context.
+     */
 	private void initComponents(){
     	edtTotal = (EditText) findViewById(R.id.main_activity_edt_bill_total);
     	edtTotal.setKeyListener(new DigitsKeyListener(false, true));
@@ -100,6 +108,9 @@ public class MainActivity extends Activity {
 		case R.id.main_activity_main_menu_settings_item:
 				startConfiguration();
 			break;
+		case R.id.main_activity_main_menu_save_expense_item:
+				saveExpense();
+				break;
 		default:
 			return super.onMenuItemSelected(featureId, item);
 		}
@@ -151,7 +162,25 @@ public class MainActivity extends Activity {
 		spnPeople.setSelection(getSharedPreferences("control_preferences", MODE_PRIVATE).getInt("spnPeople", 0));
 	}
 	
-
+	/***
+	 * Saves the expense that has been calculated into the application's database
+	 */
+	private void saveExpense(){
+		ContentResolver cr = getContentResolver();
+		ContentValues values = new ContentValues();
+		values.putNull(Split._ID);
+		values.put(Split.DATE, clickListener.getResult().getDate());
+		values.put(Split.PEOPLE, clickListener.getResult().getPeople());
+		values.put(Split.RESULT, clickListener.getResult().getResult());
+		values.put(Split.TIP, clickListener.getResult().getTip());
+		values.put(Split.TOTAL,clickListener.getResult().getTotal());
+		Uri uri = cr.insert(SPLITSContentProvider.CONTENT_URI, null);
+		StringBuilder msg = new StringBuilder(getString(R.string.record));
+		msg.append(" ").append(ContentUris.parseId(uri)).append(" ").
+		append(getString(R.string.created));
+		Toast.makeText(this, msg.toString(),500).show();
+	}
+	
 	
 	@Override
 	protected void onDestroy() {

@@ -1,9 +1,11 @@
 package org.blanco.lacuenta.receivers;
 
 import java.text.NumberFormat;
+import java.util.HashMap;
 import java.util.Locale;
 
 import android.content.Context;
+import android.media.AudioManager;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
 
@@ -14,20 +16,26 @@ import android.speech.tts.TextToSpeech.OnInitListener;
  * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
  *
  */
-public class SpeechResultReceiver implements ResultReceiver, OnInitListener {
+public class SpeechResultReceiver implements ResultReceiver, OnInitListener{
 
 	Locale locale = null;
 	TextToSpeech ttp = null;
 	NumberFormat formatter= null;
+	HashMap<String,String> params = new HashMap<String,String>();
+	Context context = null;
+	
 	public SpeechResultReceiver(Context ctx, Locale locale){
+		this.context = ctx;
 		ttp = new TextToSpeech(ctx, this);
 		formatter = NumberFormat.getCurrencyInstance(locale);
 		this.locale = locale;
+		params.put(TextToSpeech.Engine.KEY_PARAM_STREAM, 
+				String.valueOf(AudioManager.STREAM_NOTIFICATION));
 	}
 	
 	@Override
 	public void showResult(double result) {
-		ttp.speak(formatter.format(result), TextToSpeech.QUEUE_ADD, null);
+		ttp.speak(formatter.format(result), TextToSpeech.QUEUE_ADD, params);
 	}
 
 	@Override
@@ -38,7 +46,6 @@ public class SpeechResultReceiver implements ResultReceiver, OnInitListener {
 		else // Set English a default language
 			ttp.setLanguage(Locale.ENGLISH); 
 	}
-
 	
 	@Override
 	public void destroy(){

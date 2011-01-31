@@ -15,4 +15,7 @@
 <string name="settings_activity_txt_show_res_dialog">Mostrar Resultado en Dialogo</string>
 <string name="restart_application">Por favor reinicia la aplicacióon!!!</string>
 <string name="settings_activity_txt_say_result_out_loud">Gritar el Resultado</string>
+<string name="main_activity_main_menu_save_expense_item">Guardar Gasto</string>
+<string name="record">Registro: </string>
+<string name="created">Creado</string>
 </resources>

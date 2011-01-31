@@ -15,4 +15,7 @@
 <string name="settings_activity_txt_show_res_dialog">Show Result on Dialog</string>
 <string name="restart_application">Please Restart The Applicaiton!!!!</string>
 <string name="settings_activity_txt_say_result_out_loud">Say the result out loud!!!</string>
+<string name="main_activity_main_menu_save_expense_item">Save Expense</string>
+<string name="record">Record: </string>
+<string name="created">Created</string>
 </resources>

@@ -1,3 +1,9 @@
+1/31/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+Added a method to save the current split into the database.
+Added money icon.
+Increment the people options from 30 to 40.
+---------------------------------------------------------------------------------
+1/26/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Changed the Version code and the version of the application to update it in
 	shop4apps de motorola.
 ---------------------------------------------------------------------------------
