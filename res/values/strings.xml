@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    
-<string name="app_name">La Cuenta</string>
-<string name="TxtBillTotal">Total de Cuenta</string>
-<string name="TxtTip">Propina</string>
-<string name="TxtPeople">Personas</string>
-
-<string name="BtnCalculate">Calcular</string>
-<string name="TxtResult">Resultado</string>
-<string name="StrExit">Salir</string>
-<string name="StrSettings">Configuraciones</string>
-   
-<string name="settings_activity_txt_save_prefs">Guardar Valores:</string>
-<string name="settings_activity_txt_show_res_dialog">Mostrar Resultado en Dialogo</string>
-<string name="restart_application">Por favor reinicia la aplicacióon!!!</string>
-<string name="settings_activity_txt_say_result_out_loud">Gritar el Resultado</string>
-<string name="main_activity_main_menu_save_expense_item">Guardar Gasto</string>
-<string name="record">Registro: </string>
-<string name="created">Creado</string>
+    <string name="app_name">La Cuenta</string>
+    <string name="TxtBillTotal">Total de Cuenta</string>
+    <string name="TxtTip">Propina</string>
+    <string name="TxtPeople">Personas</string>
+    <string name="BtnCalculate">Calcular</string>
+    <string name="TxtResult">Resultado</string>
+    <string name="StrExit">Salir</string>
+    <string name="StrSettings">Configuraciones</string>
+    <string name="settings_activity_txt_save_prefs">Guardar Valores:</string>
+    <string name="settings_activity_txt_show_res_dialog">Mostrar Resultado en Dialogo</string>
+    <string name="restart_application">Por favor reinicia la aplicacióon!!!</string>
+    <string name="settings_activity_txt_say_result_out_loud">Gritar el Resultado</string>
+    <string name="main_activity_main_menu_save_expense_item">Guardar Gasto</string>
+    <string name="record">Registro: </string>
+    <string name="created">Creado</string>
+    <string name="no_calculus_done_yet_msg">No se ha calculado ninguna cuenta aun.</string>
 </resources>

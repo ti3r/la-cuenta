@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    
-<string name="app_name">La Cuenta</string>
-<string name="TxtBillTotal">Bill Total</string>
-<string name="TxtTip">Tip</string>
-<string name="TxtPeople">People</string>
-
-<string name="BtnCalculate">Calculate</string>
-<string name="TxtResult">Result</string>
-<string name="StrExit">Exit</string>
-<string name="StrSettings">Settings</string>
-    
-<string name="settings_activity_txt_save_prefs">Save Values:</string>
-<string name="settings_activity_txt_show_res_dialog">Show Result on Dialog</string>
-<string name="restart_application">Please Restart The Applicaiton!!!!</string>
-<string name="settings_activity_txt_say_result_out_loud">Say the result out loud!!!</string>
-<string name="main_activity_main_menu_save_expense_item">Save Expense</string>
-<string name="record">Record: </string>
-<string name="created">Created</string>
+    <string name="app_name">La Cuenta</string>
+    <string name="TxtBillTotal">Bill Total</string>
+    <string name="TxtTip">Tip</string>
+    <string name="TxtPeople">People</string>
+    <string name="BtnCalculate">Calculate</string>
+    <string name="TxtResult">Result</string>
+    <string name="StrExit">Exit</string>
+    <string name="StrSettings">Settings</string>
+    <string name="settings_activity_txt_save_prefs">Save Values:</string>
+    <string name="settings_activity_txt_show_res_dialog">Show Result on Dialog</string>
+    <string name="restart_application">Please Restart The Applicaiton!!!!</string>
+    <string name="settings_activity_txt_say_result_out_loud">Say the result out loud!!!</string>
+    <string name="main_activity_main_menu_save_expense_item">Save Expense</string>
+    <string name="record">Record: </string>
+    <string name="created">Created</string>
+    <string name="no_calculus_done_yet_msg">No tip split has been requested yet.</string>
 </resources>

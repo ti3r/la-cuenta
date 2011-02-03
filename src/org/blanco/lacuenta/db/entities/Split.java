@@ -2,6 +2,8 @@ package org.blanco.lacuenta.db.entities;
 
 import java.util.Calendar;
 
+import android.database.Cursor;
+
 /***
  * 
  * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
@@ -84,5 +86,29 @@ public class Split {
 		this.date = date;
 	}
 	
-	
+	/***
+	 * This method is intended to create a new Split object based in the current position
+	 * of the passed Cursor. If one of the fields of the object is not present in the
+	 * cursor the corresponding property would be given a default value.
+	 * @param c
+	 */
+	public static Split fromCurrentCursorPosition(Cursor c){
+		long id = -1, millis = 0; double total = 0, result = 0; int tip=0, people = 0;
+		
+		if (c.getColumnIndex(Split._ID) >= 0)
+			id = c.getLong(c.getColumnIndex(Split._ID));
+		if (c.getColumnIndex(Split.DATE) >= 0)
+			millis = c.getLong(c.getColumnIndex(Split.DATE));
+		if (c.getColumnIndex(Split.PEOPLE) >= 0)
+			people = c.getInt(c.getColumnIndex(Split.PEOPLE));
+		if (c.getColumnIndex(Split.RESULT) >= 0)
+			result = c.getDouble(c.getColumnIndex(Split.RESULT));
+		if (c.getColumnIndex(Split.TIP) >= 0)
+			tip = c.getInt(c.getColumnIndex(Split.TIP));
+		if (c.getColumnIndex(Split.PEOPLE) >= 0)
+			people = c.getInt(c.getColumnIndex(Split.PEOPLE));
+		if (c.getColumnIndex(Split.TOTAL) >= 0)
+			total = c.getDouble(c.getColumnIndex(Split.TOTAL));
+		return new Split(id, total, tip, people, result, millis);
+	}	
 }

@@ -111,6 +111,8 @@ public class MainActivity extends Activity {
 		case R.id.main_activity_main_menu_save_expense_item:
 				saveExpense();
 				break;
+		case R.id.main_activity_main_menu_expenses_item:
+				startSplits();
 		default:
 			return super.onMenuItemSelected(featureId, item);
 		}
@@ -144,6 +146,14 @@ public class MainActivity extends Activity {
 	}
 
 	/***
+	 * Starts the Spits activity
+	 */
+	private void startSplits(){
+		Intent splitsIntent = new Intent(this,SplitsActivity.class);
+		startActivity(splitsIntent);
+	}
+	
+	/***
 	 * Save the control values in a preferences file in order to be
 	 * restored on the next application execution.
 	 */
@@ -166,19 +176,22 @@ public class MainActivity extends Activity {
 	 * Saves the expense that has been calculated into the application's database
 	 */
 	private void saveExpense(){
-		ContentResolver cr = getContentResolver();
-		ContentValues values = new ContentValues();
-		values.putNull(Split._ID);
-		values.put(Split.DATE, clickListener.getResult().getDate());
-		values.put(Split.PEOPLE, clickListener.getResult().getPeople());
-		values.put(Split.RESULT, clickListener.getResult().getResult());
-		values.put(Split.TIP, clickListener.getResult().getTip());
-		values.put(Split.TOTAL,clickListener.getResult().getTotal());
-		Uri uri = cr.insert(SPLITSContentProvider.CONTENT_URI, null);
-		StringBuilder msg = new StringBuilder(getString(R.string.record));
-		msg.append(" ").append(ContentUris.parseId(uri)).append(" ").
-		append(getString(R.string.created));
-		Toast.makeText(this, msg.toString(),500).show();
+		if (clickListener.getResult() != null){
+			ContentResolver cr = getContentResolver();
+			ContentValues values = new ContentValues();
+			values.putNull(Split._ID);
+			values.put(Split.DATE, clickListener.getResult().getDate());
+			values.put(Split.PEOPLE, clickListener.getResult().getPeople());
+			values.put(Split.RESULT, clickListener.getResult().getResult());
+			values.put(Split.TIP, clickListener.getResult().getTip());
+			values.put(Split.TOTAL,clickListener.getResult().getTotal());
+			Uri uri = cr.insert(SPLITSContentProvider.CONTENT_URI, values);
+			StringBuilder msg = new StringBuilder(getString(R.string.record));
+			msg.append(" ").append(ContentUris.parseId(uri)).append(" ").
+			append(getString(R.string.created));
+			Toast.makeText(this, msg.toString(),500).show();
+		}else
+			Toast.makeText(this, getString(R.string.no_calculus_done_yet_msg), 500).show();
 	}
 	
 	
