@@ -13,83 +13,81 @@
 
 package org.blanco.lacuenta;
 
-import java.util.Calendar;
-
-import org.blanco.lacuenta.db.SPLITSContentProvider;
-import org.blanco.lacuenta.db.entities.Split;
+import org.blanco.lacuenta.misc.SplitsDataLoader;
 
 import android.app.Activity;
-import android.database.Cursor;
-import android.graphics.Color;
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.format.DateFormat;
-import android.view.ContextMenu;
-import android.view.ContextMenu.ContextMenuInfo;
+import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.animation.AnimationUtils;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
-import android.widget.Toast;
-
+/***
+ * Activity that will present the user the splits that have been
+ * stored in the database and let the user filter the data differently
+ * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
+ *
+ */
 public class SplitsActivity extends Activity {
 	/* Called when the activity is first created. */
 
-	private TableLayout tbl = null;
-	java.text.DateFormat df =  null; 
+	private ProgressDialog loadDialog = null;
+	private String loadTarget = SplitsDataLoader.WEEK_LOAD;
+	private SplitsDataLoader dl = null;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		loadData();
+	}
 
-		setContentView(R.layout.databaselayout);
-		df = DateFormat.getDateFormat(this);
-		
-		tbl = (TableLayout) findViewById(R.id.myTableLayout);
-				Cursor q = 	managedQuery(SPLITSContentProvider.CONTENT_URI, 
-				new String[]{Split.TOTAL,Split.TIP, Split.PEOPLE,Split.RESULT,Split.DATE}, 
-				null, null, null);
-		//List<Split> splits = new ArrayList<Split>();
-		int x = 0;
-		double expenses = 0;
-		while(q.moveToNext()){
-			Split s = Split.fromCurrentCursorPosition(q);
-			tbl.addView(buildRowViewFromSplit(s,x++));
-			expenses+=s.getResult();
+	private void loadData(){
+		if (dl == null || !AsyncTask.Status.RUNNING.equals(dl.getStatus())){
+			dl = new SplitsDataLoader(this);
+			showLoadDialog();
+			dl.execute(loadTarget);
 		}
 	}
 	
-	private TableRow buildRowViewFromSplit(Split s, int type){
-		TableRow v = (TableRow) getLayoutInflater().inflate(R.layout.splits_table_header, null);
-		registerForContextMenu(v);
-		
-		((TextView)v.findViewById(R.id.splits_table_header_total)).setText(String.valueOf(s.getTotal()));
-		((TextView)v.findViewById(R.id.splits_table_header_tip)).setText(String.valueOf(s.getTip()));
-		((TextView)v.findViewById(R.id.splits_table_header_people)).setText(String.valueOf(s.getPeople()));
-		((TextView)v.findViewById(R.id.splits_table_header_result)).setText(String.valueOf(s.getResult()));
-		Calendar c = Calendar.getInstance();
-		c.setTimeInMillis(s.getDate());
-		((TextView)v.findViewById(R.id.splits_table_header_date)).setText(df.format(c.getTime()));
-		v.setBackgroundColor((type%2==0)?Color.WHITE:Color.LTGRAY);
-		
-		return v;
+	public void showLoadDialog(){
+		if (this.loadDialog == null)
+			loadDialog = ProgressDialog.show(this, getString(R.string.loading_data_dialog_title), 
+					getString(R.string.loading_data_dialog_msg), true);
+		this.loadDialog.show();
+	}
+	
+	public void hideLoadDialog(){
+		if (this.loadDialog != null)
+			loadDialog.dismiss();
+	}
+	
+	private void changeLoadTarget(String newTarget){
+		boolean executeLoad = (!loadTarget.equals(newTarget));
+		loadTarget = newTarget;
+		if (executeLoad)
+			loadData();
 	}
 	
 	@Override
-	public void onCreateContextMenu(ContextMenu menu, View v,
-			ContextMenuInfo menuInfo) {
+	public boolean onCreatePanelMenu(int featureId, Menu menu) {
 		MenuInflater mi = new MenuInflater(this);
-		mi.inflate(R.menu.splits_context_menu, menu);
-		super.onCreateContextMenu(menu, v, menuInfo);
+		mi.inflate(R.menu.splits_activity_main_menu, menu);
+		return super.onCreatePanelMenu(featureId, menu);
 	}
-
 
 	@Override
-	public boolean onContextItemSelected(MenuItem item) {
-		
-		return super.onContextItemSelected(item);
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+		switch (item.getItemId()){
+		case R.id.splits_activity_main_menu_week_item:
+			changeLoadTarget(SplitsDataLoader.WEEK_LOAD);
+			break;
+		case R.id.splits_activity_main_menu_month_item:
+			changeLoadTarget(SplitsDataLoader.MONTH_LOAD);
+			break;
+		case R.id.splits_activity_main_menu_today_item:
+			changeLoadTarget(SplitsDataLoader.TODAY_LOAD);
+			break;
+		}
+		return super.onMenuItemSelected(featureId, item);
 	}
-	
 }

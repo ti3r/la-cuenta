@@ -6,6 +6,6 @@ android:title="@string/StrSettings" android:icon="@drawable/settings"></item>
 <item android:id="@+id/main_activity_main_menu_exit_item" 
 android:title="@string/StrExit" android:icon="@drawable/exit"></item>
 
-<item android:title="@string/main_activity_main_menu_save_expense_item" android:id="@+id/main_activity_main_menu_save_expense_item" android:icon="@drawable/money"></item>
-<item android:title="expenses" android:id="@+id/main_activity_main_menu_expenses_item"></item>
+<item android:title="@string/main_activity_main_menu_save_expense_item" android:id="@+id/main_activity_main_menu_save_expense_item" android:icon="@drawable/save_money"></item>
+<item android:id="@+id/main_activity_main_menu_expenses_item" android:icon="@drawable/money" android:title="@string/main_activity_main_menu_expenses_item"></item>
 </menu>

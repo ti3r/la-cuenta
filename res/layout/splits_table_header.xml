@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+	  android:layout_width="match_parent"
+	  android:layout_height="wrap_content"
+	  android:id="@+id/splits_table_header"
+	  android:background="#123456"
+	  >
+	  
+	  <TextView android:id="@+id/splits_table_header_total" 
+	   style="@style/header_text"
+	   android:text="@string/splits_table_header_total"/>
+	   
+	  <TextView android:id="@+id/splits_table_header_tip"
+	   style="@style/header_text"
+	   android:text="@string/splits_table_header_tip"/>
+	   
+	  <TextView android:id="@+id/splits_table_header_people"
+	   style="@style/header_text"
+	   android:text="@string/splits_table_header_people"/>
+	  
+	  <TextView android:id="@+id/splits_table_header_result"
+	   style="@style/header_text"
+	   android:text="@string/splits_table_header_result"/>
+	   
+	  <TextView android:id="@+id/splits_table_header_date"
+	   style="@style/header_text"
+	   android:text="@string/splits_table_header_date"/>
+	   
+	</TableRow>

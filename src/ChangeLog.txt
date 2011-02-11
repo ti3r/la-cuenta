@@ -1,3 +1,13 @@
+02/09/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>\
+Added a new Activity to Display the stored splits to the user.
+Added calendar_* and save_money icons used in menus.
+Added splits_table_* layouts used in the splits activity.
+Added CalendarUtilities class used to calculate data limits (current day, 
+	current week, etc) in milliseconds used in the splits activity
+Added SplitsDataLoader class that will load the splits from database and build
+	the GUI that will display the splits to the user.
+NumPad Class was moved to the org.blanco.lacuenta.misc package
+---------------------------------------------------------------------------------
 1/31/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Added a method to save the current split into the database.
 Added money icon.

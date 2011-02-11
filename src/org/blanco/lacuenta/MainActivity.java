@@ -8,6 +8,7 @@ import java.util.Locale;
 import org.blanco.lacuenta.db.SPLITSContentProvider;
 import org.blanco.lacuenta.db.entities.Split;
 import org.blanco.lacuenta.listeners.CalculateClickListener;
+import org.blanco.lacuenta.misc.NumPad;
 import org.blanco.lacuenta.receivers.DialogResultReceiver;
 import org.blanco.lacuenta.receivers.ResultReceiver;
 import org.blanco.lacuenta.receivers.SpeechResultReceiver;
@@ -43,7 +44,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main);
-        initComponents();
+        initComponents();       
     }
     /***
      * Initializes the components for the current activity. Visual and 
@@ -179,7 +180,6 @@ public class MainActivity extends Activity {
 		if (clickListener.getResult() != null){
 			ContentResolver cr = getContentResolver();
 			ContentValues values = new ContentValues();
-			values.putNull(Split._ID);
 			values.put(Split.DATE, clickListener.getResult().getDate());
 			values.put(Split.PEOPLE, clickListener.getResult().getPeople());
 			values.put(Split.RESULT, clickListener.getResult().getResult());

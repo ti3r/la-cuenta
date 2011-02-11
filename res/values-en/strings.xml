@@ -16,4 +16,23 @@
     <string name="record">Record: </string>
     <string name="created">Created</string>
     <string name="no_calculus_done_yet_msg">No tip split has been requested yet.</string>
+    <string name="splits_table_header_total">Total</string>
+    <string name="splits_table_header_tip">Tip</string>
+    <string name="splits_table_header_people">People</string>
+    <string name="splits_table_header_date">Date</string>
+    <string name="splits_table_header_result">Expense</string>
+    <string name="delete_msg">Delete</string>
+    <string name="splits_table_footer_total">Records:</string>
+    <string name="splits_table_footer_tips_text">Tips:</string>
+    <string name="splits_table_footer_expenses_text">Total Expenses:</string>
+    <string name="data_loaded_msg">Data Loaded</string>
+    <string name="loading_data_dialog_title">Loading...</string>
+    <string name="loading_data_dialog_msg">Loading Expenses</string>
+    <string name="splits_table_row_empty">No data Found!!!
+<br></br>
+Please search again</string>
+    <string name="splits_main_menu_week_item">Week</string>
+    <string name="splits_main_menu_today_item">Today</string>
+    <string name="splits_main_menu_month_item">Month</string>
+    <string name="main_activity_main_menu_expenses_item">Expenses</string>
 </resources>

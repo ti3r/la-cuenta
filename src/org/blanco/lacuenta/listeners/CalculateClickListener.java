@@ -46,7 +46,8 @@ public class CalculateClickListener implements OnClickListener{
 		double t = (total * (1 + (0.01*tip)))/people;
 		for(ResultReceiver result : resultShower)
 			result.showResult(t);
-		//android.os.Debug.stopMethodTracing();
+		//truncate the result to 2 decimals
+	    t = Math.floor(Math.pow(10, 2) * t) / Math.pow(10, 2);
 		this.result = new Split(total, tip, people, t);
 	}
 	

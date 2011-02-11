@@ -14,7 +14,8 @@
         <provider
             android:authorities="org.blanco.lacuenta.db.splitscontentprovider" android:name="org.blanco.lacuenta.db.SPLITSContentProvider"/>
         <activity android:name=".SplitsActivity"/>
+        <activity android:name=".as"/>
     </application>
-    <uses-sdk android:maxSdkVersion="9" android:minSdkVersion="8" android:targetSdkVersion="8"/>
+    <uses-sdk android:maxSdkVersion="8" android:minSdkVersion="8" android:targetSdkVersion="8"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 </manifest>

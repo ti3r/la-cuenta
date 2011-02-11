@@ -16,4 +16,23 @@
     <string name="record">Registro: </string>
     <string name="created">Creado</string>
     <string name="no_calculus_done_yet_msg">No se ha calculado ninguna cuenta aun.</string>
+    <string name="splits_table_header_total">Total</string>
+    <string name="splits_table_header_tip">Propina</string>
+    <string name="splits_table_header_people">Personas</string>
+    <string name="splits_table_header_date">Fecha</string>
+    <string name="splits_table_header_result">Gasto</string>
+    <string name="delete_msg">Borrar</string>
+    <string name="splits_table_footer_total">Registros:</string>
+    <string name="splits_table_footer_tips_text">Propinas:</string>
+    <string name="splits_table_footer_expenses_text">Gastos Totales:</string>
+    <string name="data_loaded_msg">Registros Cargados</string>
+    <string name="loading_data_dialog_title">Cargando...</string>
+    <string name="loading_data_dialog_msg">Cargando gastos</string>
+    <string name="splits_table_row_empty">No se han encontrado datos!!!
+<br></br>
+Por favor redefina su busqueda</string>
+    <string name="splits_main_menu_week_item">Semana</string>
+    <string name="splits_main_menu_today_item">Hoy</string>
+    <string name="splits_main_menu_month_item">Mes</string>
+    <string name="main_activity_main_menu_expenses_item">Ver Gastos</string>
 </resources>

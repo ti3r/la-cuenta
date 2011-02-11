@@ -1,4 +1,6 @@
-package org.blanco.lacuenta;
+package org.blanco.lacuenta.misc;
+
+import org.blanco.lacuenta.R;
 
 import android.content.Context;
 import android.util.AttributeSet;
