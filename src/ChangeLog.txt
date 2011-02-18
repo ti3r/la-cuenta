@@ -1,3 +1,7 @@
+02/17/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+Change files to update the support for more android targets, min sdk = 4
+mas sdk = 8
+---------------------------------------------------------------------------------
 02/09/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>\
 Added a new Activity to Display the stored splits to the user.
 Added calendar_* and save_money icons used in menus.
