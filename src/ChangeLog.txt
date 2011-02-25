@@ -1,8 +1,12 @@
-02/17/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+02/25/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+Improvements on main layout (file has been renamed to main_layout)
+Format the foter results with currency formater
+--------------------------------------------------------------------------------
+02/17/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Change files to update the support for more android targets, min sdk = 4
 mas sdk = 8
 ---------------------------------------------------------------------------------
-02/09/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>\
+02/09/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>\
 Added a new Activity to Display the stored splits to the user.
 Added calendar_* and save_money icons used in menus.
 Added splits_table_* layouts used in the splits activity.
@@ -12,16 +16,16 @@ Added SplitsDataLoader class that will load the splits from database and build
 	the GUI that will display the splits to the user.
 NumPad Class was moved to the org.blanco.lacuenta.misc package
 ---------------------------------------------------------------------------------
-1/31/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+1/31/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Added a method to save the current split into the database.
 Added money icon.
 Increment the people options from 30 to 40.
 ---------------------------------------------------------------------------------
-1/26/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+1/26/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Changed the Version code and the version of the application to update it in
 	shop4apps de motorola.
 ---------------------------------------------------------------------------------
-1/26/2010 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+1/26/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Added a new ResultReceiver (SpeechResultReceiver) that will say the result to 
 	the user through Text to Speech.
 Added a new Setting to activate/deactivate the text to speech result

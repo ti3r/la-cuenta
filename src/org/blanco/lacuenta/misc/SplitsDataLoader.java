@@ -1,5 +1,6 @@
 package org.blanco.lacuenta.misc;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -92,9 +93,8 @@ public class SplitsDataLoader extends AsyncTask<String, Object, TableLayout> {
 		TableRow v = (TableRow) LayoutInflater.from(this.activity).inflate(
 				(rowCount%2==0)?R.layout.splits_table_row_pair:R.layout.splits_table_row_odd, 
 				null);
-		
 		((TextView)v.findViewById(R.id.splits_table_header_total)).setText(String.valueOf(s.getTotal()));
-		((TextView)v.findViewById(R.id.splits_table_header_tip)).setText(String.valueOf(s.getTip()));
+		((TextView)v.findViewById(R.id.splits_table_header_tip)).setText(String.valueOf(s.getTip())+"%");
 		((TextView)v.findViewById(R.id.splits_table_header_people)).setText(String.valueOf(s.getPeople()));
 		((TextView)v.findViewById(R.id.splits_table_header_result)).setText(String.valueOf(s.getResult()));
 		Calendar c = Calendar.getInstance();
@@ -120,10 +120,11 @@ public class SplitsDataLoader extends AsyncTask<String, Object, TableLayout> {
 			tip+= s.getTotal()*(s.getTip()/100.0);
 			expenses += s.getResult();
 		}
+		NumberFormat nf = NumberFormat.getCurrencyInstance();
 		View v = LayoutInflater.from(this.activity).inflate(R.layout.splits_table_footer, null);
 		((TextView)v.findViewById(R.id.splits_table_footer_records)).setText(String.valueOf(expNumber));
-		((TextView)v.findViewById(R.id.splits_table_footer_tip)).setText(String.valueOf(tip));
-		((TextView)v.findViewById(R.id.splits_table_footer_result)).setText(String.valueOf(expenses));
+		((TextView)v.findViewById(R.id.splits_table_footer_tip)).setText(nf.format(tip));
+		((TextView)v.findViewById(R.id.splits_table_footer_result)).setText(nf.format(expenses));
 		return (TableLayout) v;
 	}
 
