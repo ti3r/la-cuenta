@@ -4,6 +4,7 @@ import org.blanco.lacuenta.R;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -39,7 +40,7 @@ public class NumPad extends TableLayout {
 	public NumPad(Context context, AttributeSet set) {
 		super(context, set);
 		LayoutInflater.from(context).inflate(R.layout.num_pad,this, true);
-		
+		Log.d("LA_CUENTA","Creating NumPad: "+System.currentTimeMillis());
 		btn0 = (Button) findViewById(R.id.main_activity_num_pad_0);
 		btn1 = (Button) findViewById(R.id.main_activity_num_pad_1);
 		btn2 = (Button) findViewById(R.id.main_activity_num_pad_2);
@@ -52,7 +53,7 @@ public class NumPad extends TableLayout {
 		btn9 = (Button) findViewById(R.id.main_activity_num_pad_9);
 		btnDot = (Button) findViewById(R.id.main_activity_num_pad__);
 		btnClear = (Button) findViewById(R.id.main_activity_num_pad_c);
-		
+		Log.d("LA_CUENTA","Finished NumPad: "+System.currentTimeMillis());
 	}
 
 	public void setText(EditText field){

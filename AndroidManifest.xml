@@ -4,7 +4,9 @@
     <application android:allowClearUserData="true"
         android:debuggable="false" android:icon="@drawable/icon" android:label="@string/app_name">
         <activity android:label="@string/app_name"
-            android:name=".MainActivity" android:windowSoftInputMode="stateAlwaysVisible|adjustResize">
+            android:name=".MainActivity" 
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize"
+            android:theme="@style/Theme.LaCuenta">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -13,7 +15,7 @@
         <activity android:name=".SettingsActivity"/>
         <provider
             android:authorities="org.blanco.lacuenta.db.splitscontentprovider" android:name="org.blanco.lacuenta.db.SPLITSContentProvider"/>
-        <activity android:name=".SplitsActivity"/>
+        <activity android:name=".SplitsActivity" android:theme="@style/Theme.LaCuenta" />
         <activity android:name=".as"/>
     </application>
     <uses-sdk android:maxSdkVersion="8" android:minSdkVersion="4" android:targetSdkVersion="8"/>

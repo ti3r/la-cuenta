@@ -1,3 +1,7 @@
+03/08/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+Improve responsivness, background changed to a theme.
+SettingsActivity improved, no restart is necessary to change preferences anymore
+--------------------------------------------------------------------------------
 02/25/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Improvements on main layout (file has been renamed to main_layout)
 Format the foter results with currency formater

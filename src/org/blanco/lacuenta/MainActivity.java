@@ -26,7 +26,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -42,25 +41,38 @@ public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main_layout);
-        initComponents();       
+        initComponents();
     }
+    
     /***
      * Initializes the components for the current activity. Visual and 
      * non visual members of this context.
      */
-	private void initComponents(){
-    	edtTotal = (EditText) findViewById(R.id.main_activity_edt_bill_total);
+	public void initComponents(){
+		
+		
+		edtTotal = (EditText) findViewById(R.id.main_activity_edt_bill_total);
     	edtTotal.setKeyListener(new DigitsKeyListener(false, true));
     	
-    	txtResult = (TextView) findViewById(R.id.main_activity_txt_result);
-    	spnTip = (Spinner) findViewById(R.id.main_activity_spn_tip);
-    	spnPeople = (Spinner) findViewById(R.id.main_activity_spn_people);
-    	btnCalculate = (Button) findViewById(R.id.main_activity_btn_calculate);
-    	clickListener = new CalculateClickListener(edtTotal, spnTip, spnPeople, getResultReceiver());
-    	btnCalculate.setOnClickListener(clickListener);
-    	numPad = (NumPad) findViewById(R.id.main_activity_num_pad);
+    	
+    	
+    		txtResult = (TextView) findViewById(R.id.main_activity_txt_result);
+    	
+    	
+    		spnTip = (Spinner) findViewById(R.id.main_activity_spn_tip);
+    	
+    	
+    		spnPeople = (Spinner) findViewById(R.id.main_activity_spn_people);
+    	
+    	
+    		btnCalculate = (Button) findViewById(R.id.main_activity_btn_calculate);
+    		clickListener = new CalculateClickListener(edtTotal, spnTip, spnPeople, getResultReceiver());
+    		btnCalculate.setOnClickListener(clickListener);
+    	
+    	
+    	
+    		numPad = (NumPad) findViewById(R.id.main_activity_num_pad);
     	
     	if (numPad != null) //Landscape layout will not have numPad
     		numPad.setText(edtTotal);
@@ -146,6 +158,15 @@ public class MainActivity extends Activity {
 		startActivityForResult(settingsIntent, 0);
 	}
 
+	
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode == 0 && resultCode == SettingsActivity.SETTINGS_CHANGED)
+			initComponents();
+		super.onActivityResult(requestCode, resultCode, data);
+	}
+
 	/***
 	 * Starts the Spits activity
 	 */
@@ -202,8 +223,6 @@ public class MainActivity extends Activity {
 			clickListener.Destroy();
 		super.onDestroy();
 	}
-
-
 
 
 	EditText edtTotal = null;

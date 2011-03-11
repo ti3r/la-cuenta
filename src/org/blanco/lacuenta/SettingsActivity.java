@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.Toast;
 
 /***
  * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
@@ -16,23 +15,27 @@ import android.widget.Toast;
 public class SettingsActivity extends Activity {
 
 	public static final String SHARED_PREFS_NAME = "la_cuent_prefs";
-	
 	public static final String SAVE_PREFS_SETTING_NAME = "save_prefs";
 	public static final String SHOW_RES_DIALOG_SETTING_NAME = "show_r_on_dialog";
 	public static final String SAY_RES_OUT_LOUD = "say_result_out_loud";
+	public static final int NO_SETTINGS_CHANGED = 0;
+	public static final int SETTINGS_CHANGED = 1;
+	
+	PrefsInitialState settsInitialState = null;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.setting);
 		initComponents();
-		setResult(0);
 	}
 	
 	private void initComponents(){
-		prepareSettingsCheckBox(this.chkPreferences, R.id.settings_activity_chk_save_prefs, SAVE_PREFS_SETTING_NAME);
-		prepareSettingsCheckBox(this.chkShowResultOnDialog, R.id.settings_activity_chk_show_res_on_dialog, SHOW_RES_DIALOG_SETTING_NAME);
-		prepareSettingsCheckBox(this.chkSayResultOutLoud, R.id.settings_activity_chk_say_result_out_loud, SAY_RES_OUT_LOUD);
+		this.chkPreferences = prepareSettingsCheckBox( R.id.settings_activity_chk_save_prefs, SAVE_PREFS_SETTING_NAME);
+		this.chkShowResultOnDialog = prepareSettingsCheckBox(R.id.settings_activity_chk_show_res_on_dialog, SHOW_RES_DIALOG_SETTING_NAME); 
+		this.chkSayResultOutLoud = prepareSettingsCheckBox(R.id.settings_activity_chk_say_result_out_loud, SAY_RES_OUT_LOUD);
+		settsInitialState = new PrefsInitialState(this.chkPreferences.isChecked(), 
+				this.chkShowResultOnDialog.isChecked(), this.chkSayResultOutLoud.isChecked());
 	}
 	
 	/***
@@ -42,31 +45,61 @@ public class SettingsActivity extends Activity {
 	 * @param controlPtr The Identifier of the object where the retrieved control will be stored
 	 * @param controlId The int number of the control to be retrieved from the current contentView
 	 * @param settingName The String setting name where the state of the combo will be saved.
+	 * @return the loaded CheckBox
 	 */
-	private void prepareSettingsCheckBox(CheckBox controlPtr, int controlId, final String settingName){
+	private CheckBox prepareSettingsCheckBox(int controlId, final String settingName){
 		
-		controlPtr = (CheckBox) findViewById(controlId); // retrieve the control
+		CheckBox controlPtr = (CheckBox) findViewById(controlId); // retrieve the control
 		//Set the check listener to save the pref when changed.
 		controlPtr.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
 				getSharedPreferences(SHARED_PREFS_NAME, MODE_PRIVATE).edit().putBoolean(settingName, arg1).commit();
+				setActResult();
 			}
 		});
 		//Load the state of the control from the shared preferences
 		controlPtr.setChecked(getSharedPreferences(SHARED_PREFS_NAME, MODE_PRIVATE).getBoolean(settingName, false));
+		return controlPtr;
 	}
 	
-	@Override
-	protected void onStop() {
-		//Show the message to restar the application.
-		Toast.makeText(this, getString(R.string.restart_application), 500).show();
-		super.onStop();
+	private void setActResult(){
+		int result = SettingsActivity.NO_SETTINGS_CHANGED;
+		if (settsInitialState != null)
+		 result = settsInitialState.returnPreferencesChange(chkPreferences, chkShowResultOnDialog, chkSayResultOutLoud); 
+		setResult(result);
 	}
-
-
 
 	CheckBox chkPreferences = null;
 	CheckBox chkShowResultOnDialog = null;
 	CheckBox chkSayResultOutLoud=null;
+	/***
+	 * Inner class that will hold the initial values for the settings combos and will calculate 
+	 * if there has been a settings value change in order to set the activity result correclty
+	 * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
+	 *
+	 */
+	class PrefsInitialState{
+		public boolean saveValues = false;
+		public boolean showDialog = false;
+		public boolean sayOutLoud = false;
+		
+		public PrefsInitialState(){
+			
+		}
+		
+		public PrefsInitialState(boolean saveValsState, boolean showValsState, boolean sayOutLoudState) {
+			this.saveValues = saveValsState;  this.showDialog = showValsState; this.sayOutLoud = sayOutLoudState;
+		}
+		
+		public int returnPreferencesChange(CheckBox values,CheckBox dialog,CheckBox sayOutLoud){
+			if (values.isChecked() == saveValues && dialog.isChecked() == showDialog 
+					&& sayOutLoud.isChecked() == this.sayOutLoud)
+				//current values are equal to previous values
+				return NO_SETTINGS_CHANGED;
+			else
+				return SETTINGS_CHANGED;
+		}
+	}
+	
 }
