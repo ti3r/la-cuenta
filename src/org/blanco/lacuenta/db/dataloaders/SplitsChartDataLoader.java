@@ -121,7 +121,7 @@ public class SplitsChartDataLoader extends AbstractSplitsDataLoader {
 	}
 	
 	@Override	
-	protected GraphicalView doInBackground(String... params) {
+	protected View doInBackground(String... params) {
 		List<Split> splits = getSplits(params[0]);
 		if (Looper.myLooper() == null)
 			Looper.prepare();

@@ -28,15 +28,14 @@ import android.widget.TextView;
 public class SplitsDataLoader extends AbstractSplitsDataLoader {
 		
 	private java.text.DateFormat df =  null;
-	private SplitsActivity activity = null;
-	
+		
 	public SplitsDataLoader(SplitsActivity activity){
 		super(activity);
 		this.df = DateFormat.getDateFormat(activity);
 	}
 	
 	@Override
-	protected TableLayout doInBackground(String... loads) {
+	protected View doInBackground(String... loads) {
 		if (loads.length != 1)
 			throw new IllegalArgumentException("loads can not be more or less than 1 parameter");
 		
@@ -58,7 +57,8 @@ public class SplitsDataLoader extends AbstractSplitsDataLoader {
 		return tbl;
 	}
 	
-	protected void onPostExecute(TableLayout result) {
+	@Override
+	protected void onPostExecute(View result) {
 		this.activity.setContentView(result);
 		this.activity.hideLoadDialog();
 	}

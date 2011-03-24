@@ -1,8 +1,11 @@
 package org.blanco.lacuenta.misc;
 
+import java.text.DateFormat;
 import java.util.Calendar;
 
 import org.blanco.lacuenta.SplitsActivity;
+
+import android.util.Log;
 /***
  * Static Class that will help to establish the low and high limits
  * of the passed load target (SplitsDataLoader.TODAY_LOAD, 
@@ -14,9 +17,26 @@ import org.blanco.lacuenta.SplitsActivity;
  */
 public class CalendarUtilities {
 
-	public static String[] getLoadLimits(String loadTarget){
-		String[] limits = new String[]{"",""};
-		Calendar cLow = Calendar.getInstance();
+	/***
+	 * Inner Class that will carry the low and top limits of the calendar
+	 * calculations. It Contains a toStringArray method in order to be
+	 * integrated easily with cursosrs.
+	 * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
+	 *
+	 */
+	public static class CalendarLimits{
+		public CalendarLimits(long low, long top){
+			this.lowLimit=low; this.topLimit = top;
+		}
+		public long lowLimit = 0;
+		public long topLimit = 0;
+		public String[] toStringArray(){
+			return new String[]{String.valueOf(lowLimit), String.valueOf(topLimit)};
+		}
+	}
+	
+	public static CalendarLimits getLoadLimits(String loadTarget){
+		Calendar cLow = Calendar.getInstance(); //Default Instances both for today
 		Calendar cTop = Calendar.getInstance();
 		
 		cLow.setTimeInMillis(System.currentTimeMillis()); //set the calendar a this moment
@@ -34,25 +54,34 @@ public class CalendarUtilities {
 			setStartOfDayToCalendar(cLow);
 			setEndOfDayToCalendar(cTop);
 		}
-		limits[0] = String.valueOf(cLow.getTimeInMillis());
-		limits[1] = String.valueOf(cTop.getTimeInMillis());
-		return limits;
+		return new CalendarLimits(cLow.getTimeInMillis(), cTop.getTimeInMillis());
 	}
 	
 	private static void setStartOfMonthToCalendar(Calendar c){
 		c.set(Calendar.DAY_OF_MONTH,c.getMinimum(Calendar.DAY_OF_MONTH));
+		setStartOfDayToCalendar(c);
+		Log.d("La Cuenta: ", "Min of Current Month: "+DateFormat.getInstance().format(c.getTime()));
 	}
 	
 	private static void setEndOfMonthToCalendar(Calendar c){
-		c.set(Calendar.DAY_OF_MONTH, c.getMaximum(Calendar.DAY_OF_MONTH));
+		//Get the First Day of next month so it will e considered until 0 hours of next month
+		int max= c.getMaximum(Calendar.DAY_OF_MONTH);
+		c.set(Calendar.DAY_OF_MONTH, max);
+		setEndOfDayToCalendar(c);		
+		Log.d("La Cuenta: ", "Max of Current Month: "+DateFormat.getInstance().format(c.getTime()));
 	}
 	
 	private static void setStartOfWeekToCalendar(Calendar c){
-		c.set(Calendar.DAY_OF_WEEK, c.getMinimum(Calendar.DAY_OF_WEEK));
+		c.set(Calendar.DAY_OF_WEEK, c.getFirstDayOfWeek());
+		setStartOfDayToCalendar(c);
+		Log.d("La Cuenta: ", "Min of Current Week: "+DateFormat.getInstance().format(c.getTime()));
 	}
 	
 	private static void setEndOfWeekToCalendar(Calendar c){
+		//Get First Day of next week so it will be considered until 0 hrs of next week
 		c.set(Calendar.DAY_OF_WEEK, c.getMaximum(Calendar.DAY_OF_WEEK));
+		setEndOfDayToCalendar(c);
+		Log.d("La Cuenta: ", "Max of Current Week: "+DateFormat.getInstance().format(c.getTime()));
 	}
 	
 	private static void setStartOfDayToCalendar(Calendar c){

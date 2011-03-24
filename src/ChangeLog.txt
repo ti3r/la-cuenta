@@ -1,4 +1,11 @@
 03/24/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+Corrected a small bug on CalendarUtilities class that did not allow app to
+retrieve correclty the start and end of the current week.
+Android Manifest changed in order to display MainActivity as the launched
+activity of the application.
+Note: Previous version no suitable for production building.
+-------------------------------------------------------------------------------
+03/24/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Added a new DataLoader for the SplitsActivity activity that will present the
 results on a line chart.
 One new package was created to hold the data loaders for the application,

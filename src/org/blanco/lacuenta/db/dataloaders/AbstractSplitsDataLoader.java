@@ -38,10 +38,11 @@ public abstract class AbstractSplitsDataLoader extends AsyncTask<String, Object,
 	 * splits
 	 */
 	protected Cursor getDataCursor(String loads){
+		
 		Cursor q = 	this.activity.managedQuery(SPLITSContentProvider.CONTENT_URI, 
 				new String[]{Split._ID,Split.TOTAL,Split.TIP, Split.PEOPLE,Split.RESULT,Split.DATE}, 
 				Split.DATE+" between ? and ? ",
-		CalendarUtilities.getLoadLimits(loads), null);
+		CalendarUtilities.getLoadLimits(loads).toStringArray(), null);
 		return q;
 	}
 	
