@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.achartengine.ChartFactory;
 import org.achartengine.GraphicalView;
+import org.achartengine.chart.PointStyle;
 import org.achartengine.model.CategorySeries;
 import org.achartengine.model.XYMultipleSeriesDataset;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
@@ -26,10 +27,26 @@ import android.view.View;
  *
  */
 public class SplitsChartDataLoader extends AbstractSplitsDataLoader {
-
-	double avg = 0;
-	double expenses = 0;	
-		
+	
+	/***
+	 * Class that will hold the results of the process that will
+	 * retrieve the splits from database and extra information 
+	 * needed in order to build the result chart of this class;
+	 * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
+	 *
+	 */
+	private class SplitListBuildResult{
+		public SplitListBuildResult(List<Split> splits, double avg, 
+				double expenses, double maxExpense) {
+			this.splits = splits; this.avg = avg; 
+			this.expenses = expenses; this.maxExpense = maxExpense;
+		}
+		double avg = 0;
+		double expenses = 0;	
+		double maxExpense = 0;
+		List<Split> splits = null;
+	}
+	
 	public SplitsChartDataLoader(SplitsActivity act){
 		super(act);
 	}
@@ -42,18 +59,21 @@ public class SplitsChartDataLoader extends AbstractSplitsDataLoader {
 	 * SpitsActivity.MONTH_LOAD.
 	 * @return A List of Split objects matching the target
 	 */
-	private List<Split> getSplits(String loadTarget){
-		List<Split> result = new ArrayList<Split>();
+	private SplitListBuildResult getSplits(String loadTarget){
+		SplitListBuildResult result = new SplitListBuildResult(new ArrayList<Split>(),
+				0,0,0);
 		Cursor c = getDataCursor(loadTarget);
-		expenses = 0;
+		
 		while (c.moveToNext()){
 			Split s = Split.fromCurrentCursorPosition(c);
-			result.add(s);
-			expenses +=s.getResult();
+			result.splits.add(s);
+			result.expenses +=s.getResult();
+			if (result.maxExpense==0 || result.maxExpense < s.getResult())
+				result.maxExpense = s.getResult();
 		}
-		avg = (result.size() > 0)? expenses / result.size(): 0;
-		Log.i("La Cuenta","Splits Char Data Load. Average: "+avg);
-		Log.i("La Cuenta","Splits Char Data Load. Expenses: "+expenses);
+		result.avg = (result.splits.size() > 0)? result.expenses / result.splits.size(): 0;
+		Log.i("La Cuenta","Splits Char Data Load. Average: "+result.avg);
+		Log.i("La Cuenta","Splits Char Data Load. Expenses: "+result.expenses);
 		return result;
 	}
 	/***
@@ -63,7 +83,7 @@ public class SplitsChartDataLoader extends AbstractSplitsDataLoader {
 	 * dataset
 	 * @return XYMultipleSeriesDataset Object
 	 */
-	private XYMultipleSeriesDataset prepareDataSet(List<Split> splits){
+	private XYMultipleSeriesDataset prepareDataSet(List<Split> splits, double avg){
 		XYMultipleSeriesDataset dataSet = new XYMultipleSeriesDataset();
 			
 		CategorySeries expensesSeries = new CategorySeries(this.activity.getString(R.string.splits));
@@ -72,7 +92,7 @@ public class SplitsChartDataLoader extends AbstractSplitsDataLoader {
 		for(Split s: splits){
 					
 			expensesSeries.add(String.valueOf(s.getDate()),s.getResult());
-			averageSeries.add(String.valueOf(s.getDate()),this.avg); //Add the average for each split date
+			averageSeries.add(String.valueOf(s.getDate()),avg); //Add the average for each split date
 			tipSeries.add(String.valueOf(s.getDate()),(s.getResult()*s.getTip())/100);
 		}
 		//Add the series to the dataset
@@ -88,45 +108,56 @@ public class SplitsChartDataLoader extends AbstractSplitsDataLoader {
 	 * on hardcoded properties.
 	 * @return XYMultipleSeriesRenderer Object
 	 */
-	private XYMultipleSeriesRenderer prepareRenderer(){
+	private XYMultipleSeriesRenderer prepareRenderer(int maxValXAxis, int maxValYAxis){
 		XYMultipleSeriesRenderer mRenderer = new XYMultipleSeriesRenderer();
-		
+		mRenderer.setXAxisMin(0);
+		mRenderer.setYAxisMin(0);
+		mRenderer.setXAxisMax(maxValXAxis);
+		mRenderer.setYAxisMax(maxValYAxis);
 		mRenderer.setChartTitle(this.activity.getString(R.string.expenses_label));
 		mRenderer.setXTitle(this.activity.getString(R.string.records_label));
 		mRenderer.setYTitle(this.activity.getString(R.string.money_sign));
 		
 		//Prepare the Series Renderers
 		XYSeriesRenderer sRenderer = new XYSeriesRenderer();
-		sRenderer.setColor(Color.GREEN);
-		sRenderer.setFillPoints(true);
-		sRenderer.setLineWidth(2.0f);
-		
+		prepareXYSeriesRenderer(sRenderer, Color.GREEN, PointStyle.DIAMOND, 2f);
 		mRenderer.addSeriesRenderer(sRenderer);
 		
 		XYSeriesRenderer avRenderer = new XYSeriesRenderer();
-		avRenderer.setColor(Color.GRAY);
-		avRenderer.setFillPoints(true);
-		avRenderer.setLineWidth(2.0f);
-		
+		prepareXYSeriesRenderer(avRenderer, Color.GRAY, PointStyle.CIRCLE, 2f);
 		mRenderer.addSeriesRenderer(avRenderer);
 		
 		XYSeriesRenderer tipRenderer = new XYSeriesRenderer();
-		tipRenderer.setColor(Color.YELLOW);
-		tipRenderer.setFillPoints(true);
-		tipRenderer.setLineWidth(2.0f);
-		
+		prepareXYSeriesRenderer(tipRenderer, Color.YELLOW, PointStyle.SQUARE, 2f);
 		mRenderer.addSeriesRenderer(tipRenderer);
 		
 		return mRenderer;
 	}
+	/***
+	 * Set the specific render properties to the passed XYSeriesRenderer
+	 * @param renderer the XYSeriesRenderer that the properties will be applied to
+	 * @param color the int color that will be applied to the renderer
+	 * @param style the PointStyle style that will be applied to the renderer
+	 * @param width the float width that will be applied to the renderers line
+	 */
+	public void prepareXYSeriesRenderer(XYSeriesRenderer renderer, int color, 
+			PointStyle style, float width){
+		renderer.setFillPoints(true);
+		renderer.setColor(color);
+		renderer.setPointStyle(style);
+		renderer.setLineWidth(width);
+	}
 	
 	@Override	
 	protected View doInBackground(String... params) {
-		List<Split> splits = getSplits(params[0]);
+		SplitListBuildResult splits = getSplits(params[0]);
 		if (Looper.myLooper() == null)
 			Looper.prepare();
-		XYMultipleSeriesDataset dataSet = prepareDataSet(splits);
-		XYMultipleSeriesRenderer mRenderer = prepareRenderer();
+		XYMultipleSeriesDataset dataSet = prepareDataSet(splits.splits,splits.avg);
+		//prepare the renderer with max X and Y Axises values as X=# of splits Records+1
+		//and Y=Max Expense of the Splits + 10 %
+		XYMultipleSeriesRenderer mRenderer = 
+			prepareRenderer(splits.splits.size()+1, (int) (splits.maxExpense+(splits.maxExpense*.1)));
 		
 		GraphicalView v = ChartFactory.getLineChartView(activity, dataSet, mRenderer);
 		//ChartFactory.getBarChartView(activity, dataSet, mRenderer, Type.DEFAULT );

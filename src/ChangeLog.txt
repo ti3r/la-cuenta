@@ -1,4 +1,8 @@
 03/24/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+Improve the way the result chart is displayed by adding X and Y max values so
+complete lines are displayed and marks are displayed on actual values.
+-------------------------------------------------------------------------------
+03/24/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Change on the manifest to reflect the new Version and Version Code of the 
 application.
 -------------------------------------------------------------------------------
