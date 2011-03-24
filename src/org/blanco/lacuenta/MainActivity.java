@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import org.blanco.lacuenta.db.SPLITSContentProvider;
 import org.blanco.lacuenta.db.entities.Split;
 import org.blanco.lacuenta.listeners.CalculateClickListener;
 import org.blanco.lacuenta.misc.NumPad;
@@ -15,9 +14,7 @@ import org.blanco.lacuenta.receivers.SpeechResultReceiver;
 import org.blanco.lacuenta.receivers.TextViewResultReceiver;
 
 import android.app.Activity;
-import android.content.ContentResolver;
 import android.content.ContentUris;
-import android.content.ContentValues;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -51,34 +48,22 @@ public class MainActivity extends Activity {
      */
 	public void initComponents(){
 		
-		
 		edtTotal = (EditText) findViewById(R.id.main_activity_edt_bill_total);
     	edtTotal.setKeyListener(new DigitsKeyListener(false, true));
     	
-    	
-    	
-    		txtResult = (TextView) findViewById(R.id.main_activity_txt_result);
-    	
-    	
-    		spnTip = (Spinner) findViewById(R.id.main_activity_spn_tip);
-    	
-    	
-    		spnPeople = (Spinner) findViewById(R.id.main_activity_spn_people);
-    	
-    	
-    		btnCalculate = (Button) findViewById(R.id.main_activity_btn_calculate);
-    		clickListener = new CalculateClickListener(edtTotal, spnTip, spnPeople, getResultReceiver());
-    		btnCalculate.setOnClickListener(clickListener);
-    	
-    	
-    	
-    		numPad = (NumPad) findViewById(R.id.main_activity_num_pad);
+    	txtResult = (TextView) findViewById(R.id.main_activity_txt_result);
+    	spnTip = (Spinner) findViewById(R.id.main_activity_spn_tip);
+    	spnPeople = (Spinner) findViewById(R.id.main_activity_spn_people);
+    	btnCalculate = (Button) findViewById(R.id.main_activity_btn_calculate);
+    	clickListener = new CalculateClickListener(edtTotal, spnTip, spnPeople, getResultReceiver());
+    	btnCalculate.setOnClickListener(clickListener);
+    	numPad = (NumPad) findViewById(R.id.main_activity_num_pad);
     	
     	if (numPad != null) //Landscape layout will not have numPad
     		numPad.setText(edtTotal);
     }
-      
-    /***
+	
+	/***
      * This method will return the result Receiver that will be used when displaying 
      * the calculus results. It will return an instance of an object that implements the
      * ResultReceiver interface depending on established application settings.
@@ -199,14 +184,7 @@ public class MainActivity extends Activity {
 	 */
 	private void saveExpense(){
 		if (clickListener.getResult() != null){
-			ContentResolver cr = getContentResolver();
-			ContentValues values = new ContentValues();
-			values.put(Split.DATE, clickListener.getResult().getDate());
-			values.put(Split.PEOPLE, clickListener.getResult().getPeople());
-			values.put(Split.RESULT, clickListener.getResult().getResult());
-			values.put(Split.TIP, clickListener.getResult().getTip());
-			values.put(Split.TOTAL,clickListener.getResult().getTotal());
-			Uri uri = cr.insert(SPLITSContentProvider.CONTENT_URI, values);
+			Uri uri = Split.insert(clickListener.getResult(), this);
 			StringBuilder msg = new StringBuilder(getString(R.string.record));
 			msg.append(" ").append(ContentUris.parseId(uri)).append(" ").
 			append(getString(R.string.created));

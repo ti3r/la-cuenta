@@ -35,4 +35,12 @@ Please search again</string>
     <string name="splits_main_menu_today_item">Today</string>
     <string name="splits_main_menu_month_item">Month</string>
     <string name="main_activity_main_menu_expenses_item">Expenses</string>
+    <string name="expenses_label">Expenses</string>
+    <string name="money_sign">$</string>
+    <string name="records_label">Records</string>
+    <string name="splits_activity_main_menu_table_item">Table</string>
+    <string name="splits_activity_main_menu_chart_item">Chart</string>
+    <string name="tips">Tips</string>
+    <string name="splits">Expenses</string>
+    <string name="average">Average</string>
 </resources>

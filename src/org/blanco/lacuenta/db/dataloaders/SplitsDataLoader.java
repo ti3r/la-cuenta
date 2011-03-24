@@ -1,4 +1,4 @@
-package org.blanco.lacuenta.misc;
+package org.blanco.lacuenta.db.dataloaders;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -7,11 +7,9 @@ import java.util.List;
 
 import org.blanco.lacuenta.R;
 import org.blanco.lacuenta.SplitsActivity;
-import org.blanco.lacuenta.db.SPLITSContentProvider;
 import org.blanco.lacuenta.db.entities.Split;
 
 import android.database.Cursor;
-import android.os.AsyncTask;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,19 +25,13 @@ import android.widget.TextView;
  * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
  */
 
-public class SplitsDataLoader extends AsyncTask<String, Object, TableLayout> {
-	
-	public static final String TODAY_LOAD = "today";
-	public static final String WEEK_LOAD = "week";
-	public static final String MONTH_LOAD = "month";
+public class SplitsDataLoader extends AbstractSplitsDataLoader {
 		
 	private java.text.DateFormat df =  null;
 	private SplitsActivity activity = null;
 	
 	public SplitsDataLoader(SplitsActivity activity){
-		if (activity == null)
-			throw new IllegalArgumentException("Context can not be null in SplitsDataLoader");
-		this.activity = activity;
+		super(activity);
 		this.df = DateFormat.getDateFormat(activity);
 	}
 	
@@ -49,10 +41,7 @@ public class SplitsDataLoader extends AsyncTask<String, Object, TableLayout> {
 			throw new IllegalArgumentException("loads can not be more or less than 1 parameter");
 		
 		TableLayout tbl = (TableLayout) LayoutInflater.from(activity).inflate(R.layout.databaselayout, null);
-		Cursor q = 	this.activity.managedQuery(SPLITSContentProvider.CONTENT_URI, 
-				new String[]{Split._ID,Split.TOTAL,Split.TIP, Split.PEOPLE,Split.RESULT,Split.DATE}, 
-				Split.DATE+" between ? and ? ", 
-				CalendarUtilities.getLoadLimits(loads[0]), null);
+		Cursor q = getDataCursor(loads[0]);
 		List<Split> splits = new ArrayList<Split>();
 		int x = 0;
 		double expenses = 0;
@@ -69,11 +58,7 @@ public class SplitsDataLoader extends AsyncTask<String, Object, TableLayout> {
 		return tbl;
 	}
 	
-
-	@Override
 	protected void onPostExecute(TableLayout result) {
-		super.onPostExecute(result);
-		//set the loaded table layout in the activity
 		this.activity.setContentView(result);
 		this.activity.hideLoadDialog();
 	}
@@ -132,5 +117,7 @@ public class SplitsDataLoader extends AsyncTask<String, Object, TableLayout> {
 		return (TableRow)
 		LayoutInflater.from(activity).inflate(R.layout.splits_table_row_empty, null);
 	}
+	
+	
 	
 }

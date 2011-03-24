@@ -1,3 +1,16 @@
+03/24/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+Added a new DataLoader for the SplitsActivity activity that will present the
+results on a line chart.
+One new package was created to hold the data loaders for the application,
+(org.blanco.lacuenta.db.dataloaders), and one abstract class that will serve
+as base for all the dataloaders created (AbstractSplitsDataLoader).
+SplitsDataLoaders was moved to the new package.
+Two new Icons were added to the drawable folder (chart,table) in order to be
+presented in the main menu of the SplitsActivity activity.
+The method to inser a new Split Object in the database was moved to the 
+Split class.
+Minor Improvements.
+--------------------------------------------------------------------------------
 03/08/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Improve responsivness, background changed to a theme.
 SettingsActivity improved, no restart is necessary to change preferences anymore

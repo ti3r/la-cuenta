@@ -2,7 +2,13 @@ package org.blanco.lacuenta.db.entities;
 
 import java.util.Calendar;
 
+import org.blanco.lacuenta.db.SPLITSContentProvider;
+
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
+import android.net.Uri;
 
 /***
  * 
@@ -111,4 +117,25 @@ public class Split {
 			total = c.getDouble(c.getColumnIndex(Split.TOTAL));
 		return new Split(id, total, tip, people, result, millis);
 	}	
+
+	/***
+	 * This method will insert a new split into the splits database, 
+	 * it will retrieve a content resolver from passed context and
+	 * insert the split values
+	 * @param split the Split object to insert
+	 * @param ctx the Context object where to retrieve the content resolver from
+	 * @return the created URI of the new object
+	 */
+	public static Uri insert(Split split, Context ctx){
+		ContentResolver cr = ctx.getContentResolver();
+		ContentValues values = new ContentValues();
+		values.put(Split.DATE, split.getDate());
+		values.put(Split.PEOPLE, split.getPeople());
+		values.put(Split.RESULT, split.getResult());
+		values.put(Split.TIP, split.getTip());
+		values.put(Split.TOTAL, split.getTotal());
+		Uri uri = cr.insert(SPLITSContentProvider.CONTENT_URI, values);
+		
+		return uri;
+	}
 }

@@ -35,4 +35,12 @@ Por favor redefina su busqueda</string>
     <string name="splits_main_menu_today_item">Hoy</string>
     <string name="splits_main_menu_month_item">Mes</string>
     <string name="main_activity_main_menu_expenses_item">Ver Gastos</string>
+    <string name="splits_activity_main_menu_table_item">Tabla</string>
+    <string name="splits_activity_main_menu_chart_item">Grafica</string>
+    <string name="expenses_label">Gastos</string>
+    <string name="money_sign">$</string>
+    <string name="records_label">Registros</string>
+    <string name="tips">Propinas</string>
+    <string name="splits">Gastos</string>
+    <string name="average">Promedio</string>
 </resources>

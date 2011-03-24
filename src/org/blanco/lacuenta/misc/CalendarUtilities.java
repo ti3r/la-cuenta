@@ -1,6 +1,8 @@
 package org.blanco.lacuenta.misc;
 
 import java.util.Calendar;
+
+import org.blanco.lacuenta.SplitsActivity;
 /***
  * Static Class that will help to establish the low and high limits
  * of the passed load target (SplitsDataLoader.TODAY_LOAD, 
@@ -20,15 +22,15 @@ public class CalendarUtilities {
 		cLow.setTimeInMillis(System.currentTimeMillis()); //set the calendar a this moment
 		cTop.setTimeInMillis(System.currentTimeMillis());
 		
-		if (loadTarget.equals(SplitsDataLoader.MONTH_LOAD)){
+		if (loadTarget.equals(SplitsActivity.MONTH_LOAD)){
 			setStartOfMonthToCalendar(cLow);
 			setEndOfMonthToCalendar(cTop);
 		}
-		if (loadTarget.equals(SplitsDataLoader.WEEK_LOAD)){
+		if (loadTarget.equals(SplitsActivity.WEEK_LOAD)){
 			setStartOfWeekToCalendar(cLow);
 			setEndOfWeekToCalendar(cTop);
 		}
-		if (loadTarget.equals(SplitsDataLoader.TODAY_LOAD)){
+		if (loadTarget.equals(SplitsActivity.TODAY_LOAD)){
 			setStartOfDayToCalendar(cLow);
 			setEndOfDayToCalendar(cTop);
 		}
