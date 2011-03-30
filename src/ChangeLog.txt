@@ -1,3 +1,7 @@
+03/30/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+Rename the layot for the landscape view in order to correct a bug that did not
+allow the application to present the ladnscape view of the main activity.
+-------------------------------------------------------------------------------
 03/29/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Improve the user interface by disabling the input through softkeyboard when 
 the orientation is portrait.
