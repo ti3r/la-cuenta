@@ -7,7 +7,8 @@
 		android:text="@string/TxtBillTotal" style="@style/main_layout_text_view" />
 		
 	<EditText android:id="@+id/main_activity_edt_bill_total"
-		android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		style="@style/layout_fill_wrap" android:inputType="numberDecimal"
+		android:focusable="false"
 		android:layout_below="@id/main_activity_txt_bill_total" android:text="0"/>
 	
 	<TextView android:id="@+id/main_acivity_txt_tip" 

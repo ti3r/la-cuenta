@@ -92,6 +92,8 @@ public class NumPad extends TableLayout {
 			if (text == null)
 				throw new NullPointerException("Edit Field must be set First with the setText(EditText) method");
 			else{
+				if (text.getText().toString().equals("0") && !number.equals("."))
+					text.getText().clear();
 				if (!".".equals(number) || 
 						(".".equals(number) && (!text.getText().toString().contains("."))))
 				text.getText().append(number);
@@ -136,7 +138,7 @@ public class NumPad extends TableLayout {
 				addToText(".");
 				break;
 			case R.id.main_activity_num_pad_c:
-				text.getText().clear();
+				text.setText("0");
 				break;
 			}
 		}

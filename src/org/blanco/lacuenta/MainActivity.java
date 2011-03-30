@@ -16,6 +16,7 @@ import org.blanco.lacuenta.receivers.TextViewResultReceiver;
 import android.app.Activity;
 import android.content.ContentUris;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.DigitsKeyListener;
@@ -49,8 +50,12 @@ public class MainActivity extends Activity {
 	public void initComponents(){
 		
 		edtTotal = (EditText) findViewById(R.id.main_activity_edt_bill_total);
-    	edtTotal.setKeyListener(new DigitsKeyListener(false, true));
-    	
+    	//Set the key listener when the orientation is landscape and the input
+		//is done through the softkeyboard
+		if (getWindowManager().getDefaultDisplay().getOrientation() 
+    			== Configuration.ORIENTATION_LANDSCAPE)		{
+			edtTotal.setKeyListener(new DigitsKeyListener(false, true));
+    	}
     	txtResult = (TextView) findViewById(R.id.main_activity_txt_result);
     	spnTip = (Spinner) findViewById(R.id.main_activity_spn_tip);
     	spnPeople = (Spinner) findViewById(R.id.main_activity_spn_people);

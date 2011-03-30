@@ -1,3 +1,8 @@
+03/29/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+Improve the user interface by disabling the input through softkeyboard when 
+the orientation is portrait.
+Improbe the NumPad to change the "0" default text for the first user input.
+-------------------------------------------------------------------------------
 03/24/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Improve the way the result chart is displayed by adding X and Y max values so
 complete lines are displayed and marks are displayed on actual values.
