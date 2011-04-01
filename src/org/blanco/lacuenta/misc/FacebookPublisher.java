@@ -21,7 +21,8 @@ import com.facebook.android.Facebook;
  */
 public class FacebookPublisher {
 
-	private static final String APP_ID = "198232100191264";
+	//La cuenta facebook app id.
+	private static final String APP_ID = "160955077289390";
 	
 	Activity ctx = null;
 	Facebook facebook = null;

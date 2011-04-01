@@ -10,6 +10,14 @@ import com.facebook.android.DialogError;
 import com.facebook.android.Facebook.DialogListener;
 import com.facebook.android.FacebookError;
 
+/***
+ * Abstract basic class that will handle the results of the facebook
+ * dialogs when errors appear, it will display the errors to a basic
+ * Toast message and let the onComplete method to be implemented by
+ * a child class.
+ * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
+ *
+ */
 public abstract class BasicFBDialogListener implements DialogListener {
 
 	Context ctx = null;
