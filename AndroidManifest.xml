@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest android:versionCode="6" android:versionName="1.4.1"
     package="org.blanco.lacuenta" xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application android:allowClearUserData="true"
         android:debuggable="false" android:icon="@drawable/icon" android:label="@string/app_name">
         <activity android:label="@string/app_name"
@@ -17,7 +18,9 @@
         <activity android:name=".SplitsActivity" android:theme="@style/Theme.LaCuenta"/>
         <activity android:name=".as"/>
         <activity android:name=".SplitsChartActivity"/>
-        <activity android:name=".FBPostActivity"/>
+        <activity android:name=".FBPostActivity">
+        	
+        </activity>
     </application>
     <uses-sdk android:maxSdkVersion="8" android:minSdkVersion="4" android:targetSdkVersion="8"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>

@@ -43,4 +43,9 @@ Please search again</string>
     <string name="tips">Tips</string>
     <string name="splits">Expenses</string>
     <string name="average">Average</string>
+    <string name="facebookMsg">I Just spent {0} in a restaurant bill with my Friends. Each one chip in the same money because La-Cuenta for Android told us.</string>
+    <string name="access_granted">Facebook access granted</string>
+    <string name="fb_msg_posted">Message Posted</string>
+    <string name="fb_error">Facebook Error:</string>
+    <string name="fb_cancelled">Cancelled</string>
 </resources>

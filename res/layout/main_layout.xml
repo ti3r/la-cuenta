@@ -5,7 +5,12 @@
 	
 	<TextView android:id="@+id/main_activity_txt_bill_total"
 		android:text="@string/TxtBillTotal" style="@style/main_layout_text_view" />
-		
+	
+	<ImageView android:id="@+id/main_activity_fb_button" android:src="@drawable/facebook_button" 
+			style="@style/layout_wrap_wrap"
+			android:paddingTop="5dip" android:paddingRight="5dip"
+			android:layout_alignParentRight="true" />
+	
 	<EditText android:id="@+id/main_activity_edt_bill_total"
 		style="@style/layout_fill_wrap" android:inputType="numberDecimal"
 		android:focusable="false"
@@ -28,8 +33,9 @@
 		android:entries="@array/people_options" 
 		android:prompt="@string/TxtPeople" android:layout_below="@id/main_acivity_txt_people"/>
 		
-	<TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
-	android:layout_below="@+id/main_activity_spn_people" android:stretchColumns="*">
+	<TableLayout android:id="@+id/main_activity_input_controls_table" 
+	android:layout_width="fill_parent" android:layout_height="wrap_content"
+	android:layout_below="@id/main_activity_spn_people" android:stretchColumns="*">
 		<TableRow>
 			<TextView android:id="@+id/main_activity_txt_result" 
 			android:text="@string/TxtResult" style="@style/main_layout_text_view" />
@@ -43,5 +49,5 @@
 		android:layout_span="2" />
 		</TableRow>
 	</TableLayout>
-				
+	
 </RelativeLayout>

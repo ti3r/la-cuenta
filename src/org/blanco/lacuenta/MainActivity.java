@@ -7,6 +7,7 @@ import java.util.Locale;
 
 import org.blanco.lacuenta.db.entities.Split;
 import org.blanco.lacuenta.listeners.CalculateClickListener;
+import org.blanco.lacuenta.misc.FacebookPublisher;
 import org.blanco.lacuenta.misc.NumPad;
 import org.blanco.lacuenta.receivers.DialogResultReceiver;
 import org.blanco.lacuenta.receivers.ResultReceiver;
@@ -24,8 +25,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -66,6 +69,14 @@ public class MainActivity extends Activity {
     	
     	if (numPad != null) //Landscape layout will not have numPad
     		numPad.setText(edtTotal);
+    	
+    	ImageView btnFacebook = (ImageView) findViewById(R.id.main_activity_fb_button);
+    	btnFacebook.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				publishToFacebook();
+			}
+		});
     }
 	
 	/***
@@ -208,6 +219,13 @@ public class MainActivity extends Activity {
 	}
 
 
+	protected void publishToFacebook(){
+		if (clickListener != null && clickListener.getResult() != null)
+			new FacebookPublisher(this,clickListener.getResult());
+		else
+			Toast.makeText(this, getString(R.string.no_calculus_done_yet_msg), 500).show();
+	}
+	
 	EditText edtTotal = null;
     Button btnCalculate = null;
     Spinner spnTip = null;

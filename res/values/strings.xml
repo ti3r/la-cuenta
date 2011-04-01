@@ -43,4 +43,9 @@ Por favor redefina su busqueda</string>
     <string name="tips">Propinas</string>
     <string name="splits">Gastos</string>
     <string name="average">Promedio</string>
+    <string name="facebookMsg">Acabo de gastar {0} al comer con mis amigos. Todos pagamos lo mismo por que La-Cuenta para Android nos lo dijo</string>
+    <string name="access_granted">Acceso a Facebook Concedido</string>
+    <string name="fb_msg_posted">Mensaje Registrado</string>
+    <string name="fb_error">Error en Facebook:</string>
+    <string name="fb_cancelled">Cancelado</string>
 </resources>
