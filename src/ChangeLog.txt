@@ -1,4 +1,9 @@
 03/30/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+Added the achartengine jar to our project in order to easily complete the
+project dependencies.
+Changed the android target to 2.3
+-------------------------------------------------------------------------------
+03/30/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Change the manifest of the application in order to reflect the correct version
 of the development line (1.4.1).
 Master brang tag "1_4_1" did not reflect this change use "1_4_1_correct"
