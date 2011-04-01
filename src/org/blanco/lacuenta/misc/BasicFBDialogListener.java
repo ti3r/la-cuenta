@@ -23,17 +23,17 @@ public abstract class BasicFBDialogListener implements DialogListener {
 
 	@Override
 	public void onFacebookError(FacebookError e) {
-		Toast.makeText(ctx, ctx.getString(R.string.fb_error)+e.getLocalizedMessage(), 2000).show();
+		Toast.makeText(ctx, ctx.getString(R.string.fb_error)+" "+e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
 	}
 
 	@Override
 	public void onError(DialogError e) {
-		Toast.makeText(ctx, ctx.getString(R.string.fb_error)+e.getLocalizedMessage(), 2000).show();
+		Toast.makeText(ctx, ctx.getString(R.string.fb_error)+" "+e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
 	}
 
 	@Override
 	public void onCancel() {
-		Toast.makeText(ctx, ctx.getString(R.string.fb_cancelled), 2000).show();
+		Toast.makeText(ctx, ctx.getString(R.string.fb_cancelled), Toast.LENGTH_LONG).show();
 	}
 
 }

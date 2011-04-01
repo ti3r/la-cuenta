@@ -1,4 +1,8 @@
 04/01/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+Remove an un-used Activity (Facebook).
+Extend the time of the Toast Messages on the Facebook Dialog Listener
+-------------------------------------------------------------------------------
+04/01/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Added capabilities to post the result of a split in facebook. This capability
 will be activated from the little facebook icon on the right top corner of
 the main activity.
