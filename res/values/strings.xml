@@ -8,10 +8,10 @@
     <string name="TxtResult">Resultado</string>
     <string name="StrExit">Salir</string>
     <string name="StrSettings">Configuraciones</string>
-    <string name="settings_activity_txt_save_prefs">Guardar Valores:</string>
-    <string name="settings_activity_txt_show_res_dialog">Mostrar Resultado en Dialogo</string>
+    <string name="settings_activity_txt_save_prefs">Guardar</string>
+    <string name="settings_activity_txt_show_res_dialog">Dialogo</string>
     <string name="restart_application">Por favor reinicia la aplicacióon!!!</string>
-    <string name="settings_activity_txt_say_result_out_loud">Gritar el Resultado</string>
+    <string name="settings_activity_txt_say_result_out_loud">Gritar</string>
     <string name="main_activity_main_menu_save_expense_item">Guardar Gasto</string>
     <string name="record">Registro: </string>
     <string name="created">Creado</string>
@@ -43,4 +43,9 @@ Por favor redefina su busqueda</string>
     <string name="tips">Propinas</string>
     <string name="splits">Gastos</string>
     <string name="average">Promedio</string>
+    <string name="settings_activity_txt_save_prefs_desc">Guardar los valores previos</string>
+    <string name="settings_activity_txt_show_res_dialog_desc">Mostrar resultado en un dialogo</string>
+    <string name="settings_activity_txt_say_out_loud_desc">Decir el resultado en voz alta</string>
+    <string name="settings_activity_controls_pref_cat">Controles</string>
+    <string name="settings_activity_result_pref_cat">Resultado</string>
 </resources>

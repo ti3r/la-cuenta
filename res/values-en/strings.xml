@@ -8,10 +8,10 @@
     <string name="TxtResult">Result</string>
     <string name="StrExit">Exit</string>
     <string name="StrSettings">Settings</string>
-    <string name="settings_activity_txt_save_prefs">Save Values:</string>
-    <string name="settings_activity_txt_show_res_dialog">Show Result on Dialog</string>
+    <string name="settings_activity_txt_save_prefs">Save</string>
+    <string name="settings_activity_txt_show_res_dialog">Dialog</string>
     <string name="restart_application">Please Restart The Applicaiton!!!!</string>
-    <string name="settings_activity_txt_say_result_out_loud">Say the result out loud!!!</string>
+    <string name="settings_activity_txt_say_result_out_loud">Say it out loud</string>
     <string name="main_activity_main_menu_save_expense_item">Save Expense</string>
     <string name="record">Record: </string>
     <string name="created">Created</string>
@@ -43,4 +43,9 @@ Please search again</string>
     <string name="tips">Tips</string>
     <string name="splits">Expenses</string>
     <string name="average">Average</string>
+    <string name="settings_activity_txt_save_prefs_desc">Save the values of the controls</string>
+    <string name="settings_activity_txt_show_res_dialog_desc">Show the result on a dialog</string>
+    <string name="settings_activity_txt_say_out_loud_desc">Say the result out loud</string>
+    <string name="settings_activity_controls_pref_cat">Controls</string>
+    <string name="settings_activity_result_pref_cat">Result</string>
 </resources>

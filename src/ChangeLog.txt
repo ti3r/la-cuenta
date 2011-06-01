@@ -1,3 +1,10 @@
+06/01/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+SettingsActivity has been changed to make use of the PreferenceAcivity
+capabilities.
+Added the new settings.xml file to store the application settings
+#No release yet, TODO: Make the application to automatically reflect the
+#settings without restarting the application. 
+-------------------------------------------------------------------------------
 03/30/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Added the achartengine jar to our project in order to easily complete the
 project dependencies.

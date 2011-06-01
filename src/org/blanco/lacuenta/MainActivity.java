@@ -19,6 +19,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.method.DigitsKeyListener;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -76,7 +77,8 @@ public class MainActivity extends Activity {
      */
     private List<ResultReceiver> getResultReceiver(){
     	boolean showResOnDialog = 
-    	getSharedPreferences(SettingsActivity.SHARED_PREFS_NAME, MODE_PRIVATE).getBoolean(SettingsActivity.SHOW_RES_DIALOG_SETTING_NAME, false);
+    	PreferenceManager.getDefaultSharedPreferences(this)
+    		.getBoolean(SettingsActivity.SHOW_RES_DIALOG_SETTING_NAME, false);
     	List<ResultReceiver> result = new ArrayList<ResultReceiver>(2);
     	if (showResOnDialog){
     		//deactivate the Result Label
@@ -87,7 +89,8 @@ public class MainActivity extends Activity {
     		this.txtResult.setVisibility(View.VISIBLE);
     		result.add(new TextViewResultReceiver(this,txtResult));
     	}
-    	boolean textToSpeech = getSharedPreferences(SettingsActivity.SHARED_PREFS_NAME, MODE_PRIVATE).getBoolean(SettingsActivity.SAY_RES_OUT_LOUD, false);
+    	boolean textToSpeech = PreferenceManager.getDefaultSharedPreferences(this)
+    		.getBoolean(SettingsActivity.SAY_RES_OUT_LOUD, false);
     	if (textToSpeech)
     		result.add(new SpeechResultReceiver(this, Locale.getDefault()));
     	
@@ -125,7 +128,8 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onPause() {
 		boolean savePrefs = 
-			getSharedPreferences("settings",MODE_WORLD_WRITEABLE).getBoolean("save_prefs", false);
+			PreferenceManager.getDefaultSharedPreferences(this)
+			.getBoolean(SettingsActivity.SAVE_PREFS_SETTING_NAME, false);
 		if (savePrefs)
 			saveControlPreferences();
 		super.onPause();
@@ -134,7 +138,8 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onStart() {
 		boolean savePrefs = 
-			getSharedPreferences("settings",MODE_WORLD_WRITEABLE).getBoolean("save_prefs", false);
+			PreferenceManager.getDefaultSharedPreferences(this)
+				.getBoolean(SettingsActivity.SAVE_PREFS_SETTING_NAME, false);
 		if (savePrefs)
 			loadControlPreferences();
 		super.onStart();
