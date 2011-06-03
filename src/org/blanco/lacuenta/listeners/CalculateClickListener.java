@@ -1,3 +1,21 @@
+/***
+ *  La-Cuenta for Android, a Small application that allows users to split
+ *  the restaurant check between the people that assists.
+ *  Copyright (C) 2011  Alexandro Blanco <ti3r.bubblenet@gmail.com>
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package org.blanco.lacuenta.listeners;
 
 import java.util.List;
@@ -22,16 +40,21 @@ public class CalculateClickListener implements OnClickListener{
 	private EditText txtTotal = null;
 	private Spinner spnTip = null;
 	private Spinner spnPeople = null;
-	private List<ResultReceiver> resultShower = null;
+	private List<ResultReceiver> resultReveivers = null;
 	
 	private Split result = null;
 	
 	public CalculateClickListener(EditText txtTotal,
-			Spinner spnTip, Spinner spnPeople, List<ResultReceiver> result){
+			Spinner spnTip, Spinner spnPeople){
 		this.txtTotal = txtTotal;
 		this.spnTip = spnTip;
 		this.spnPeople = spnPeople;
-		this.resultShower=result;
+	}
+	
+	public CalculateClickListener(EditText txtTotal,
+			Spinner spnTip, Spinner spnPeople, List<ResultReceiver> result){
+		this(txtTotal,spnTip,spnPeople);
+		this.resultReveivers=result;
 	}
 	
 	public void calculate(){
@@ -44,10 +67,14 @@ public class CalculateClickListener implements OnClickListener{
 		int people = (this.spnPeople.getSelectedItem() != null)? 
 				Integer.valueOf(this.spnPeople.getSelectedItem().toString()):1;
 		double t = (total * (1 + (0.01*tip)))/people;
-		for(ResultReceiver result : resultShower)
-			result.showResult(t);
 		//truncate the result to 2 decimals
-	    t = Math.floor(Math.pow(10, 2) * t) / Math.pow(10, 2);
+		t = Math.floor(Math.pow(10, 2) * t) / Math.pow(10, 2);
+		if (resultReveivers != null){
+			for(ResultReceiver result : resultReveivers)
+				result.showResult(t);
+		}else{
+			throw new NullPointerException("ResultReceiver of the CalculateClickListener is null");
+		}
 		this.result = new Split(total, tip, people, t);
 	}
 	
@@ -63,8 +90,17 @@ public class CalculateClickListener implements OnClickListener{
 	 * using. If the Text to Speech service is being used it will free the service
 	 * to the system*/
 	public void Destroy(){
-		for(ResultReceiver receiver : resultShower)
+		for(ResultReceiver receiver : resultReveivers)
 			receiver.destroy();
 	}
+
 	
+	public List<ResultReceiver> getResultReveivers() {
+		return resultReveivers;
+	}
+
+	public void setResultReveivers(List<ResultReceiver> resultReveivers) {
+		this.resultReveivers = resultReveivers;
+	}
+		
 }

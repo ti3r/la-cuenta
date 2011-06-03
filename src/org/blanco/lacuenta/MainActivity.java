@@ -1,3 +1,21 @@
+/***
+ *  La-Cuenta for Android, a Small application that allows users to split
+ *  the restaurant check between the people that assists.
+ *  Copyright (C) 2011  Alexandro Blanco <ti3r.bubblenet@gmail.com>
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package org.blanco.lacuenta;
 
 
@@ -43,9 +61,9 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main_layout);
         initComponents();
     }
-    
+       
     /***
-     * Initializes the components for the current activity. Visual and 
+     * Initialises the components for the current activity. Visual and 
      * non visual members of this context.
      */
 	public void initComponents(){
@@ -57,11 +75,11 @@ public class MainActivity extends Activity {
     			== Configuration.ORIENTATION_LANDSCAPE)		{
 			edtTotal.setKeyListener(new DigitsKeyListener(false, true));
     	}
-    	txtResult = (TextView) findViewById(R.id.main_activity_txt_result);
-    	spnTip = (Spinner) findViewById(R.id.main_activity_spn_tip);
+		txtResult = (TextView) findViewById(R.id.main_activity_txt_result);
+		spnTip = (Spinner) findViewById(R.id.main_activity_spn_tip);
     	spnPeople = (Spinner) findViewById(R.id.main_activity_spn_people);
     	btnCalculate = (Button) findViewById(R.id.main_activity_btn_calculate);
-    	clickListener = new CalculateClickListener(edtTotal, spnTip, spnPeople, getResultReceiver());
+    	clickListener = new CalculateClickListener(edtTotal, spnTip, spnPeople);
     	btnCalculate.setOnClickListener(clickListener);
     	numPad = (NumPad) findViewById(R.id.main_activity_num_pad);
     	
@@ -75,18 +93,15 @@ public class MainActivity extends Activity {
      * ResultReceiver interface depending on established application settings.
      * @return an Object that implements ResultReceiver Interface.
      */
-    private List<ResultReceiver> getResultReceiver(){
+    private List<ResultReceiver> getResultReceivers(){
     	boolean showResOnDialog = 
     	PreferenceManager.getDefaultSharedPreferences(this)
     		.getBoolean(SettingsActivity.SHOW_RES_DIALOG_SETTING_NAME, false);
     	List<ResultReceiver> result = new ArrayList<ResultReceiver>(2);
     	if (showResOnDialog){
-    		//deactivate the Result Label
-    		this.txtResult.setVisibility(View.GONE);
     		result.add(new DialogResultReceiver(this));
     	}
     	else{
-    		this.txtResult.setVisibility(View.VISIBLE);
     		result.add(new TextViewResultReceiver(this,txtResult));
     	}
     	boolean textToSpeech = PreferenceManager.getDefaultSharedPreferences(this)
@@ -142,6 +157,13 @@ public class MainActivity extends Activity {
 				.getBoolean(SettingsActivity.SAVE_PREFS_SETTING_NAME, false);
 		if (savePrefs)
 			loadControlPreferences();
+		//Set the visibility of the result label
+		boolean showResOnDialog = 
+	    	PreferenceManager.getDefaultSharedPreferences(this)
+	    		.getBoolean(SettingsActivity.SHOW_RES_DIALOG_SETTING_NAME, false);
+	    this.txtResult.setVisibility((showResOnDialog)? View.GONE : View.VISIBLE);
+		//set the result receivers of the calculus		
+		clickListener.setResultReveivers(getResultReceivers());
 		super.onStart();
 	}
 
