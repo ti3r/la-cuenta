@@ -2,8 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="lib" path="achartengine-0.6.0.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/com_facebook_android"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/com_facebook_android"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
