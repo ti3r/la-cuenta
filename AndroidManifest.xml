@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<manifest package="org.blanco.lacuenta" xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="7" android:versionName="1.5">
+<manifest android:versionCode="7" android:versionName="1.5"
+    package="org.blanco.lacuenta" xmlns:android="http://schemas.android.com/apk/res/android">
     <application android:allowClearUserData="true"
         android:debuggable="false" android:icon="@drawable/icon" android:label="@string/app_name">
         <activity android:label="@string/app_name"
@@ -17,6 +18,12 @@
         <activity android:name=".as"/>
         <activity android:name=".SplitsChartActivity"/>
         <activity android:name=".FBPostActivity"/>
+        <receiver android:name="org.blanco.lacuenta.widget.LaCuentaWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info"/>
+        </receiver>
     </application>
     <uses-sdk android:maxSdkVersion="8" android:minSdkVersion="4" android:targetSdkVersion="8"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
