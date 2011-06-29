@@ -48,4 +48,11 @@ Please search again</string>
     <string name="settings_activity_txt_say_out_loud_desc">Say the result out loud</string>
     <string name="settings_activity_controls_pref_cat">Controls</string>
     <string name="settings_activity_result_pref_cat">Result</string>
+    <string name="change_log_dialog_title">Changes</string>
+    <string name="str_ok">Ok</string>
+    <string name="settings_activity_contact_developer">Email the Developer</string>
+    <string name="contact_developer_act_email">E-Mail:</string>
+    <string name="contact_developer_act_name">Name:</string>
+    <string name="contact_developer_act_message">Message</string>
+    <string name="str_cancel">Cancel</string>
 </resources>

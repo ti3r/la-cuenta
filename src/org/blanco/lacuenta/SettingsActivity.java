@@ -18,8 +18,11 @@
  */
 package org.blanco.lacuenta;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.Preference.OnPreferenceClickListener;
 
 /***
  * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
@@ -27,7 +30,8 @@ import android.preference.PreferenceActivity;
  * present an Interface to the User to control application
  * settings.
  */
-public class SettingsActivity extends PreferenceActivity {
+public class SettingsActivity extends PreferenceActivity
+	implements OnPreferenceClickListener{
 
 	public static final int NO_SETTINGS_CHANGED = 0;
 	public static final int SETTINGS_CHANGED = 1;
@@ -35,7 +39,7 @@ public class SettingsActivity extends PreferenceActivity {
 	public static final String SAVE_PREFS_SETTING_NAME = "org.blanco.lacuenta.save_prefs";
 	public static final String SHOW_RES_DIALOG_SETTING_NAME = "org.blanco.lacuenta.show_r_on_dialog";
 	public static final String SAY_RES_OUT_LOUD = "org.blanco.lacuenta.say_result_out_loud";
-	
+	public static final String CONTACT_DEVELOPER = "org.blanco.lacuenta.contact_developer";
 	/*public static final String
 	 * 
 	 *  
@@ -44,6 +48,22 @@ public class SettingsActivity extends PreferenceActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.settings);
+		Preference p = findPreference(CONTACT_DEVELOPER);
+		p.setOnPreferenceClickListener(this);
+	}
+	@Override
+	public boolean onPreferenceClick(Preference preference) {
+		if (CONTACT_DEVELOPER.equalsIgnoreCase(preference.getKey())){
+							
+			Intent emailIntent = new Intent(Intent.ACTION_SEND);
+			emailIntent.setType("text/plain");
+			emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, "ti3r.bubblenet@gmail.com");
+			emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "La-Cuenta, comment");
+			startActivity(Intent.createChooser(emailIntent, "Send email..."));
+		}
+		return false;
 	}
 
+	
+	
 }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="changelog_7">
+    	<item>Nuevo en Version 1.5</item>
+        <item>*Nueva manera en como las configuraciones son manejadas</item>
+        <item>*Pequeños arreglos de bugs</item>
+    </string-array>
+    
+</resources>

@@ -32,13 +32,21 @@ import org.blanco.lacuenta.receivers.SpeechResultReceiver;
 import org.blanco.lacuenta.receivers.TextViewResultReceiver;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.app.Dialog;
 import android.content.ContentUris;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.method.DigitsKeyListener;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -54,7 +62,12 @@ import android.widget.Toast;
  * Initial Activity of the Application.
  */
 public class MainActivity extends Activity {
-    /** Called when the activity is first created. */
+    /***
+     * preference name where the last version will be stored.
+     */
+	private static final String LAST_VERSION_RUN = "app_last_version_run_setting";
+
+	/** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -152,6 +165,7 @@ public class MainActivity extends Activity {
 	
 	@Override
 	protected void onStart() {
+		super.onStart();
 		boolean savePrefs = 
 			PreferenceManager.getDefaultSharedPreferences(this)
 				.getBoolean(SettingsActivity.SAVE_PREFS_SETTING_NAME, false);
@@ -164,7 +178,9 @@ public class MainActivity extends Activity {
 	    this.txtResult.setVisibility((showResOnDialog)? View.GONE : View.VISIBLE);
 		//set the result receivers of the calculus		
 		clickListener.setResultReveivers(getResultReceivers());
-		super.onStart();
+		AlertDialog ad = checkInitialDisplay();
+		if (ad != null)
+			ad.show();
 	}
 
 	/***
@@ -243,4 +259,57 @@ public class MainActivity extends Activity {
     NumPad numPad= null;
     CalculateClickListener clickListener = null;
 	
+    /***
+     * This method is designed to check when the application starts for the first time
+     * on a new version and display the relative changeLog to the user in order to let
+     * him/her know the changes applied in the version.
+     * @return the AlertDialog class that should be shown in case the initial message
+     * needs to be displayed, null otherwise
+     */
+    protected AlertDialog checkInitialDisplay(){
+    	try {
+			PackageInfo pkgInfo = 
+			getApplicationContext().getPackageManager().getPackageInfo(
+					getApplicationContext().getPackageName(), 0);
+			int versionCode = pkgInfo.versionCode;
+			int lastVersion = 
+			PreferenceManager.getDefaultSharedPreferences(this).getInt(LAST_VERSION_RUN, 0);
+			if (lastVersion < versionCode) //if last version is less than the current version of the manifest
+			{
+				//Show the initial Dialog
+				int CLResourceId = 
+				getResources().getIdentifier("changelog_"+versionCode, "array", "org.blanco.lacuenta");
+				if (CLResourceId > 0){
+					String lines[] = getResources().getStringArray(CLResourceId);
+					StringBuilder text = new StringBuilder();
+					for(String line : lines)
+						text.append(line).append("\n");
+					
+					AlertDialog.Builder builder = new Builder(this);
+					builder.setCancelable(false);
+					builder.setPositiveButton(getString(R.string.str_ok),
+							new OnClickListener() {
+								@Override
+								public void onClick(DialogInterface dialog, int which) {
+									dialog.dismiss();
+								}
+							});
+					builder.setMessage(text.toString());
+					builder.setTitle(R.string.change_log_dialog_title);
+					
+					//Store the last run version on the preferences
+					PreferenceManager.getDefaultSharedPreferences(this).edit()
+						.putInt(LAST_VERSION_RUN, versionCode).commit();
+					return builder.create();
+				}else{
+					Log.i("la-cuenta","Error retrieving resource id, 0 returned for change_log"+versionCode);
+					return null;
+				}
+			}
+		} catch (NameNotFoundException e) {
+			Log.e("la-cuenta", "could not check the version of the app",e);
+		}
+    	return null;
+    }
+    
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<manifest package="org.blanco.lacuenta" xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="7" android:versionName="1.5">
+<manifest android:versionCode="7" android:versionName="1.5"
+    package="org.blanco.lacuenta" xmlns:android="http://schemas.android.com/apk/res/android">
     <application android:allowClearUserData="true"
         android:debuggable="false" android:icon="@drawable/icon" android:label="@string/app_name">
         <activity android:label="@string/app_name"
@@ -17,6 +18,12 @@
         <activity android:name=".as"/>
         <activity android:name=".SplitsChartActivity"/>
         <activity android:name=".FBPostActivity"/>
+        <activity android:name=".ContactDeveloperActivity">
+            <intent-filter>
+            	<action android:name="org.blanco.lacuenta.CONTACT_DEVELOPER" />
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
     </application>
     <uses-sdk android:maxSdkVersion="8" android:minSdkVersion="4" android:targetSdkVersion="8"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>

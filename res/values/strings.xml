@@ -48,4 +48,12 @@ Por favor redefina su busqueda</string>
     <string name="settings_activity_txt_say_out_loud_desc">Decir el resultado en voz alta</string>
     <string name="settings_activity_controls_pref_cat">Controles</string>
     <string name="settings_activity_result_pref_cat">Resultado</string>
+    <string name="change_log_dialog_title">Cambios</string>
+    <string name="str_ok">Aceptar</string>
+    <string name="settings_activity_contact_developer">Contacta al Desarrollador</string>
+    <string name="contact_developer_act_header">Por favor envia un comentario acerca de la aplicación, todos los comentarios son de ayuda para mejorar. <br></br>\n Si asi lo deseas puedes adjuntar tu nombre y tu correo electronico para ponernos en contacto con tigo. <br></br>\n Muchas Gracias</string>
+    <string name="contact_developer_act_message">Mensaje</string>
+    <string name="contact_developer_act_email">Correo Electronico:</string>
+    <string name="contact_developer_act_name">Nombre:</string>
+    <string name="str_cancel">Cancelar</string>
 </resources>
