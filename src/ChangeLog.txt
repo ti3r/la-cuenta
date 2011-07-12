@@ -1,3 +1,8 @@
+07/12/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+Fixed small bugs on layouts
+Fixed some unused imports.
+Release of Version 1.6 reached.
+------------------------------------------------------------------------------
 06/28/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 New option on the settings menu to contact the developer (through email,
 currently developing activity to send comments).

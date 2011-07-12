@@ -1,12 +1,10 @@
 package org.blanco.lacuenta;
 
 import android.app.Activity;
-import android.net.MailTo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class ContactDeveloperActivity extends Activity
 	implements View.OnClickListener{

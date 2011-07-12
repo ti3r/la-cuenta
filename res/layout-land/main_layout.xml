@@ -14,8 +14,9 @@
 				android:textStyle="bold"/>
 				
 				<EditText android:id="@+id/main_activity_edt_bill_total"
-				android:layout_width="fill_parent" android:layout_height="wrap_content" 
-				android:text="0" android:imeOptions="actionDone" android:inputType="phone" />
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:inputType="numberDecimal" 
+				android:text="0" android:imeOptions="actionDone"/>
 				
 			</LinearLayout>
 			
