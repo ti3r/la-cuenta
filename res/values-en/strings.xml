@@ -55,4 +55,5 @@ Please search again</string>
     <string name="contact_developer_act_name">Name:</string>
     <string name="contact_developer_act_message">Message</string>
     <string name="str_cancel">Cancel</string>
+    <string name="settings_activity_developer_cat">Developer</string>
 </resources>

@@ -56,4 +56,5 @@ Por favor redefina su busqueda</string>
     <string name="contact_developer_act_email">Correo Electronico:</string>
     <string name="contact_developer_act_name">Nombre:</string>
     <string name="str_cancel">Cancelar</string>
+    <string name="settings_activity_developer_cat">Desarrollador</string>
 </resources>

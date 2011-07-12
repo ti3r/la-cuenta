@@ -11,7 +11,7 @@
     <string name="settings_activity_txt_save_prefs">Salvar</string>
     <string name="settings_activity_txt_show_res_dialog">Diálogo</string>
     <string name="restart_application">Por favor, reinicie o aplicativo</string>
-    <string name="settings_activity_txt_say_result_out_loud">Say it out loud</string>
+    <string name="settings_activity_txt_say_result_out_loud">Dizer em voz alta</string>
     <string name="main_activity_main_menu_save_expense_item">Salvar Despesa</string>
     <string name="record">Registro:</string>
     <string name="created">Criado</string>
@@ -45,7 +45,7 @@ Por favor, procure novamente</string>
     <string name="average">Média</string>
     <string name="settings_activity_txt_save_prefs_desc">Salvar os valores anteriores</string>
     <string name="settings_activity_txt_show_res_dialog_desc">Mostrar resultado de um diálogo</string>
-    <string name="settings_activity_txt_say_out_loud_desc">Diga isso em voz alta</string>
+    <string name="settings_activity_txt_say_out_loud_desc">Dizem que o resultado em voz alta</string>
     <string name="settings_activity_controls_pref_cat">Controles</string>
     <string name="settings_activity_result_pref_cat">Resultado</string>
     <string name="change_log_dialog_title">Mudanças</string>
@@ -55,4 +55,5 @@ Por favor, procure novamente</string>
     <string name="contact_developer_act_name">Nome:</string>
     <string name="contact_developer_act_message">Mensagem</string>
     <string name="str_cancel">Cancelar</string>
+    <string name="settings_activity_developer_cat">Desenvolvedor</string>
 </resources>

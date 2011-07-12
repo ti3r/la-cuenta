@@ -3,8 +3,11 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:key="@+id/settings_activity_controls_pref_cat" android:title="@string/settings_activity_controls_pref_cat"><CheckBoxPreference android:key="org.blanco.lacuenta.save_prefs" android:title="@string/settings_activity_txt_save_prefs" android:summary="@string/settings_activity_txt_save_prefs_desc"></CheckBoxPreference></PreferenceCategory>
     <PreferenceCategory android:key="@+id/settings_activity_result_cat" android:title="@string/settings_activity_result_pref_cat"><CheckBoxPreference android:key="org.blanco.lacuenta.show_r_on_dialog" android:title="@string/settings_activity_txt_show_res_dialog" android:summary="@string/settings_activity_txt_show_res_dialog_desc"></CheckBoxPreference><CheckBoxPreference android:key="org.blanco.lacuenta.say_result_out_loud" android:title="@string/settings_activity_txt_say_result_out_loud" android:summary="@string/settings_activity_txt_say_out_loud_desc"></CheckBoxPreference></PreferenceCategory>
+    <PreferenceCategory android:key="@+id/settings_activity_developer_cat" android:title="@string/settings_activity_developer_cat">
     <Preference android:title="@string/settings_activity_contact_developer" 
-    android:key="org.blanco.lacuenta.contact_developer"></Preference>
+    	android:key="org.blanco.lacuenta.contact_developer"></Preference>
+    </PreferenceCategory>
+    
     
     
     

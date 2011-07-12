@@ -57,7 +57,7 @@ public class SettingsActivity extends PreferenceActivity
 							
 			Intent emailIntent = new Intent(Intent.ACTION_SEND);
 			emailIntent.setType("text/plain");
-			emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, "ti3r.bubblenet@gmail.com");
+			emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"ti3r.bubblenet@gmail.com"});
 			emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "La-Cuenta, comment");
 			startActivity(Intent.createChooser(emailIntent, "Send email..."));
 		}
