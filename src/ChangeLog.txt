@@ -1,3 +1,7 @@
+07/14/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
+Fixed the bug for the softkeyboard to appear allways.
+Added the airpush framework for adds.
+------------------------------------------------------------------------------
 07/12/2011 Alexandro Blanco <ti3r.bubblenet@gmail.com>
 Fixed small bugs on layouts
 Fixed some unused imports.

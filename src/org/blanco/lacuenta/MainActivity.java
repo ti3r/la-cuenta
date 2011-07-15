@@ -31,6 +31,8 @@ import org.blanco.lacuenta.receivers.ResultReceiver;
 import org.blanco.lacuenta.receivers.SpeechResultReceiver;
 import org.blanco.lacuenta.receivers.TextViewResultReceiver;
 
+import com.airpush.android.Airpush;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -70,8 +72,10 @@ public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        new Airpush(getApplicationContext(), "131523", "la-cuenta",false);
         setContentView(R.layout.main_layout);
         initComponents();
+        //start AirPush
     }
        
     /***
