@@ -24,8 +24,8 @@ import java.util.Calendar;
 import java.util.List;
 
 import org.blanco.lacuenta.R;
-import org.blanco.lacuenta.SplitsActivity;
 import org.blanco.lacuenta.db.entities.Split;
+import org.blanco.lacuenta.fragments.GraphFragment;
 
 import android.database.Cursor;
 import android.text.format.DateFormat;
@@ -47,9 +47,9 @@ public class SplitsDataLoader extends AbstractSplitsDataLoader {
 		
 	private java.text.DateFormat df =  null;
 		
-	public SplitsDataLoader(SplitsActivity activity){
+	public SplitsDataLoader(GraphFragment activity){
 		super(activity);
-		this.df = DateFormat.getDateFormat(activity);
+		this.df = DateFormat.getDateFormat(activity.getActivity());
 	}
 	
 	@Override
@@ -57,16 +57,15 @@ public class SplitsDataLoader extends AbstractSplitsDataLoader {
 		if (loads.length != 1)
 			throw new IllegalArgumentException("loads can not be more or less than 1 parameter");
 		
-		TableLayout tbl = (TableLayout) LayoutInflater.from(activity).inflate(R.layout.databaselayout, null);
+		TableLayout tbl = (TableLayout) LayoutInflater.from(activity.getActivity())
+				.inflate(R.layout.databaselayout, null);
 		Cursor q = getDataCursor(loads[0]);
 		List<Split> splits = new ArrayList<Split>();
 		int x = 0;
-		double expenses = 0;
 		while(q.moveToNext()){
 			Split s = Split.fromCurrentCursorPosition(q);
 			splits.add(s);
 			tbl.addView(buildRowViewFromSplit(s,x++));
-			expenses+=s.getResult();
 		}
 		if (splits.size()<=0)
 			tbl.addView(retrieveEmpyItemsRow());
@@ -77,7 +76,6 @@ public class SplitsDataLoader extends AbstractSplitsDataLoader {
 	
 	@Override
 	protected void onPostExecute(View result) {
-		this.activity.setContentView(result);
 		this.activity.hideLoadDialog();
 	}
 
@@ -93,7 +91,7 @@ public class SplitsDataLoader extends AbstractSplitsDataLoader {
 	 * @return a TableRow view containing the split information
 	 */
 	private TableRow buildRowViewFromSplit(Split s, int rowCount){
-		TableRow v = (TableRow) LayoutInflater.from(this.activity).inflate(
+		TableRow v = (TableRow) LayoutInflater.from(this.activity.getActivity()).inflate(
 				(rowCount%2==0)?R.layout.splits_table_row_pair:R.layout.splits_table_row_odd, 
 				null);
 		((TextView)v.findViewById(R.id.splits_table_header_total)).setText(String.valueOf(s.getTotal()));
@@ -124,7 +122,7 @@ public class SplitsDataLoader extends AbstractSplitsDataLoader {
 			expenses += s.getResult();
 		}
 		NumberFormat nf = NumberFormat.getCurrencyInstance();
-		View v = LayoutInflater.from(this.activity).inflate(R.layout.splits_table_footer, null);
+		View v = LayoutInflater.from(this.activity.getActivity()).inflate(R.layout.splits_table_footer, null);
 		((TextView)v.findViewById(R.id.splits_table_footer_records)).setText(String.valueOf(expNumber));
 		((TextView)v.findViewById(R.id.splits_table_footer_tip)).setText(nf.format(tip));
 		((TextView)v.findViewById(R.id.splits_table_footer_result)).setText(nf.format(expenses));
@@ -133,7 +131,7 @@ public class SplitsDataLoader extends AbstractSplitsDataLoader {
 
 	private TableRow retrieveEmpyItemsRow(){
 		return (TableRow)
-		LayoutInflater.from(activity).inflate(R.layout.splits_table_row_empty, null);
+		LayoutInflater.from(activity.getActivity()).inflate(R.layout.splits_table_row_empty, null);
 	}
 	
 	

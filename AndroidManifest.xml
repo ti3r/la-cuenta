@@ -14,7 +14,7 @@
         <activity android:name=".SettingsActivity"/>
         <provider
             android:authorities="org.blanco.lacuenta.db.splitscontentprovider" android:name="org.blanco.lacuenta.db.SPLITSContentProvider"/>
-        <activity android:name=".SplitsActivity" android:theme="@style/Theme.LaCuenta"/>
+        <activity android:name=".fragments.GraphFragment" android:theme="@style/Theme.LaCuenta"/>
         <activity android:name=".as"/>
         <activity android:name=".SplitsChartActivity"/>
         <activity android:name=".FBPostActivity"/>

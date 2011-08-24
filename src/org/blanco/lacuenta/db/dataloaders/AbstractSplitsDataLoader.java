@@ -18,9 +18,9 @@
  */
 package org.blanco.lacuenta.db.dataloaders;
 
-import org.blanco.lacuenta.SplitsActivity;
 import org.blanco.lacuenta.db.SPLITSContentProvider;
 import org.blanco.lacuenta.db.entities.Split;
+import org.blanco.lacuenta.fragments.GraphFragment;
 import org.blanco.lacuenta.misc.CalendarUtilities;
 
 import android.database.Cursor;
@@ -37,9 +37,9 @@ import android.view.View;
  */
 public abstract class AbstractSplitsDataLoader extends AsyncTask<String, Object, View > {
 
-	SplitsActivity activity = null;
+	GraphFragment activity = null;
 	
-	protected AbstractSplitsDataLoader(SplitsActivity activity){
+	protected AbstractSplitsDataLoader(GraphFragment activity){
 		if (activity == null)
 			throw new IllegalArgumentException("Context can not be null in SplitsDataLoader");
 		this.activity = activity;
@@ -57,7 +57,7 @@ public abstract class AbstractSplitsDataLoader extends AsyncTask<String, Object,
 	 */
 	protected Cursor getDataCursor(String loads){
 		
-		Cursor q = 	this.activity.managedQuery(SPLITSContentProvider.CONTENT_URI, 
+		Cursor q = 	this.activity.getActivity().managedQuery(SPLITSContentProvider.CONTENT_URI, 
 				new String[]{Split._ID,Split.TOTAL,Split.TIP, Split.PEOPLE,Split.RESULT,Split.DATE}, 
 				Split.DATE+" between ? and ? ",
 		CalendarUtilities.getLoadLimits(loads).toStringArray(), null);

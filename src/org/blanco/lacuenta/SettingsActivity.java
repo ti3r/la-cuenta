@@ -21,8 +21,8 @@ package org.blanco.lacuenta;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceActivity;
 
 /***
  * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
@@ -64,6 +64,5 @@ public class SettingsActivity extends PreferenceActivity
 		return false;
 	}
 
-	
 	
 }

@@ -21,7 +21,7 @@ package org.blanco.lacuenta.misc;
 import java.text.DateFormat;
 import java.util.Calendar;
 
-import org.blanco.lacuenta.SplitsActivity;
+import org.blanco.lacuenta.fragments.GraphFragment;
 
 import android.util.Log;
 /***
@@ -60,15 +60,15 @@ public class CalendarUtilities {
 		cLow.setTimeInMillis(System.currentTimeMillis()); //set the calendar a this moment
 		cTop.setTimeInMillis(System.currentTimeMillis());
 		
-		if (loadTarget.equals(SplitsActivity.MONTH_LOAD)){
+		if (loadTarget.equals(GraphFragment.MONTH_LOAD)){
 			setStartOfMonthToCalendar(cLow);
 			setEndOfMonthToCalendar(cTop);
 		}
-		if (loadTarget.equals(SplitsActivity.WEEK_LOAD)){
+		if (loadTarget.equals(GraphFragment.WEEK_LOAD)){
 			setStartOfWeekToCalendar(cLow);
 			setEndOfWeekToCalendar(cTop);
 		}
-		if (loadTarget.equals(SplitsActivity.TODAY_LOAD)){
+		if (loadTarget.equals(GraphFragment.TODAY_LOAD)){
 			setStartOfDayToCalendar(cLow);
 			setEndOfDayToCalendar(cTop);
 		}

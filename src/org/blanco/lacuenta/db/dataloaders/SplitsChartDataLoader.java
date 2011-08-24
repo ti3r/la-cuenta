@@ -29,8 +29,8 @@ import org.achartengine.model.XYMultipleSeriesDataset;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 import org.blanco.lacuenta.R;
-import org.blanco.lacuenta.SplitsActivity;
 import org.blanco.lacuenta.db.entities.Split;
+import org.blanco.lacuenta.fragments.GraphFragment;
 
 import android.database.Cursor;
 import android.graphics.Color;
@@ -65,7 +65,7 @@ public class SplitsChartDataLoader extends AbstractSplitsDataLoader {
 		List<Split> splits = null;
 	}
 	
-	public SplitsChartDataLoader(SplitsActivity act){
+	public SplitsChartDataLoader(GraphFragment act){
 		super(act);
 	}
 	/***
@@ -177,7 +177,7 @@ public class SplitsChartDataLoader extends AbstractSplitsDataLoader {
 		XYMultipleSeriesRenderer mRenderer = 
 			prepareRenderer(splits.splits.size()+1, (int) (splits.maxExpense+(splits.maxExpense*.1)));
 		
-		GraphicalView v = ChartFactory.getLineChartView(activity, dataSet, mRenderer);
+		GraphicalView v = ChartFactory.getLineChartView(activity.getActivity(), dataSet, mRenderer);
 		//ChartFactory.getBarChartView(activity, dataSet, mRenderer, Type.DEFAULT );
 			//ChartFactory.getRangeBarChartView(activity, dataSet, mRenderer, Type.DEFAULT);
 		//ChartFactory.getTimeChartView(activity, dataSet, mRenderer, "dd/MM");
@@ -187,7 +187,7 @@ public class SplitsChartDataLoader extends AbstractSplitsDataLoader {
 	}
 
 	protected void onPostExecute(View result) {
-		this.activity.setContentView(result);
+		this.activity.getActivity().setContentView(result);
 		this.activity.hideLoadDialog();
 	}
 

@@ -29,26 +29,31 @@
  ******************************************************************************
  */
 
-package org.blanco.lacuenta;
+package org.blanco.lacuenta.fragments;
 
+import org.blanco.lacuenta.R;
 import org.blanco.lacuenta.db.dataloaders.AbstractSplitsDataLoader;
 import org.blanco.lacuenta.db.dataloaders.SplitsChartDataLoader;
 import org.blanco.lacuenta.db.dataloaders.SplitsDataLoader;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 /***
- * Activity that will present the user the splits that have been
- * stored in the database and let the user filter the data differently
+ * Fragment that will present the user the splits that have been
+ * stored in the database and let the user filter the data differently.
+ * 
+ * The code of this class has been migrated from the SplitsActivity
+ * in order to support fragments in the application.
+ * 
  * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
  *
  */
-public class SplitsActivity extends Activity {
+public class GraphFragment extends Fragment {
 	
 	
 	public static final String TODAY_LOAD = "today";
@@ -67,8 +72,15 @@ public class SplitsActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		loadData();
 	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		loadData();
+		return super.onCreateView(inflater, container, savedInstanceState);
+	}
+
 
 	private void loadData(){
 		if (dataLoader == null || !AsyncTask.Status.RUNNING.equals(dataLoader.getStatus())){
@@ -83,7 +95,8 @@ public class SplitsActivity extends Activity {
 	
 	public void showLoadDialog(){
 		if (this.loadDialog == null)
-			loadDialog = ProgressDialog.show(this, getString(R.string.loading_data_dialog_title), 
+			loadDialog = ProgressDialog.show(getActivity(), 
+					getString(R.string.loading_data_dialog_title), 
 					getString(R.string.loading_data_dialog_msg), true);
 		this.loadDialog.show();
 	}
@@ -107,33 +120,33 @@ public class SplitsActivity extends Activity {
 			loadData();
 	}
 	
-	@Override
-	public boolean onCreatePanelMenu(int featureId, Menu menu) {
-		MenuInflater mi = new MenuInflater(this);
-		mi.inflate(R.menu.splits_activity_main_menu, menu);
-		return super.onCreatePanelMenu(featureId, menu);
-	}
-
-	@Override
-	public boolean onMenuItemSelected(int featureId, MenuItem item) {
-		switch (item.getItemId()){
-		case R.id.splits_activity_main_menu_week_item:
-			changeLoadTarget(WEEK_LOAD);
-			break;
-		case R.id.splits_activity_main_menu_month_item:
-			changeLoadTarget(MONTH_LOAD);
-			break;
-		case R.id.splits_activity_main_menu_today_item:
-			changeLoadTarget(TODAY_LOAD);
-			break;
-		case R.id.splits_activity_main_menu_chart_item:
-			changeDisplayTarget(CHART_TARGET);
-			break;
-		case R.id.splits_activity_main_menu_table_item:
-			changeDisplayTarget(TABLE_TARGET);
-			break;
-		}
-		return super.onMenuItemSelected(featureId, item);
-	}
+//	@Override
+//	public boolean onCreatePanelMenu(int featureId, Menu menu) {
+//		MenuInflater mi = new MenuInflater(this);
+//		mi.inflate(R.menu.splits_activity_main_menu, menu);
+//		return super.onCreatePanelMenu(featureId, menu);
+//	}
+//
+//	@Override
+//	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+//		switch (item.getItemId()){
+//		case R.id.splits_activity_main_menu_week_item:
+//			changeLoadTarget(WEEK_LOAD);
+//			break;
+//		case R.id.splits_activity_main_menu_month_item:
+//			changeLoadTarget(MONTH_LOAD);
+//			break;
+//		case R.id.splits_activity_main_menu_today_item:
+//			changeLoadTarget(TODAY_LOAD);
+//			break;
+//		case R.id.splits_activity_main_menu_chart_item:
+//			changeDisplayTarget(CHART_TARGET);
+//			break;
+//		case R.id.splits_activity_main_menu_table_item:
+//			changeDisplayTarget(TABLE_TARGET);
+//			break;
+//		}
+//		return super.onMenuItemSelected(featureId, item);
+//	}
 
 }
