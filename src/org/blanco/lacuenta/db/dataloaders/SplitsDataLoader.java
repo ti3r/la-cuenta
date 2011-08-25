@@ -46,17 +46,16 @@ import android.widget.TextView;
 public class SplitsDataLoader extends AbstractSplitsDataLoader {
 		
 	private java.text.DateFormat df =  null;
-		
+	
 	public SplitsDataLoader(GraphFragment activity){
 		super(activity);
 		this.df = DateFormat.getDateFormat(activity.getActivity());
 	}
 	
 	@Override
-	protected View doInBackground(String... loads) {
+	public View doInBackground(String... loads) {
 		if (loads.length != 1)
-			throw new IllegalArgumentException("loads can not be more or less than 1 parameter");
-		
+			throw new IllegalArgumentException("loads can not be more or less than 1 parameter");		
 		TableLayout tbl = (TableLayout) LayoutInflater.from(activity.getActivity())
 				.inflate(R.layout.databaselayout, null);
 		Cursor q = getDataCursor(loads[0]);
@@ -76,6 +75,7 @@ public class SplitsDataLoader extends AbstractSplitsDataLoader {
 	
 	@Override
 	protected void onPostExecute(View result) {
+		this.activity.setResultsView(result);
 		this.activity.hideLoadDialog();
 	}
 

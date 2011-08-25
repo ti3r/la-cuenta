@@ -37,12 +37,15 @@ import org.blanco.lacuenta.db.dataloaders.SplitsChartDataLoader;
 import org.blanco.lacuenta.db.dataloaders.SplitsDataLoader;
 
 import android.app.ProgressDialog;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 /***
  * Fragment that will present the user the splits that have been
  * stored in the database and let the user filter the data differently.
@@ -69,6 +72,11 @@ public class GraphFragment extends Fragment {
 	
 	private AbstractSplitsDataLoader dataLoader = null;
 	
+	private ImageButton btnDay = null;
+	private ImageButton btnWeek = null;
+	private ImageButton btnMonth = null;
+	private LinearLayout mainLayout = null;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -77,19 +85,68 @@ public class GraphFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		loadData();
-		return super.onCreateView(inflater, container, savedInstanceState);
+		mainLayout = (LinearLayout) inflater.inflate(R.layout.graph_fragment_initial_screen,null); 
+		initComponents(mainLayout);
+		return mainLayout;
 	}
 
+	@Override
+	public View getView() {
+		loadData();
+		return super.getView();
+	}
 
-	private void loadData(){
+	/**
+	 * Method that will initialise the members of the class based on the passed initial
+	 * view that must have been created on the onCreateView method.
+	 * @param view The initial View view where to retrieve the components from
+	 */
+	private void initComponents(View view){
+		if (view == null){
+			throw new IllegalArgumentException("Initial View can't be null");
+		}
+		btnDay = (ImageButton) view.findViewById(R.id.graph_action_bar_btn_day_target);
+		btnDay.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				changeLoadTarget(TODAY_LOAD);
+			}
+		});
+		btnWeek = (ImageButton) view.findViewById(R.id.graph_action_bar_btn_week_target);
+		btnWeek.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				changeLoadTarget(WEEK_LOAD);
+			}
+		});
+		btnMonth = (ImageButton) view.findViewById(R.id.graph_action_bar_btn_month_target);
+		btnMonth.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				changeLoadTarget(MONTH_LOAD);
+			}
+		});
+	}
+
+	public void loadData(){
 		if (dataLoader == null || !AsyncTask.Status.RUNNING.equals(dataLoader.getStatus())){
-			if (displayTarget == CHART_TARGET)
+			if (displayTarget == CHART_TARGET){
 				dataLoader = new SplitsChartDataLoader(this);
-			else
+			} else {
 				dataLoader = new SplitsDataLoader(this);
-			showLoadDialog();
-			dataLoader.execute(loadTarget);
+			}
+			//Set the background of the selected target
+			btnDay.setBackgroundColor(Color.TRANSPARENT);
+			btnWeek.setBackgroundColor(Color.TRANSPARENT);
+			btnMonth.setBackgroundColor(Color.TRANSPARENT);
+			if (loadTarget.equals(TODAY_LOAD)){
+				btnDay.setBackgroundColor(Color.YELLOW);
+			}else if (loadTarget.equals(WEEK_LOAD)){
+				btnWeek.setBackgroundColor(Color.YELLOW);
+			}else{
+				btnMonth.setBackgroundColor(Color.YELLOW);
+			}
+			dataLoader.execute(loadTarget); 
 		}
 	}
 	
@@ -109,8 +166,10 @@ public class GraphFragment extends Fragment {
 	private void changeLoadTarget(String newTarget){
 		boolean executeLoad = (!loadTarget.equals(newTarget));
 		loadTarget = newTarget;
-		if (executeLoad)
+		if (executeLoad){
+			showLoadDialog();
 			loadData();
+		}
 	}
 	
 	private void changeDisplayTarget(int chartTarget) {
@@ -118,6 +177,16 @@ public class GraphFragment extends Fragment {
 		displayTarget = chartTarget;
 		if (executeLoad)
 			loadData();
+	}
+	
+	public void setResultsView(View view){
+		view.setTag("resultsView");
+		View v = mainLayout.findViewWithTag("resultsView");
+		if (v != null){
+			//remove the previous result view
+			mainLayout.removeView(v);
+		}
+		mainLayout.addView(view);
 	}
 	
 //	@Override

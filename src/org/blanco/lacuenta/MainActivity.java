@@ -70,7 +70,8 @@ public class MainActivity extends FragmentActivity {
     	pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 			
 			public void onPageSelected(int arg0) {
-				displayer.showCurrentPage(arg0);				
+				displayer.showCurrentPage(arg0);
+				
 			}
 
 			@Override

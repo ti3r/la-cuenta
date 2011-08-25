@@ -65,6 +65,6 @@ public abstract class AbstractSplitsDataLoader extends AsyncTask<String, Object,
 	}
 	
 	@Override
-	protected abstract View doInBackground(String... params);
+	public abstract View doInBackground(String... params);
 
 }
