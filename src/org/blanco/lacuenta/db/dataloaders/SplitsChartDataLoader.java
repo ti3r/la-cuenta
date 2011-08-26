@@ -187,7 +187,7 @@ public class SplitsChartDataLoader extends AbstractSplitsDataLoader {
 	}
 
 	protected void onPostExecute(View result) {
-		this.activity.getActivity().setContentView(result);
+		this.activity.setResultsView(result);
 		this.activity.hideLoadDialog();
 	}
 

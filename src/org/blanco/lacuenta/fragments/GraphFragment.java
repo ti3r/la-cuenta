@@ -76,6 +76,7 @@ public class GraphFragment extends Fragment {
 	private ImageButton btnWeek = null;
 	private ImageButton btnMonth = null;
 	private LinearLayout mainLayout = null;
+	private ImageButton btnChangeTarget = null;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -124,6 +125,14 @@ public class GraphFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				changeLoadTarget(MONTH_LOAD);
+			}
+		});
+		
+		btnChangeTarget = (ImageButton) view.findViewById(R.id.graph_action_bar_btn_change_target);
+		btnChangeTarget.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				changeDisplayTarget(( displayTarget == CHART_TARGET)? TABLE_TARGET :CHART_TARGET);
 			}
 		});
 	}
@@ -175,8 +184,14 @@ public class GraphFragment extends Fragment {
 	private void changeDisplayTarget(int chartTarget) {
 		boolean executeLoad = (displayTarget != chartTarget);
 		displayTarget = chartTarget;
-		if (executeLoad)
+		if (executeLoad){
 			loadData();
+			int id = -1;
+			id = (CHART_TARGET == displayTarget)? R.drawable.table : 
+					R.drawable.chart;
+			btnChangeTarget.setImageDrawable(getResources().getDrawable(id));
+			btnChangeTarget.invalidate();
+		}
 	}
 	
 	public void setResultsView(View view){

@@ -19,9 +19,9 @@
 package org.blanco.lacuenta;
 
 
-import org.blanco.lacuenta.fragments.GraphFragment;
 import org.blanco.lacuenta.misc.CurrentPageDisplayer;
 import org.blanco.lacuenta.misc.LaCuentaFragmentPagerAdapter;
+import org.blanco.lacuenta.misc.LaCuentaPageChangeListener;
 
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -38,6 +38,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 /**
  * Initial Activity of the Application.
@@ -60,6 +61,8 @@ public class MainActivity extends FragmentActivity {
     
     ViewPager pager = null;
     CurrentPageDisplayer displayer = null;
+    /*The Text View that displays the name of the current page*/
+    TextView pageHeader = null;
     
     private void initComponents(){
     	pager = (ViewPager) findViewById(R.id.main_activity_view_pager);
@@ -67,23 +70,7 @@ public class MainActivity extends FragmentActivity {
         		new LaCuentaFragmentPagerAdapter(getSupportFragmentManager());
     	pager.setAdapter(adapter);
     	displayer = new CurrentPageDisplayer(this, adapter.getCount());
-    	pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-			
-			public void onPageSelected(int arg0) {
-				displayer.showCurrentPage(arg0);
-				
-			}
-
-			@Override
-			public void onPageScrollStateChanged(int arg0) {
-				//do Nothing
-			}
-
-			@Override
-			public void onPageScrolled(int arg0, float arg1, int arg2) {
-				//do Nothing
-			}
-		});
+    	pager.setOnPageChangeListener(new LaCuentaPageChangeListener(displayer, pageHeader));
     }
     
     @Override
@@ -104,10 +91,8 @@ public class MainActivity extends FragmentActivity {
 				startConfiguration();
 			break;
 		case R.id.main_activity_main_menu_save_expense_item:
-				saveExpense();
+				//saveExpense();
 				break;
-		case R.id.main_activity_main_menu_expenses_item:
-				startResults();
 		default:
 			return super.onMenuItemSelected(featureId, item);
 		}
@@ -122,28 +107,13 @@ public class MainActivity extends FragmentActivity {
 		startActivityForResult(settingsIntent, 0);
 	}
 
-	/***
-	 * Starts the Spits activity
-	 */
-	private void startResults(){
-		Intent splitsIntent = new Intent(this,GraphFragment.class);
-		startActivity(splitsIntent);
-	}
-	
-
-	/***
-	 * Saves the expense that has been calculated into the application's database
-	 */
-	private void saveExpense(){
-//		FragmentManager fm = getSupportFragmentManager();
-//		Fragment f = fm.findFragmentById(R.id.splits_fragment);
-//		if (f != null && f instanceof SplitsFragment){
-//			String result = ((SplitsFragment)f).saveResultToDb(this);
-//			Toast.makeText(this, result,500).show();
-//		}
-	}
-	
-	
+//	/***
+//	 * Starts the Spits activity
+//	 */
+//	private void startResults(){
+//		Intent splitsIntent = new Intent(this,GraphFragment.class);
+//		startActivity(splitsIntent);
+//	}
 	
     @Override
 	protected void onStart() {
