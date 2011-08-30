@@ -19,8 +19,8 @@
 package org.blanco.lacuenta;
 
 
+import org.blanco.lacuenta.fragments.LaCuentaFragmentPagerAdapter;
 import org.blanco.lacuenta.misc.CurrentPageDisplayer;
-import org.blanco.lacuenta.misc.LaCuentaFragmentPagerAdapter;
 import org.blanco.lacuenta.misc.LaCuentaPageChangeListener;
 
 import android.app.AlertDialog;
@@ -39,6 +39,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Initial Activity of the Application.
@@ -70,7 +71,9 @@ public class MainActivity extends FragmentActivity {
         		new LaCuentaFragmentPagerAdapter(getSupportFragmentManager());
     	pager.setAdapter(adapter);
     	displayer = new CurrentPageDisplayer(this, adapter.getCount());
-    	pager.setOnPageChangeListener(new LaCuentaPageChangeListener(displayer, pageHeader));
+    	pageHeader = (TextView) findViewById(R.id.main_activity_current_page_header);
+    	pager.setOnPageChangeListener(new LaCuentaPageChangeListener(getResources(),
+    			displayer, pageHeader));
     }
     
     @Override
@@ -91,7 +94,7 @@ public class MainActivity extends FragmentActivity {
 				startConfiguration();
 			break;
 		case R.id.main_activity_main_menu_save_expense_item:
-				//saveExpense();
+				saveExpense();
 				break;
 		default:
 			return super.onMenuItemSelected(featureId, item);
@@ -99,6 +102,27 @@ public class MainActivity extends FragmentActivity {
 		return true;
 	}
 	
+	/**
+	 * The method that will invoke the save expense process of the
+	 * SplitsFragment in order to store the current expense in database
+	 */
+	private void saveExpense() {
+		boolean result = true;
+		try{
+			result = ((LaCuentaFragmentPagerAdapter)pager.getAdapter())
+					.callSaveCurrentExpense(getApplicationContext());
+		}catch(Exception e){
+			Log.e("la-cuenta", "saveExpense - error calling callsaveCurrentExpense",e);
+			result = false;
+		}
+		if (!result){
+			Log.i("la-cuenta", "saveExpense - callsaveCurrentExpense returned false");
+			Toast.makeText(getApplicationContext(),
+				getString(R.string.str_error_calling_save_expense),
+				Toast.LENGTH_LONG).show();
+		}
+	}
+
 	/***
 	 * Starts the configuration Activity
 	 */
@@ -106,14 +130,6 @@ public class MainActivity extends FragmentActivity {
 		Intent settingsIntent = new Intent(this, SettingsActivity.class);
 		startActivityForResult(settingsIntent, 0);
 	}
-
-//	/***
-//	 * Starts the Spits activity
-//	 */
-//	private void startResults(){
-//		Intent splitsIntent = new Intent(this,GraphFragment.class);
-//		startActivity(splitsIntent);
-//	}
 	
     @Override
 	protected void onStart() {

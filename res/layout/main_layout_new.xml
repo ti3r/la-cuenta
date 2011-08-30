@@ -5,7 +5,8 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent">
   
-  <TextView android:text="Current Page" android:id="@+id/main_activity_current_page_header"
+  <TextView android:text="@string/header_page_0" 
+  android:id="@+id/main_activity_current_page_header"
   android:gravity="center_horizontal" android:background="#000000"
   android:layout_width="match_parent" android:layout_height="wrap_content"></TextView>
 

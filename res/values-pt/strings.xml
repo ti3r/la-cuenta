@@ -56,4 +56,7 @@ Por favor, procure novamente</string>
     <string name="contact_developer_act_message">Mensagem</string>
     <string name="str_cancel">Cancelar</string>
     <string name="settings_activity_developer_cat">Desenvolvedor</string>
+    <string name="header_page_0">Calculadora</string>
+    <string name="header_page_1">Resultados Anteriores</string>
+    <string name="str_error_calling_save_expense">Falha ao salvar as despesas correntes</string>
 </resources>

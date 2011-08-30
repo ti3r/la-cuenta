@@ -1,18 +1,29 @@
+/***
+ *  La-Cuenta for Android, a Small application that allows users to split
+ *  the restaurant check between the people that assists.
+ *  Copyright (C) 2011  Alexandro Blanco <ti3r.bubblenet@gmail.com>
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package org.blanco.lacuenta.fragments;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
 
 import org.blanco.lacuenta.R;
 import org.blanco.lacuenta.SettingsActivity;
 import org.blanco.lacuenta.db.entities.Split;
 import org.blanco.lacuenta.listeners.CalculateClickListener;
 import org.blanco.lacuenta.misc.NumPad;
-import org.blanco.lacuenta.receivers.DialogResultReceiver;
-import org.blanco.lacuenta.receivers.ResultReceiver;
-import org.blanco.lacuenta.receivers.SpeechResultReceiver;
-import org.blanco.lacuenta.receivers.TextViewResultReceiver;
+import org.blanco.lacuenta.misc.ResultReceiversFactory;
 
 import android.app.Activity;
 import android.content.ContentUris;
@@ -80,32 +91,6 @@ public class SplitsFragment extends Fragment {
     		numPad.setText(edtTotal);
     }
 
-	
-	
-	/***
-     * This method will return the result Receiver that will be used when displaying 
-     * the calculus results. It will return an instance of an object that implements the
-     * ResultReceiver interface depending on established application settings.
-     * @return an Object that implements ResultReceiver Interface.
-     */
-    private List<ResultReceiver> getResultReceivers(){
-    	boolean showResOnDialog = 
-    	PreferenceManager.getDefaultSharedPreferences(getActivity())
-    		.getBoolean(SettingsActivity.SHOW_RES_DIALOG_SETTING_NAME, false);
-    	List<ResultReceiver> result = new ArrayList<ResultReceiver>(2);
-    	if (showResOnDialog){
-    		result.add(new DialogResultReceiver(getActivity()));
-    	}
-    	else{
-    		result.add(new TextViewResultReceiver(getActivity(),txtResult));
-    	}
-    	boolean textToSpeech = PreferenceManager.getDefaultSharedPreferences(getActivity())
-    		.getBoolean(SettingsActivity.SAY_RES_OUT_LOUD, false);
-    	if (textToSpeech)
-    		result.add(new SpeechResultReceiver(getActivity(), Locale.getDefault()));
-    	
-    	return result;
-    }
     /***
 	 * Load the control values from a preferences file in order to 
 	 * present the user the same interface that when it left
@@ -124,15 +109,17 @@ public class SplitsFragment extends Fragment {
 		boolean savePrefs = 
 				PreferenceManager.getDefaultSharedPreferences(getActivity())
 					.getBoolean(SettingsActivity.SAVE_PREFS_SETTING_NAME, false);
-			if (savePrefs)
+			if (savePrefs){
 				loadControlPreferences();
+			}
+			//set the result receivers of the calculus
+			clickListener.setResultReveivers(ResultReceiversFactory
+					.getResultReceivers(getActivity(),txtResult));
 			//Set the visibility of the result label
 			boolean showResOnDialog = 
 		    	PreferenceManager.getDefaultSharedPreferences(getActivity())
 		    		.getBoolean(SettingsActivity.SHOW_RES_DIALOG_SETTING_NAME, false);
 		    this.txtResult.setVisibility((showResOnDialog)? View.GONE : View.VISIBLE);
-			//set the result receivers of the calculus		
-			clickListener.setResultReveivers(getResultReceivers());
 		super.onStart();
 	}
 
