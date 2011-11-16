@@ -27,7 +27,7 @@
 		android:layout_width="fill_parent" android:layout_height="wrap_content" 
 		android:entries="@array/people_options" 
 		android:prompt="@string/TxtPeople" android:layout_below="@id/main_acivity_txt_people"/>
-		
+	
 	<TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
 	android:layout_below="@+id/main_activity_spn_people" android:stretchColumns="*">
 		<TableRow>

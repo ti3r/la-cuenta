@@ -16,16 +16,27 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.blanco.lacuenta.receivers;
+package org.blanco.lacuenta.misc;
 
-/***
- * @author Alexandro Blanco <ti3r.bubblenet@gmail.com> Interface that must show
- *         the result of a bill split process when triggered. Known subclasses:
- *         TextViewResultReceiver
+import android.graphics.Color;
+import android.support.v4.app.Fragment;
+import android.view.SurfaceView;
+import android.view.View;
+
+/**
+ * Fragment that returns an empty view, Just for testing purposes
+ * 
+ * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
+ * @version 1.0 08/22/2011
+ * 
  */
-public interface ResultReceiver {
+public class EmptyFragment extends Fragment {
 
-	public void showResult(double result);
+	@Override
+	public View getView() {
+		SurfaceView v = new SurfaceView(getActivity());
+		v.setBackgroundColor(Color.BLUE);
+		return v;
+	}
 
-	public void destroy();
 }

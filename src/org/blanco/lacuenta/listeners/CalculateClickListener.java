@@ -29,55 +29,56 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 /***
- * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
- * Class that will implements the OnClickListener interface
- * in order to execute the calculus of the bill split and 
- * show the result to the user in the passed ResultReceiver.
- * The class will not format the result.
+ * @author Alexandro Blanco <ti3r.bubblenet@gmail.com> Class that will
+ *         implements the OnClickListener interface in order to execute the
+ *         calculus of the bill split and show the result to the user in the
+ *         passed ResultReceiver. The class will not format the result.
  */
-public class CalculateClickListener implements OnClickListener{
+public class CalculateClickListener implements OnClickListener {
 
 	private EditText txtTotal = null;
 	private Spinner spnTip = null;
 	private Spinner spnPeople = null;
 	private List<ResultReceiver> resultReveivers = null;
-	
+
 	private Split result = null;
-	
-	public CalculateClickListener(EditText txtTotal,
-			Spinner spnTip, Spinner spnPeople){
+
+	public CalculateClickListener(EditText txtTotal, Spinner spnTip,
+			Spinner spnPeople) {
 		this.txtTotal = txtTotal;
 		this.spnTip = spnTip;
 		this.spnPeople = spnPeople;
 	}
-	
-	public CalculateClickListener(EditText txtTotal,
-			Spinner spnTip, Spinner spnPeople, List<ResultReceiver> result){
-		this(txtTotal,spnTip,spnPeople);
-		this.resultReveivers=result;
+
+	public CalculateClickListener(EditText txtTotal, Spinner spnTip,
+			Spinner spnPeople, List<ResultReceiver> result) {
+		this(txtTotal, spnTip, spnPeople);
+		this.resultReveivers = result;
 	}
-	
-	public void calculate(){
-		
-		//android.os.Debug.startMethodTracing("calculate.trace");
-		double total = ("".equals(this.txtTotal.getText().toString()))? 0 : Double.valueOf(this.txtTotal.getText().toString());
-	
-		int tip = (this.spnTip.getSelectedItem() != null)? 
-				Integer.valueOf(this.spnTip.getSelectedItem().toString()):0;
-		int people = (this.spnPeople.getSelectedItem() != null)? 
-				Integer.valueOf(this.spnPeople.getSelectedItem().toString()):1;
-		double t = (total * (1 + (0.01*tip)))/people;
-		//truncate the result to 2 decimals
+
+	public void calculate() {
+
+		// android.os.Debug.startMethodTracing("calculate.trace");
+		double total = ("".equals(this.txtTotal.getText().toString())) ? 0
+				: Double.valueOf(this.txtTotal.getText().toString());
+
+		int tip = (this.spnTip.getSelectedItem() != null) ? Integer
+				.valueOf(this.spnTip.getSelectedItem().toString()) : 0;
+		int people = (this.spnPeople.getSelectedItem() != null) ? Integer
+				.valueOf(this.spnPeople.getSelectedItem().toString()) : 1;
+		double t = (total * (1 + (0.01 * tip))) / people;
+		// truncate the result to 2 decimals
 		t = Math.floor(Math.pow(10, 2) * t) / Math.pow(10, 2);
-		if (resultReveivers != null){
-			for(ResultReceiver result : resultReveivers)
+		if (resultReveivers != null) {
+			for (ResultReceiver result : resultReveivers)
 				result.showResult(t);
-		}else{
-			throw new NullPointerException("ResultReceiver of the CalculateClickListener is null");
+		} else {
+			throw new NullPointerException(
+					"ResultReceiver of the CalculateClickListener is null");
 		}
 		this.result = new Split(total, tip, people, t);
 	}
-	
+
 	@Override
 	public void onClick(View view) {
 		calculate();
@@ -86,15 +87,17 @@ public class CalculateClickListener implements OnClickListener{
 	public Split getResult() {
 		return result;
 	}
-	/*Destroys the click listener and frees the memory and the services it could be
-	 * using. If the Text to Speech service is being used it will free the service
-	 * to the system*/
-	public void Destroy(){
-		for(ResultReceiver receiver : resultReveivers)
+
+	/*
+	 * Destroys the click listener and frees the memory and the services it
+	 * could be using. If the Text to Speech service is being used it will free
+	 * the service to the system
+	 */
+	public void Destroy() {
+		for (ResultReceiver receiver : resultReveivers)
 			receiver.destroy();
 	}
 
-	
 	public List<ResultReceiver> getResultReveivers() {
 		return resultReveivers;
 	}
@@ -102,5 +105,5 @@ public class CalculateClickListener implements OnClickListener{
 	public void setResultReveivers(List<ResultReceiver> resultReveivers) {
 		this.resultReveivers = resultReveivers;
 	}
-		
+
 }

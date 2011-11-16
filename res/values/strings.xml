@@ -57,4 +57,7 @@ Por favor redefina su busqueda</string>
     <string name="contact_developer_act_name">Nombre:</string>
     <string name="str_cancel">Cancelar</string>
     <string name="settings_activity_developer_cat">Desarrollador</string>
+    <string name="header_page_0">Calculadora</string>
+    <string name="header_page_1">Resultados Previos</string>
+    <string name="str_error_calling_save_expense">Error al guardar el gasto actual</string>
 </resources>
