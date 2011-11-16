@@ -22,20 +22,22 @@ import android.content.res.Resources;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
 import android.widget.TextView;
+
 /**
- * The class that will be in charge of handling the events 
- * launched when the page is changed in the page viewer.
+ * The class that will be in charge of handling the events launched when the
+ * page is changed in the page viewer.
+ * 
  * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
- *
+ * 
  */
 public class LaCuentaPageChangeListener implements OnPageChangeListener {
 
 	Resources resources = null;
-	CurrentPageDisplayer displayer = null;
+	PageDisplayer displayer = null;
 	TextView header = null;
-	
-	public LaCuentaPageChangeListener(Resources res, CurrentPageDisplayer displayer,
-			TextView header) {
+
+	public LaCuentaPageChangeListener(Resources res,
+			PageDisplayer displayer, TextView header) {
 		super();
 		this.resources = res;
 		this.displayer = displayer;
@@ -44,23 +46,23 @@ public class LaCuentaPageChangeListener implements OnPageChangeListener {
 
 	@Override
 	public void onPageScrollStateChanged(int arg0) {
-		//Do Nothing
+		// Do Nothing
 	}
 
 	@Override
 	public void onPageScrolled(int arg0, float arg1, int arg2) {
-		//Do Nothing
+		// Do Nothing
 	}
 
 	@Override
 	public void onPageSelected(int arg0) {
 		displayer.showCurrentPage(arg0);
-		int id = resources.getIdentifier("header_page_"+arg0, 
-				"string", "org.blanco.lacuenta");
-		if (id < 0){
-			Log.e("la-cuenta", "Error getting page header from " +
-					"resources for page "+arg0);
-		}else{
+		int id = resources.getIdentifier("header_page_" + arg0, "string",
+				"org.blanco.lacuenta");
+		if (id < 0) {
+			Log.e("la-cuenta", "Error getting page header from "
+					+ "resources for page " + arg0);
+		} else {
 			header.setText(resources.getString(id));
 		}
 	}

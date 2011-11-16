@@ -78,7 +78,7 @@ public class SPLITSContentProvider extends ContentProvider {
 	private static final int SPLITS_PEOPLE = 5;
 	private static final int SPLITS_RESULT = 6;
 	private static final int SPLITS_DATE = 7;
-	
+
 	public boolean onCreate() {
 		dbHelper = new LaCuentaDBHelper(getContext(), true);
 		return (dbHelper == null) ? false : true;
@@ -168,7 +168,7 @@ public class SPLITSContentProvider extends ContentProvider {
 			throw new IllegalArgumentException("Unknown URL " + url);
 		}
 
-		rowID = mDB.insert("SPLITS", "_ID",values);
+		rowID = mDB.insert("SPLITS", "_ID", values);
 		if (rowID > 0) {
 			Uri uri = ContentUris.withAppendedId(CONTENT_URI, rowID);
 			getContext().getContentResolver().notifyChange(uri, null);

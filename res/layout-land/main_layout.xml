@@ -29,7 +29,7 @@
 				android:gravity="bottom" android:textStyle="bold"/>
 			
 				<Spinner android:id="@+id/main_activity_spn_tip" android:layout_width="fill_parent"
-				android:layout_height="wrap_content" 
+				android:layout_height="wrap_content" android:prompt="@string/TxtTip"
 				android:entries="@array/tip_options" />
 		
 			</LinearLayout>
@@ -43,7 +43,7 @@
 				android:gravity="bottom" android:textStyle="bold"/>
 				
 				<Spinner android:id="@+id/main_activity_spn_people" android:layout_width="fill_parent"
-				android:layout_height="wrap_content" 
+				android:layout_height="wrap_content" android:prompt="@string/TxtPeople"
 				android:entries="@array/people_options" />
 
 			</LinearLayout>

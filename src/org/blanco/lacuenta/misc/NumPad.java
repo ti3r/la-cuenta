@@ -30,17 +30,17 @@ import android.widget.EditText;
 import android.widget.TableLayout;
 
 /**
- * Class that represents a num pad containig the keys 0-9 point and clear
- * like a numeric pad, this in order to present a numeric pad in the 
- * application.
+ * Class that represents a num pad containig the keys 0-9 point and clear like a
+ * numeric pad, this in order to present a numeric pad in the application.
+ * 
  * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
- *
+ * 
  */
 
 public class NumPad extends TableLayout {
 
 	EditText text = null;
-	
+
 	Button btn1 = null;
 	Button btn2 = null;
 	Button btn3 = null;
@@ -53,12 +53,11 @@ public class NumPad extends TableLayout {
 	Button btn0 = null;
 	Button btnDot = null;
 	Button btnClear = null;
-	
-	
+
 	public NumPad(Context context, AttributeSet set) {
 		super(context, set);
-		LayoutInflater.from(context).inflate(R.layout.num_pad,this, true);
-		Log.d("LA_CUENTA","Creating NumPad: "+System.currentTimeMillis());
+		LayoutInflater.from(context).inflate(R.layout.num_pad, this, true);
+		Log.d("LA_CUENTA", "Creating NumPad: " + System.currentTimeMillis());
 		btn0 = (Button) findViewById(R.id.main_activity_num_pad_0);
 		btn1 = (Button) findViewById(R.id.main_activity_num_pad_1);
 		btn2 = (Button) findViewById(R.id.main_activity_num_pad_2);
@@ -71,10 +70,10 @@ public class NumPad extends TableLayout {
 		btn9 = (Button) findViewById(R.id.main_activity_num_pad_9);
 		btnDot = (Button) findViewById(R.id.main_activity_num_pad__);
 		btnClear = (Button) findViewById(R.id.main_activity_num_pad_c);
-		Log.d("LA_CUENTA","Finished NumPad: "+System.currentTimeMillis());
+		Log.d("LA_CUENTA", "Finished NumPad: " + System.currentTimeMillis());
 	}
 
-	public void setText(EditText field){
+	public void setText(EditText field) {
 		this.text = field;
 		PadKeyClickListener listener = new PadKeyClickListener(this.text);
 		btn0.setOnClickListener(listener);
@@ -90,38 +89,41 @@ public class NumPad extends TableLayout {
 		btnDot.setOnClickListener(listener);
 		btnClear.setOnClickListener(listener);
 	}
-	
+
 	/***
-	 * Inner class that will handle all the click events of the buttons
-	 * in order to append the corresponding text to the set EditText
-	 * object
+	 * Inner class that will handle all the click events of the buttons in order
+	 * to append the corresponding text to the set EditText object
+	 * 
 	 * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
-	 *
+	 * 
 	 */
-	private class PadKeyClickListener implements OnClickListener{
+	private class PadKeyClickListener implements OnClickListener {
 
 		EditText text = null;
-		
-		public PadKeyClickListener(EditText text){
+
+		public PadKeyClickListener(EditText text) {
 			this.text = text;
 		}
-		
-		private void addToText(final String number){
+
+		private void addToText(final String number) {
 			if (text == null)
-				throw new NullPointerException("Edit Field must be set First with the setText(EditText) method");
-			else{
-				if (text.getText().toString().equals("0") && !number.equals("."))
+				throw new NullPointerException(
+						"Edit Field must be set First with the setText(EditText) method");
+			else {
+				if (text.getText().toString().equals("0")
+						&& !number.equals("."))
 					text.getText().clear();
-				if (!".".equals(number) || 
-						(".".equals(number) && (!text.getText().toString().contains("."))))
-				text.getText().append(number);
+				if (!".".equals(number)
+						|| (".".equals(number) && (!text.getText().toString()
+								.contains("."))))
+					text.getText().append(number);
 			}
 		}
-		
+
 		@Override
 		public void onClick(View v) {
-			
-			switch (v.getId()){
+
+			switch (v.getId()) {
 			case R.id.main_activity_num_pad_0:
 				addToText("0");
 				break;
@@ -160,7 +162,7 @@ public class NumPad extends TableLayout {
 				break;
 			}
 		}
-		
+
 	}
-	
+
 }
