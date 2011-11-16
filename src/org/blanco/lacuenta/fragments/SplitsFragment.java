@@ -182,14 +182,6 @@ public class SplitsFragment extends Fragment {
 			return getString(R.string.no_calculus_done_yet_msg);
 	}
 
-	/***
-	 * Saves the expense that has been calculated into the application's
-	 * database
-	 */
-	private void saveExpense(Context ctx) {
-		saveResultToDb(ctx);
-	}
-
 	/* Class members */
 	View mainLayout = null;
 	/* GUI Components */
