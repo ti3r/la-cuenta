@@ -15,4 +15,11 @@
         <item>isso é muito bom.</item>
     </string-array>
     
+    <string-array name="changelog_9">
+    	<item>Coisas novas na versão 1.7</item>
+        <item>Nova GUI (Páginas)</item>
+        <item>Melhor desempenho</item>
+        <item>*Pequenas correções de bugs</item>        
+    </string-array>
+    
 </resources>

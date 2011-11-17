@@ -15,4 +15,11 @@
         <item>enviar sus comentarios</item>
     </string-array>
     
+    <string-array name="changelog_9">
+    	<item>Nuevo en Version 1.7</item>
+        <item>Nueva Interfaz (Con Paginas)</item>
+        <item>Se Mejoro el tiempo de respuesta</item>
+        <item>*Fix de pequeños bugs</item>        
+    </string-array>
+    
 </resources>
