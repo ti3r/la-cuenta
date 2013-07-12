@@ -1,0 +1,31 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven{
+            url 'https://repository-achartengine.forge.cloudbees.com/snapshot/'
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.5.+'
+    }
+}
+apply plugin: 'android'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:13.0.+'
+    compile files('lib/achartengine-0.6.0.jar')
+}
+
+android {
+    compileSdkVersion 17
+    buildToolsVersion "17.0.0"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 16
+    }
+}

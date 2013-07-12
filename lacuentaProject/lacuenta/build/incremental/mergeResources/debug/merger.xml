@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res" >
+            <file
+                name="ic_launcher"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable-hdpi\ic_launcher.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable-mdpi\ic_launcher.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable-xhdpi\ic_launcher.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable-xxhdpi\ic_launcher.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="contact_developer"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\layout\contact_developer.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="databaselayout"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\layout\databaselayout.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="main_layout"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\layout\main_layout.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="num_pad"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\layout\num_pad.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="setting"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\layout\setting.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="splits_table_footer"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\layout\splits_table_footer.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="splits_table_header"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\layout\splits_table_header.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="splits_table_row_empty"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\layout\splits_table_row_empty.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="splits_table_row_odd"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\layout\splits_table_row_odd.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="splits_table_row_pair"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\layout\splits_table_row_pair.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="main"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\menu\main.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\values\dimens.xml"
+                qualifiers="" >
+                <dimen name="activity_horizontal_margin" >16dp
+                </dimen>
+                <dimen name="activity_vertical_margin" >16dp
+                </dimen>
+            </file>
+            <file
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\values\spiner_options.xml"
+                qualifiers="" >
+                <string-array name="people_options" >
+                    <item>
+1
+                    </item>
+                    <item>
+2
+                    </item>
+                    <item>
+3
+                    </item>
+                    <item>
+4
+                    </item>
+                    <item>
+5
+                    </item>
+                    <item>
+6
+                    </item>
+                    <item>
+7
+                    </item>
+                    <item>
+8
+                    </item>
+                    <item>
+9
+                    </item>
+                    <item>
+10
+                    </item>
+                    <item>
+11
+                    </item>
+                    <item>
+12
+                    </item>
+                    <item>
+13
+                    </item>
+                    <item>
+14
+                    </item>
+                    <item>
+15
+                    </item>
+                    <item>
+16
+                    </item>
+                    <item>
+17
+                    </item>
+                    <item>
+18
+                    </item>
+                    <item>
+19
+                    </item>
+                    <item>
+20
+                    </item>
+                    <item>
+21
+                    </item>
+                    <item>
+22
+                    </item>
+                    <item>
+23
+                    </item>
+                    <item>
+24
+                    </item>
+                    <item>
+25
+                    </item>
+                    <item>
+26
+                    </item>
+                    <item>
+27
+                    </item>
+                    <item>
+28
+                    </item>
+                    <item>
+29
+                    </item>
+                    <item>
+30
+                    </item>
+                    <item>
+31
+                    </item>
+                    <item>
+32
+                    </item>
+                    <item>
+33
+                    </item>
+                    <item>
+34
+                    </item>
+                    <item>
+35
+                    </item>
+                    <item>
+36
+                    </item>
+                    <item>
+37
+                    </item>
+                    <item>
+38
+                    </item>
+                    <item>
+39
+                    </item>
+                    <item>
+40
+                    </item>
+                </string-array>
+                <string-array name="tip_options" >
+                    <item>
+0
+                    </item>
+                    <item>
+5
+                    </item>
+                    <item>
+10
+                    </item>
+                    <item>
+15
+                    </item>
+                    <item>
+20
+                    </item>
+                    <item>
+25
+                    </item>
+                    <item>
+30
+                    </item>
+                    <item>
+35
+                    </item>
+                    <item>
+40
+                    </item>
+                    <item>
+45
+                    </item>
+                    <item>
+50
+                    </item>
+                    <item>
+55
+                    </item>
+                    <item>
+60
+                    </item>
+                    <item>
+65
+                    </item>
+                    <item>
+70
+                    </item>
+                    <item>
+75
+                    </item>
+                    <item>
+80
+                    </item>
+                    <item>
+85
+                    </item>
+                    <item>
+90
+                    </item>
+                    <item>
+95
+                    </item>
+                    <item>
+100
+                    </item>
+                </string-array>
+            </file>
+            <file
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\values\strings.xml"
+                qualifiers="" >
+                <string name="contact_developer_act_header" >Por favor envia un comentario acerca de la aplicación, todos los comentarios son de ayuda para mejorar. 
+<br />
+\n Si asi lo deseas puedes adjuntar tu nombre y tu correo electronico para ponernos en contacto con tigo. 
+<br />
+\n Muchas Gracias
+                </string>
+                <string name="expenses_label" >Gastos
+                </string>
+                <string name="settings_activity_txt_show_res_dialog_desc" >Mostrar resultado en un dialogo
+                </string>
+                <string name="main_activity_main_menu_save_expense_item" >Guardar Gasto
+                </string>
+                <string name="splits_table_row_empty" >No se han encontrado datos!!!
+<br />
+        Por favor redefina su busqueda
+                </string>
+                <string name="contact_developer_act_name" >Nombre:
+                </string>
+                <string name="records_label" >Registros
+                </string>
+                <string name="created" >Creado
+                </string>
+                <string name="splits_table_footer_total" >Registros:
+                </string>
+                <string name="main_activity_main_menu_expenses_item" >Ver Gastos
+                </string>
+                <string name="settings_activity_developer_cat" >Desarrollador
+                </string>
+                <string name="loading_data_dialog_title" >Cargando...
+                </string>
+                <string name="settings_activity_controls_pref_cat" >Controles
+                </string>
+                <string name="average" >Promedio
+                </string>
+                <string name="BtnCalculate" >Calcular
+                </string>
+                <string name="splits_table_header_date" >Fecha
+                </string>
+                <string name="splits_main_menu_week_item" >Semana
+                </string>
+                <string name="TxtTip" >Propina
+                </string>
+                <string name="delete_msg" >Borrar
+                </string>
+                <string name="settings_activity_contact_developer" >Contacta al Desarrollador
+                </string>
+                <string name="splits_activity_main_menu_table_item" >Tabla
+                </string>
+                <string name="change_log_dialog_title" >Cambios
+                </string>
+                <string name="splits_table_header_total" >Total
+                </string>
+                <string name="str_ok" >Aceptar
+                </string>
+                <string name="tips" >Propinas
+                </string>
+                <string name="StrExit" >Salir
+                </string>
+                <string name="no_calculus_done_yet_msg" >No se ha calculado ninguna cuenta aun.
+                </string>
+                <string name="splits" >Gastos
+                </string>
+                <string name="money_sign" >$
+                </string>
+                <string name="header_page_0" >Calculadora
+                </string>
+                <string name="header_page_1" >Resultados Previos
+                </string>
+                <string name="str_cancel" >Cancelar
+                </string>
+                <string name="splits_table_header_people" >Personas
+                </string>
+                <string name="splits_main_menu_month_item" >Mes
+                </string>
+                <string name="settings_activity_txt_say_result_out_loud" >Gritar
+                </string>
+                <string name="splits_main_menu_today_item" >Hoy
+                </string>
+                <string name="splits_table_footer_tips_text" >Propinas:
+                </string>
+                <string name="splits_table_header_result" >Gasto
+                </string>
+                <string name="TxtPeople" >Personas
+                </string>
+                <string name="settings_activity_result_pref_cat" >Resultado
+                </string>
+                <string name="settings_activity_txt_save_prefs_desc" >Guardar los valores previos
+                </string>
+                <string name="settings_activity_txt_say_out_loud_desc" >Decir el resultado en voz alta
+                </string>
+                <string name="splits_table_header_tip" >Propina
+                </string>
+                <string name="loading_data_dialog_msg" >Cargando gastos
+                </string>
+                <string name="contact_developer_act_email" >Correo Electronico:
+                </string>
+                <string name="contact_developer_act_message" >Mensaje
+                </string>
+                <string name="TxtBillTotal" >Total de Cuenta
+                </string>
+                <string name="record" >Registro: 
+                </string>
+                <string name="settings_activity_txt_show_res_dialog" >Dialogo
+                </string>
+                <string name="str_error_calling_save_expense" >Error al guardar el gasto actual
+                </string>
+                <string name="restart_application" >Por favor reinicia la aplicacióon!!!
+                </string>
+                <string name="splits_table_footer_expenses_text" >Gastos Totales:
+                </string>
+                <string name="TxtResult" >Resultado
+                </string>
+                <string name="settings_activity_txt_save_prefs" >Guardar
+                </string>
+                <string name="app_name" >La Cuenta
+                </string>
+                <string name="splits_activity_main_menu_chart_item" >Grafica
+                </string>
+                <string name="data_loaded_msg" >Registros Cargados
+                </string>
+                <string name="StrSettings" >Configuraciones
+                </string>
+            </file>
+            <file
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\values\styles.xml"
+                qualifiers="" >
+
+                <style name="layout_wrap_wrap" >
+                    <item name="android:layout_width">
+wrap_content
+                    </item>
+                    <item name="android:layout_height">
+wrap_content
+                    </item>
+                </style>
+
+                <style name="splits_odd_row_text" >
+                    <item name="android:layout_gravity">
+center_horizontal
+                    </item>
+                    <item name="android:textColor">
+#FFFFFF
+                    </item>
+                </style>
+
+                <style name="splits_pair_row_text" >
+                    <item name="android:layout_gravity">
+center_horizontal
+                    </item>
+                    <item name="android:textColor">
+#000000
+                    </item>
+                </style>
+
+                <style
+                    name="main_layout_text_view"
+                    parent="layout_wrap_wrap" >
+                    <item name="android:textColor">
+#000000
+                    </item>
+                    <item name="android:textStyle">
+bold
+                    </item>
+                </style>
+
+                <style name="header_text" >
+                    <item name="android:layout_gravity">
+center_horizontal
+                    </item>
+                    <item name="android:textColor">
+#FFFFFF
+                    </item>
+                </style>
+
+                <style
+                    name="AppBaseTheme"
+                    parent="android:Theme.Light" >
+
+                    <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+                    -->
+                </style>
+
+                <style name="footer_text" >
+                    <item name="android:layout_gravity">
+center_horizontal
+                    </item>
+                    <item name="android:textColor">
+#FFFFFF
+                    </item>
+                </style>
+
+                <style
+                    name="AppTheme"
+                    parent="AppBaseTheme" >
+
+                    <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+                </style>
+
+                <style name="layout_fill_wrap" >
+                    <item name="android:layout_width">
+fill_parent
+                    </item>
+                    <item name="android:layout_height">
+wrap_content
+                    </item>
+                </style>
+
+                <style
+                    name="Theme.LaCuenta"
+                    parent="android:Theme" >
+
+                    <!-- <item name="android:windowBackground">@drawable/background</item> -->
+                    <item name="android:windowNoTitle">
+true
+                    </item>
+                </style>
+            </file>
+            <file
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\values-sw600dp\dimens.xml"
+                qualifiers="sw600dp" />
+            <file
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\values-sw720dp-land\dimens.xml"
+                qualifiers="sw720dp-land" >
+                <dimen name="activity_horizontal_margin" >128dp
+                </dimen>
+            </file>
+            <file
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\values-v11\styles.xml"
+                qualifiers="v11" >
+
+                <style
+                    name="AppBaseTheme"
+                    parent="android:Theme.Holo.Light" >
+
+                    <!-- API 11 theme customizations can go here. -->
+                </style>
+            </file>
+            <file
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\values-v14\styles.xml"
+                qualifiers="v14" >
+
+                <style
+                    name="AppBaseTheme"
+                    parent="android:Theme.Holo.Light.DarkActionBar" >
+
+                    <!-- API 14 theme customizations can go here. -->
+                </style>
+            </file>
+            <file
+                name="icon"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable-ldpi\icon.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="settings"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable-hdpi\settings.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="money"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable\money.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="graph_fragment_initial_screen"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\layout\graph_fragment_initial_screen.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="exit"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable-hdpi\exit.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="calendar_1"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable\calendar_1.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="icon"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable-hdpi\icon.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="chart"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable\chart.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="exit"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable-mdpi\exit.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="calendar_31"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable\calendar_31.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="calendar_7"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable\calendar_7.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="settings"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable-mdpi\settings.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="settings"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\xml\settings.xml"
+                qualifiers=""
+                type="xml" />
+            <file
+                name="settings"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable-ldpi\settings.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="btn_back"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable-hdpi\btn_back.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="btn_back"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable-mdpi\btn_back.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="background"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable-mdpi\background.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="exit"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable-ldpi\exit.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="btn_back"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable-ldpi\btn_back.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="background"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable-ldpi\background.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="background"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable-hdpi\background.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="save_money"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable\save_money.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="activity_main"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\layout\activity_main.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="icon"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable-mdpi\icon.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="table"
+                path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\drawable\table.png"
+                qualifiers=""
+                type="drawable" />
+        </source>
+        <source path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\build\res\rs\debug" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\debug\res" />
+    </dataSet>
+
+</merger>

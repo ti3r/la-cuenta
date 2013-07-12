@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+    <TextView android:layout_height="wrap_content" android:id="@+id/textView1" android:layout_width="wrap_content" android:text="@string/contact_developer_act_header" android:layout_alignParentLeft="true" android:textStyle="bold"></TextView>
+    <TextView android:layout_height="wrap_content" android:id="@+id/textView2" android:layout_width="wrap_content" android:text="@string/contact_developer_act_message" android:layout_below="@+id/textView1" android:layout_alignLeft="@+id/textView1" android:layout_alignRight="@+id/textView1"></TextView>
+    <EditText android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/contact_developer_act_edt_message" android:inputType="textMultiLine" android:layout_below="@+id/textView2" android:layout_alignLeft="@+id/textView2" android:layout_alignRight="@+id/textView2"></EditText>
+    <TextView android:layout_height="wrap_content" android:id="@+id/textView3" android:layout_width="wrap_content" android:text="@string/contact_developer_act_name" android:layout_below="@+id/contact_developer_act_edt_message" android:layout_alignLeft="@+id/contact_developer_act_edt_message" android:layout_alignRight="@+id/contact_developer_act_edt_message"></TextView>
+    <EditText android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/contact_developer_act_edt_name" android:layout_below="@+id/textView3" android:layout_alignLeft="@+id/textView3" android:layout_alignRight="@+id/textView3">
+        <requestFocus></requestFocus>
+    </EditText>
+    <TextView android:layout_height="wrap_content" android:id="@+id/textView4" android:layout_width="wrap_content" android:text="@string/contact_developer_act_email" android:layout_below="@+id/contact_developer_act_edt_name" android:layout_alignLeft="@+id/contact_developer_act_edt_name" android:layout_alignRight="@+id/contact_developer_act_edt_name"></TextView>
+    <EditText android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/contact_developer_act_edt_email" android:inputType="textEmailAddress" android:layout_below="@+id/textView4" android:layout_alignLeft="@+id/textView4" android:layout_alignRight="@+id/textView4"></EditText>
+    <Button android:layout_height="wrap_content" android:layout_below="@+id/contact_developer_act_edt_email" android:layout_width="wrap_content" android:layout_alignRight="@+id/contact_developer_act_edt_email" android:id="@+id/contact_developer_act_btn_cancel" android:text="@string/str_cancel"></Button>
+    <Button android:layout_height="wrap_content" android:id="@+id/contact_developer_activity_btn_ok" android:layout_width="wrap_content" android:text="@string/str_ok" android:layout_toLeftOf="@+id/contact_developer_act_btn_cancel" android:layout_alignTop="@+id/contact_developer_act_btn_cancel" android:layout_alignBottom="@+id/contact_developer_act_btn_cancel"></Button>
+    
+</RelativeLayout>
+<!-- From: C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\layout\contact_developer.xml -->

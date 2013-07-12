@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"  android:layout_height="fill_parent">
+  
+  <TextView android:layout_height="wrap_content" android:layout_width="wrap_content"
+  		android:layout_alignParentLeft="true" android:layout_alignWithParentIfMissing="true" 
+  		android:text="@string/settings_activity_txt_save_prefs"
+  		android:layout_marginTop="15dip"
+  		android:id="@+id/settings_activity_txt_save_prefs"	/>  	
+  
+  <CheckBox android:id="@+id/settings_activity_chk_save_prefs"
+  		android:layout_toRightOf="@id/settings_activity_txt_save_prefs"
+  		android:layout_alignBaseline="@id/settings_activity_txt_save_prefs"
+  		android:layout_height="wrap_content" android:layout_width="wrap_content" />
+  		
+  <TextView android:layout_height="wrap_content" android:layout_width="wrap_content"
+  		android:text="@string/settings_activity_txt_show_res_dialog" 
+  		android:layout_below="@id/settings_activity_txt_save_prefs"
+  		android:id="@+id/settings_activity_txt_show_res_dialog" 
+  		android:layout_marginTop="15dip"/>
+  		
+  <CheckBox android:id="@+id/settings_activity_chk_show_res_on_dialog" 
+  		android:layout_height="wrap_content" android:layout_width="wrap_content"
+  		android:layout_toRightOf="@id/settings_activity_txt_show_res_dialog"
+  		android:layout_alignBaseline="@id/settings_activity_txt_show_res_dialog" />
+  		
+  <TextView android:layout_height="wrap_content" android:layout_width="wrap_content"
+  		android:text="@string/settings_activity_txt_say_result_out_loud" 
+  		android:layout_below="@id/settings_activity_txt_show_res_dialog"
+  		android:id="@+id/settings_activity_txt_say_result_out_loud" 
+  		android:layout_marginTop="15dip"/>
+  		
+  <CheckBox android:id="@+id/settings_activity_chk_say_result_out_loud" 
+  		android:layout_height="wrap_content" android:layout_width="wrap_content"
+  		android:layout_toRightOf="@id/settings_activity_txt_say_result_out_loud"
+  		android:layout_alignBaseline="@id/settings_activity_txt_say_result_out_loud" />
+  
+</RelativeLayout>
+<!-- From: C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\layout\setting.xml -->
