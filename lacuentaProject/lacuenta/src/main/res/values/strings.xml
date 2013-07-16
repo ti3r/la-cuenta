@@ -60,4 +60,9 @@
     <string name="header_page_0">Calculadora</string>
     <string name="header_page_1">Resultados Previos</string>
     <string name="str_error_calling_save_expense">Error al guardar el gasto actual</string>
+
+    <string-array name="main_drawer_options">
+        <item>Calculate</item>
+        <item>Chart</item>
+    </string-array>
 </resources>

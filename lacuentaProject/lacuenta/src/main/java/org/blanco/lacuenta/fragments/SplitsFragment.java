@@ -53,22 +53,6 @@ import android.widget.TextView;
  */
 public class SplitsFragment extends Fragment {
 
-    /**
-     * Method to create a new instance of the fragment
-     * According to Fragments API no args constructor
-     * and no def constructor should be provided. This
-     * allow fragments manager to recreate when needed.
-     *
-     * @return SplitsFragment new instance of the fragment
-     */
-    public static SplitsFragment newInstance() {
-        SplitsFragment frag = new SplitsFragment();
-        return frag;
-    }
-
-    private SplitsFragment() {
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

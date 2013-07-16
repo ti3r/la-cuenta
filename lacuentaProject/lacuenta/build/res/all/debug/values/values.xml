@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- From: C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\values\strings.xml -->
+    <string-array name="main_drawer_options">
+        <item>Calculate</item>
+        <item>Chart</item>
+    </string-array>
     <!-- From: C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\values\spiner_options.xml -->
     <string-array name="people_options">
         <item>1</item>
@@ -144,7 +149,7 @@
 
     <style name="Theme.LaCuenta" parent="android:Theme">
 
-<!--         <item name="android:windowBackground">@drawable/background</item> -->
+        <!-- <item name="android:windowBackground">@drawable/background</item> -->
         <item name="android:windowNoTitle">true</item>
     </style>
 

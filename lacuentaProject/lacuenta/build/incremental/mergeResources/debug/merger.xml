@@ -322,9 +322,9 @@
                 </string>
                 <string name="TxtTip" >Propina
                 </string>
-                <string name="delete_msg" >Borrar
-                </string>
                 <string name="settings_activity_contact_developer" >Contacta al Desarrollador
+                </string>
+                <string name="delete_msg" >Borrar
                 </string>
                 <string name="splits_activity_main_menu_table_item" >Tabla
                 </string>
@@ -370,6 +370,16 @@
                 </string>
                 <string name="settings_activity_txt_say_out_loud_desc" >Decir el resultado en voz alta
                 </string>
+
+                <string-array name="main_drawer_options" >
+                    <item>
+Calculate
+                    </item>
+                    <item>
+Chart
+                    </item>
+                </string-array>
+
                 <string name="splits_table_header_tip" >Propina
                 </string>
                 <string name="loading_data_dialog_msg" >Cargando gastos
@@ -392,9 +402,9 @@
                 </string>
                 <string name="TxtResult" >Resultado
                 </string>
-                <string name="settings_activity_txt_save_prefs" >Guardar
-                </string>
                 <string name="app_name" >La Cuenta
+                </string>
+                <string name="settings_activity_txt_save_prefs" >Guardar
                 </string>
                 <string name="splits_activity_main_menu_chart_item" >Grafica
                 </string>
@@ -416,12 +426,14 @@ wrap_content
                     </item>
                 </style>
 
-                <style name="splits_odd_row_text" >
-                    <item name="android:layout_gravity">
-center_horizontal
-                    </item>
+                <style
+                    name="main_layout_text_view"
+                    parent="layout_wrap_wrap" >
                     <item name="android:textColor">
-#FFFFFF
+#000000
+                    </item>
+                    <item name="android:textStyle">
+bold
                     </item>
                 </style>
 
@@ -434,14 +446,12 @@ center_horizontal
                     </item>
                 </style>
 
-                <style
-                    name="main_layout_text_view"
-                    parent="layout_wrap_wrap" >
-                    <item name="android:textColor">
-#000000
+                <style name="splits_odd_row_text" >
+                    <item name="android:layout_gravity">
+center_horizontal
                     </item>
-                    <item name="android:textStyle">
-bold
+                    <item name="android:textColor">
+#FFFFFF
                     </item>
                 </style>
 
@@ -475,10 +485,13 @@ center_horizontal
                 </style>
 
                 <style
-                    name="AppTheme"
-                    parent="AppBaseTheme" >
+                    name="Theme.LaCuenta"
+                    parent="android:Theme" >
 
-                    <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+                    <!-- <item name="android:windowBackground">@drawable/background</item> -->
+                    <item name="android:windowNoTitle">
+true
+                    </item>
                 </style>
 
                 <style name="layout_fill_wrap" >
@@ -491,13 +504,10 @@ wrap_content
                 </style>
 
                 <style
-                    name="Theme.LaCuenta"
-                    parent="android:Theme" >
+                    name="AppTheme"
+                    parent="AppBaseTheme" >
 
-                    <!-- <item name="android:windowBackground">@drawable/background</item> -->
-                    <item name="android:windowNoTitle">
-true
-                    </item>
+                    <!-- All customizations that are NOT specific to a particular API-level can go here. -->
                 </style>
             </file>
             <file

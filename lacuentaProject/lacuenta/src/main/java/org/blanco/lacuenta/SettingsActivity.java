@@ -39,6 +39,10 @@ public class SettingsActivity extends PreferenceActivity implements
     public static final String SHOW_RES_DIALOG_SETTING_NAME = "org.blanco.lacuenta.show_r_on_dialog";
     public static final String SAY_RES_OUT_LOUD = "org.blanco.lacuenta.say_result_out_loud";
     public static final String CONTACT_DEVELOPER = "org.blanco.lacuenta.contact_developer";
+    /**
+     * The action name used in the intents to launch this activity
+     */
+    public static final String INTENT_ACTION_NAME = "org.blanco.intent.action.SETTINGS";
 
     /*
      * public static final String

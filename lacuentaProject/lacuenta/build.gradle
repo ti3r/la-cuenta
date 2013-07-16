@@ -17,7 +17,7 @@ repositories {
 
 dependencies {
     compile 'com.android.support:support-v4:13.0.+'
-    compile files('lib/achartengine-0.6.0.jar')
+    compile files('libs/achartengine-0.6.0.jar')
 }
 
 android {

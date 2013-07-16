@@ -9,10 +9,13 @@ package org.blanco.lacuenta;
 
 public final class R {
     public static final class array {
+        /**  From: C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\values\strings.xml 
+         */
+        public static final int main_drawer_options=0x7f050000;
         /**  From: C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\values\spiner_options.xml 
          */
-        public static final int people_options=0x7f050000;
-        public static final int tip_options=0x7f050001;
+        public static final int people_options=0x7f050001;
+        public static final int tip_options=0x7f050002;
     }
     public static final class attr {
     }
@@ -39,61 +42,64 @@ public final class R {
         public static final int table=0x7f02000c;
     }
     public static final class id {
-        public static final int contact_developer_act_btn_cancel=0x7f0a0008;
-        public static final int contact_developer_act_edt_email=0x7f0a0007;
-        public static final int contact_developer_act_edt_message=0x7f0a0003;
-        public static final int contact_developer_act_edt_name=0x7f0a0005;
-        public static final int contact_developer_activity_btn_ok=0x7f0a0009;
-        public static final int graph_action_bar_btn_change_target=0x7f0a000f;
-        public static final int graph_action_bar_btn_day_target=0x7f0a000c;
-        public static final int graph_action_bar_btn_month_target=0x7f0a000e;
-        public static final int graph_action_bar_btn_week_target=0x7f0a000d;
-        public static final int graph_fragment_action_bar=0x7f0a000b;
-        public static final int main_acivity_txt_people=0x7f0a0014;
-        public static final int main_acivity_txt_tip=0x7f0a0012;
-        public static final int main_activity_btn_calculate=0x7f0a0017;
-        public static final int main_activity_edt_bill_total=0x7f0a0011;
-        public static final int main_activity_num_pad=0x7f0a0018;
-        public static final int main_activity_num_pad__=0x7f0a0022;
-        public static final int main_activity_num_pad_0=0x7f0a0023;
-        public static final int main_activity_num_pad_1=0x7f0a0019;
-        public static final int main_activity_num_pad_2=0x7f0a001a;
-        public static final int main_activity_num_pad_3=0x7f0a001b;
-        public static final int main_activity_num_pad_4=0x7f0a001c;
-        public static final int main_activity_num_pad_5=0x7f0a001d;
-        public static final int main_activity_num_pad_6=0x7f0a001e;
-        public static final int main_activity_num_pad_7=0x7f0a001f;
-        public static final int main_activity_num_pad_8=0x7f0a0020;
-        public static final int main_activity_num_pad_9=0x7f0a0021;
-        public static final int main_activity_num_pad_c=0x7f0a0024;
-        public static final int main_activity_spn_people=0x7f0a0015;
-        public static final int main_activity_spn_tip=0x7f0a0013;
-        public static final int main_activity_txt_bill_total=0x7f0a0010;
-        public static final int main_activity_txt_result=0x7f0a0016;
-        public static final int main_content=0x7f0a0000;
-        public static final int myTableLayout=0x7f0a000a;
-        public static final int settings_activity_chk_save_prefs=0x7f0a0026;
-        public static final int settings_activity_chk_say_result_out_loud=0x7f0a002a;
-        public static final int settings_activity_chk_show_res_on_dialog=0x7f0a0028;
-        public static final int settings_activity_controls_pref_cat=0x7f0a0034;
-        public static final int settings_activity_developer_cat=0x7f0a0036;
-        public static final int settings_activity_result_cat=0x7f0a0035;
-        public static final int settings_activity_txt_save_prefs=0x7f0a0025;
-        public static final int settings_activity_txt_say_result_out_loud=0x7f0a0029;
-        public static final int settings_activity_txt_show_res_dialog=0x7f0a0027;
-        public static final int splits_table_footer_records=0x7f0a002c;
-        public static final int splits_table_footer_result=0x7f0a002e;
-        public static final int splits_table_footer_tip=0x7f0a002d;
-        public static final int splits_table_header=0x7f0a002b;
-        public static final int splits_table_header_date=0x7f0a0033;
-        public static final int splits_table_header_people=0x7f0a0031;
-        public static final int splits_table_header_result=0x7f0a0032;
-        public static final int splits_table_header_tip=0x7f0a0030;
-        public static final int splits_table_header_total=0x7f0a002f;
-        public static final int textView1=0x7f0a0001;
-        public static final int textView2=0x7f0a0002;
-        public static final int textView3=0x7f0a0004;
-        public static final int textView4=0x7f0a0006;
+        public static final int action_settings=0x7f0a0039;
+        public static final int contact_developer_act_btn_cancel=0x7f0a000a;
+        public static final int contact_developer_act_edt_email=0x7f0a0009;
+        public static final int contact_developer_act_edt_message=0x7f0a0005;
+        public static final int contact_developer_act_edt_name=0x7f0a0007;
+        public static final int contact_developer_activity_btn_ok=0x7f0a000b;
+        public static final int graph_action_bar_btn_change_target=0x7f0a0011;
+        public static final int graph_action_bar_btn_day_target=0x7f0a000e;
+        public static final int graph_action_bar_btn_month_target=0x7f0a0010;
+        public static final int graph_action_bar_btn_week_target=0x7f0a000f;
+        public static final int graph_fragment_action_bar=0x7f0a000d;
+        public static final int main_acivity_txt_people=0x7f0a0016;
+        public static final int main_acivity_txt_tip=0x7f0a0014;
+        public static final int main_activity_btn_calculate=0x7f0a0019;
+        public static final int main_activity_edt_bill_total=0x7f0a0013;
+        public static final int main_activity_num_pad=0x7f0a001a;
+        public static final int main_activity_num_pad__=0x7f0a0024;
+        public static final int main_activity_num_pad_0=0x7f0a0025;
+        public static final int main_activity_num_pad_1=0x7f0a001b;
+        public static final int main_activity_num_pad_2=0x7f0a001c;
+        public static final int main_activity_num_pad_3=0x7f0a001d;
+        public static final int main_activity_num_pad_4=0x7f0a001e;
+        public static final int main_activity_num_pad_5=0x7f0a001f;
+        public static final int main_activity_num_pad_6=0x7f0a0020;
+        public static final int main_activity_num_pad_7=0x7f0a0021;
+        public static final int main_activity_num_pad_8=0x7f0a0022;
+        public static final int main_activity_num_pad_9=0x7f0a0023;
+        public static final int main_activity_num_pad_c=0x7f0a0026;
+        public static final int main_activity_spn_people=0x7f0a0017;
+        public static final int main_activity_spn_tip=0x7f0a0015;
+        public static final int main_activity_txt_bill_total=0x7f0a0012;
+        public static final int main_activity_txt_result=0x7f0a0018;
+        public static final int main_content=0x7f0a0001;
+        public static final int main_drawer_layout=0x7f0a0000;
+        public static final int main_drawer_list=0x7f0a0002;
+        public static final int myTableLayout=0x7f0a000c;
+        public static final int settings_activity_chk_save_prefs=0x7f0a0028;
+        public static final int settings_activity_chk_say_result_out_loud=0x7f0a002c;
+        public static final int settings_activity_chk_show_res_on_dialog=0x7f0a002a;
+        public static final int settings_activity_controls_pref_cat=0x7f0a0036;
+        public static final int settings_activity_developer_cat=0x7f0a0038;
+        public static final int settings_activity_result_cat=0x7f0a0037;
+        public static final int settings_activity_txt_save_prefs=0x7f0a0027;
+        public static final int settings_activity_txt_say_result_out_loud=0x7f0a002b;
+        public static final int settings_activity_txt_show_res_dialog=0x7f0a0029;
+        public static final int splits_table_footer_records=0x7f0a002e;
+        public static final int splits_table_footer_result=0x7f0a0030;
+        public static final int splits_table_footer_tip=0x7f0a002f;
+        public static final int splits_table_header=0x7f0a002d;
+        public static final int splits_table_header_date=0x7f0a0035;
+        public static final int splits_table_header_people=0x7f0a0033;
+        public static final int splits_table_header_result=0x7f0a0034;
+        public static final int splits_table_header_tip=0x7f0a0032;
+        public static final int splits_table_header_total=0x7f0a0031;
+        public static final int textView1=0x7f0a0003;
+        public static final int textView2=0x7f0a0004;
+        public static final int textView3=0x7f0a0006;
+        public static final int textView4=0x7f0a0008;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;

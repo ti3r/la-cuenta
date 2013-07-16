@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="achartengine-0.6.0">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lacuenta/lib/achartengine-0.6.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lacuenta/libs/achartengine-0.6.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
