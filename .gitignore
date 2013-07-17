@@ -6,4 +6,5 @@
 /dist
 lacuentaProject/local.properties
 *build*
+lacuentaProject/.gradle*
 
