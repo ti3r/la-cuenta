@@ -29,6 +29,9 @@
                 <category android:name="android.intent.category.DEFAULT" />"
             </intent-filter>
         </activity>
+        <provider
+                android:authorities="org.blanco.lacuenta.db.splitscontentprovider"
+                android:name="org.blanco.lacuenta.db.SPLITSContentProvider"/>
     </application>
 
 </manifest>

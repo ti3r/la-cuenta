@@ -40,6 +40,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+import static org.blanco.lacuenta.MainActivity.TAG;
 
 /**
  * <p>
@@ -171,8 +173,8 @@ public class LaCuentaDBHelper extends SQLiteOpenHelper {
 					myOutput.write(buffer, 0, length);
 				}
 			} catch (FileNotFoundException e) {
-				// handle your exception here
-			} catch (IOException e) {
+                Log.w(TAG,"Unable to find Base DB In assets. Copy not made. Not save possible");
+            } catch (IOException e) {
 				// handle your exception here
 			} finally {
 				try {

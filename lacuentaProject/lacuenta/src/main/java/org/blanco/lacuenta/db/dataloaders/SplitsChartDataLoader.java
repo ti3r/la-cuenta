@@ -89,7 +89,7 @@ public class SplitsChartDataLoader extends AbstractSplitsDataLoader {
                 new ArrayList<Split>(), 0, 0, 0);
         Cursor c = getDataCursor(loadTarget);
 
-        while (c.moveToNext()) {
+        while (c!= null && c.moveToNext()) {
             Split s = Split.fromCurrentCursorPosition(c);
             result.splits.add(s);
             result.expenses += s.getResult();

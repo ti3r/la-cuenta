@@ -124,7 +124,7 @@ public class LaCuentaDrawerItemClickListener implements AdapterView.OnItemClickL
      * the FragmentManager specified in the constructor
      * @param fragment The Fragment to display in the content view
      */
-    public void displayFragmentOnContent(android.support.v4.app.Fragment fragment){
+    public void displayFragmentOnContent(Fragment fragment){
         if (fragment == null){
             Log.d(TAG,"Unable to set null fragment in content space");
             return;
@@ -133,7 +133,7 @@ public class LaCuentaDrawerItemClickListener implements AdapterView.OnItemClickL
                 fragment).commit();
         //Communicate the change to the outside world
         if (mListener != null)
-            mListener.onFragmentChanged();
+            mListener.onFragmentChanged(fragment);
     }
 
     /**
@@ -154,6 +154,6 @@ public class LaCuentaDrawerItemClickListener implements AdapterView.OnItemClickL
         /**
          * Callback method used when the content fragment has been swapped successfully
          */
-        public void onFragmentChanged();
+        public void onFragmentChanged(Fragment current);
     }
 }

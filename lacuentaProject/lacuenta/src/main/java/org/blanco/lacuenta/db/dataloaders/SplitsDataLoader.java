@@ -58,12 +58,14 @@ public class SplitsDataLoader extends AbstractSplitsDataLoader {
         if (loads.length != 1)
             throw new IllegalArgumentException(
                     "loads can not be more or less than 1 parameter");
-        TableLayout tbl = (TableLayout) LayoutInflater.from(
-                activity.getActivity()).inflate(R.layout.databaselayout, null);
+        //TODO fix this when rotating screens activity inside the fragment becomes null
+        TableLayout tbl = (TableLayout) LayoutInflater.from(activity.getActivity())
+                .inflate(R.layout.databaselayout,null);
+
         Cursor q = getDataCursor(loads[0]);
         List<Split> splits = new ArrayList<Split>();
         int x = 0;
-        while (q.moveToNext()) {
+        while (q != null && q.moveToNext()) {
             Split s = Split.fromCurrentCursorPosition(q);
             splits.add(s);
             tbl.addView(buildRowViewFromSplit(s, x++));

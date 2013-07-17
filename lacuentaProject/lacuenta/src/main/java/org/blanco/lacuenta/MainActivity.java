@@ -21,6 +21,7 @@ package org.blanco.lacuenta;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -43,8 +44,10 @@ public class MainActivity extends FragmentActivity
 
     /** Toggle object for the open close of the drawer */
     ActionBarDrawerToggle mDrawerToggle = null;
-    /**  */
+    /** The Drawer Item Click listener in charge of swapping the fragments  */
     LaCuentaDrawerItemClickListener listener = null;
+    /** The current fragment being displayed in the activity */
+    Fragment currentFragment = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +85,11 @@ public class MainActivity extends FragmentActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.main,menu);
+        //Inflate the custom menu for the fragments
+        if (currentFragment instanceof SplitsFragment){
+            Log.d(TAG,"Adding menu for Splits");
+            menu.add("Splits");
+        }
         return true;
     }
 
@@ -107,8 +115,9 @@ public class MainActivity extends FragmentActivity
     }
 
     @Override
-    public void onFragmentChanged() {
+    public void onFragmentChanged(Fragment fragment) {
         Log.d(TAG,"Invalidating options Menu");
+        currentFragment = fragment;
         invalidateOptionsMenu();
     }
 }

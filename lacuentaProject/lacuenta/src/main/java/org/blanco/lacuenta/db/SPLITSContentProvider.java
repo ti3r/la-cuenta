@@ -156,7 +156,11 @@ public class SPLITSContentProvider extends ContentProvider {
 	}
 
 	public Uri insert(Uri url, ContentValues initialValues) {
-		SQLiteDatabase mDB = dbHelper.getWritableDatabase();
+        if (URL_MATCHER.match(url) != SPLITS) {
+            throw new IllegalArgumentException("Unknown URL " + url);
+        }
+
+        SQLiteDatabase mDB = dbHelper.getWritableDatabase();
 		long rowID;
 		ContentValues values;
 		if (initialValues != null) {
@@ -164,11 +168,8 @@ public class SPLITSContentProvider extends ContentProvider {
 		} else {
 			values = new ContentValues();
 		}
-		if (URL_MATCHER.match(url) != SPLITS) {
-			throw new IllegalArgumentException("Unknown URL " + url);
-		}
 
-		rowID = mDB.insert("SPLITS", "_ID",values);
+        rowID = mDB.insert("SPLITS", "_ID",values);
 		if (rowID > 0) {
 			Uri uri = ContentUris.withAppendedId(CONTENT_URI, rowID);
 			getContext().getContentResolver().notifyChange(uri, null);
@@ -178,7 +179,10 @@ public class SPLITSContentProvider extends ContentProvider {
 	}
 
 	public int delete(Uri url, String where, String[] whereArgs) {
-		SQLiteDatabase mDB = dbHelper.getWritableDatabase();
+		if (url == null){
+            throw new IllegalArgumentException("Delte url can't be null");
+        }
+        SQLiteDatabase mDB = dbHelper.getWritableDatabase();
 		int count;
 		String segment = "";
 		switch (URL_MATCHER.match(url)) {
