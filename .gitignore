@@ -7,4 +7,5 @@
 lacuentaProject/local.properties
 *build*
 lacuentaProject/.gradle*
-
+*.gradle*
+lacuentaProject/.gradle/*

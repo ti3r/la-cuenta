@@ -8,8 +8,9 @@
   
   <TextView android:id="@+id/splits_table_header_total"
     android:layout_column="0" android:layout_span="5"
- 	android:layout_width="fill_parent" android:layout_height="wrap_content"
+ 	android:layout_width="fill_parent" android:layout_height="fill_parent"
  	android:typeface="sans" android:gravity="center_horizontal"
- 	android:text="@string/splits_table_row_empty"/>
+ 	android:text="@string/splits_table_row_empty"
+    style="@android:style/TextAppearance.Holo.Medium.Inverse"/>
    
 </TableRow>

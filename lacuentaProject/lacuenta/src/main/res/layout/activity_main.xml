@@ -9,7 +9,24 @@
     <FrameLayout
             android:id="@+id/main_content"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent" >
+        <!--
+        <ProgressBar
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            style="@android:style/Widget.ProgressBar.Large"
+            android:indeterminate="true"
+            />
+        <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@android:style/TextAppearance.DeviceDefault.Large"
+                android:paddingTop="45dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:text="@string/loading_data_dialog_title"/>
+                -->
+    </FrameLayout>
 
     <ListView
             android:id="@+id/main_drawer_list"

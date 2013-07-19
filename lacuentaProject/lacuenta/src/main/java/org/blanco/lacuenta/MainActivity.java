@@ -20,6 +20,7 @@ package org.blanco.lacuenta;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -27,8 +28,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CheckedTextView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.blanco.lacuenta.fragments.SplitsFragment;
 import org.blanco.lacuenta.listeners.LaCuentaDrawerItemClickListener;
@@ -49,14 +53,31 @@ public class MainActivity extends FragmentActivity
     /** The current fragment being displayed in the activity */
     Fragment currentFragment = null;
 
+    ListView drawerOpts = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         prepareActionDrawer();
+        if (savedInstanceState == null) //If no saved bundle. Launch main fragment. (new start)
+            launchSplitsSwap();
+    }
 
-        SplitsFragment fragment = new SplitsFragment();
-        listener.displayFragmentOnContent(fragment);
+    private void launchSplitsSwap() {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                listener.onItemClick(null,null,0,0);
+                View v =
+                    drawerOpts.getAdapter().getView(0,null,null);
+                Log.d(TAG, String.valueOf(v));
+                CheckedTextView v2 = (CheckedTextView) v;
+                v2.setChecked(true);
+            }
+        },500);
+
     }
 
     private void prepareActionDrawer() {
@@ -69,7 +90,7 @@ public class MainActivity extends FragmentActivity
         // Set the drawer toggle as the DrawerListener
         drawerLayout.setDrawerListener(mDrawerToggle);
 
-        ListView drawerOpts = (ListView) findViewById(R.id.main_drawer_list);
+        drawerOpts = (ListView) findViewById(R.id.main_drawer_list);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_single_choice,
                 getResources().getStringArray(R.array.main_drawer_options));
@@ -84,12 +105,13 @@ public class MainActivity extends FragmentActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.main,menu);
         //Inflate the custom menu for the fragments
         if (currentFragment instanceof SplitsFragment){
             Log.d(TAG,"Adding menu for Splits");
-            menu.add("Splits");
+            getMenuInflater().inflate(R.menu.splits_fragment_menu,menu);
         }
+        //Inflate the main menu (Settings)
+        getMenuInflater().inflate(R.menu.main,menu);
         return true;
     }
 
@@ -102,8 +124,26 @@ public class MainActivity extends FragmentActivity
             case R.id.action_settings:
                 launchSettingsActivity();
                 return true;
+            case R.id.splits_fragment_save_expense_item:
+                saveResultToDb();
+                return true;
+            case R.id.main_activity_main_menu_exit_item:
+                finish();
+                return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void saveResultToDb() {
+        if (!(currentFragment instanceof SplitsFragment)){
+            Log.w(TAG,"Click on save result but current fragment is not Splits. " +
+                    "Ignoring Check this");
+        }
+        SplitsFragment frag = (SplitsFragment) currentFragment;
+        String msg = frag.saveResultToDb(this);
+        if (!"".equalsIgnoreCase(msg)){
+            Toast.makeText(this,msg,Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**

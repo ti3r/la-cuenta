@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/main_activity_main_menu_save_expense_item"
+          android:id="@+id/splits_fragment_save_expense_item"
+          android:showAsAction="ifRoom"
+          android:orderInCategory="99"
+          android:icon="@drawable/save_money"></item>
+
+</menu>
