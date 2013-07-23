@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="app_name">La Cuenta</string>
+    <string name="TxtBillTotal">Total de conta</string>
+    <string name="TxtTip">Ponta</string>
+    <string name="TxtPeople">Pessoas</string>
+    <string name="BtnCalculate">Calcular</string>
+    <string name="TxtResult">Resultado</string>
+    <string name="StrExit">Ir</string>
+    <string name="StrSettings">Configurações</string>
+    <string name="settings_activity_txt_save_prefs">Salvar</string>
+    <string name="settings_activity_txt_show_res_dialog">Diálogo</string>
+    <string name="restart_application">Por favor, reinicie o aplicativo</string>
+    <string name="settings_activity_txt_say_result_out_loud">Dizer em voz alta</string>
+    <string name="main_activity_main_menu_save_expense_item">Salvar Despesa</string>
+    <string name="record">Registro:</string>
+    <string name="created">Criado</string>
+    <string name="no_calculus_done_yet_msg">Não existe nenhuma conta foi calculado ainda.</string>
+    <string name="splits_table_header_total">Total</string>
+    <string name="splits_table_header_tip">Ponta</string>
+    <string name="splits_table_header_people">Pessoas</string>
+    <string name="splits_table_header_date">Data</string>
+    <string name="splits_table_header_result">Gasto</string>
+    <string name="delete_msg">Excluir</string>
+    <string name="splits_table_footer_total">Registros:</string>
+    <string name="splits_table_footer_tips_text">Dicas:</string>
+    <string name="splits_table_footer_expenses_text">Despesas Totais:</string>
+    <string name="data_loaded_msg">Registros Carregados</string>
+    <string name="loading_data_dialog_title">Carregando ...</string>
+    <string name="loading_data_dialog_msg">Carregando despesas</string>
+    <string name="splits_table_row_empty">Não foram encontrados dados!
+        <br></br>
+        Por favor, procure novamente</string>
+    <string name="splits_main_menu_week_item">Semana</string>
+    <string name="splits_main_menu_today_item">Hoje</string>
+    <string name="splits_main_menu_month_item">Mês</string>
+    <string name="main_activity_main_menu_expenses_item">Despesas</string>
+    <string name="expenses_label">Despesas</string>
+    <string name="money_sign">R$</string>
+    <string name="records_label">Registros:</string>
+    <string name="splits_activity_main_menu_table_item">Tabela</string>
+    <string name="splits_activity_main_menu_chart_item">Gráficos</string>
+    <string name="tips">Dicas</string>
+    <string name="splits">Despesas</string>
+    <string name="average">Média</string>
+    <string name="settings_activity_txt_save_prefs_desc">Salvar os valores anteriores</string>
+    <string name="settings_activity_txt_show_res_dialog_desc">Mostrar resultado de um diálogo</string>
+    <string name="settings_activity_txt_say_out_loud_desc">Dizem que o resultado em voz alta</string>
+    <string name="settings_activity_controls_pref_cat">Controles</string>
+    <string name="settings_activity_result_pref_cat">Resultado</string>
+    <string name="change_log_dialog_title">Mudanças</string>
+    <string name="str_ok">Aceitar</string>
+    <string name="settings_activity_contact_developer">Contato com o desenvolvedor</string>
+    <string name="contact_developer_act_email">E-Mail:</string>
+    <string name="contact_developer_act_name">Nome:</string>
+    <string name="contact_developer_act_message">Mensagem</string>
+    <string name="str_cancel">Cancelar</string>
+    <string name="settings_activity_developer_cat">Desenvolvedor</string>
+    <string name="header_page_0">Calculadora</string>
+    <string name="header_page_1">Resultados Anteriores</string>
+    <string name="str_error_calling_save_expense">Falha ao salvar as despesas correntes</string>
+
+    <string-array name="main_drawer_options">
+        <item>Calcular</item>
+        <item>Rever</item>
+    </string-array>
+</resources>

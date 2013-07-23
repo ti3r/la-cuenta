@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.blanco.lacuenta"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="11"
+    android:versionName="2.0" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -15,6 +15,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="org.blanco.lacuenta.MainActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustNothing"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

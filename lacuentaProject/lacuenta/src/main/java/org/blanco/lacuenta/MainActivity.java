@@ -18,9 +18,14 @@
  */
 package org.blanco.lacuenta;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -34,8 +39,11 @@ import android.widget.CheckedTextView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import org.blanco.lacuenta.fragments.GraphFragment;
 import org.blanco.lacuenta.fragments.SplitsFragment;
 import org.blanco.lacuenta.listeners.LaCuentaDrawerItemClickListener;
+
+import static org.blanco.lacuenta.fragments.GraphFragment.*;
 
 /**
  * Main activity of the app.
@@ -45,6 +53,11 @@ public class MainActivity extends FragmentActivity
 
     /**Tag property to be used with logs */
     public static final String TAG = "LaCuenta";
+
+    /***
+     * preference name where the last version will be stored.
+     */
+    private static final String LAST_VERSION_RUN = "app_last_version_run_setting";
 
     /** Toggle object for the open close of the drawer */
     ActionBarDrawerToggle mDrawerToggle = null;
@@ -64,6 +77,14 @@ public class MainActivity extends FragmentActivity
             launchSplitsSwap();
     }
 
+    @Override
+    protected void onStart() {
+        AlertDialog ad = checkInitialDisplay();
+        if (ad != null)
+            ad.show();
+        super.onStart();
+    }
+
     private void launchSplitsSwap() {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -76,10 +97,13 @@ public class MainActivity extends FragmentActivity
                 CheckedTextView v2 = (CheckedTextView) v;
                 v2.setChecked(true);
             }
-        },500);
+        },100);
 
     }
 
+    /**
+     * Prepares the action drawer for the application.
+     */
     private void prepareActionDrawer() {
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -108,7 +132,10 @@ public class MainActivity extends FragmentActivity
         //Inflate the custom menu for the fragments
         if (currentFragment instanceof SplitsFragment){
             Log.d(TAG,"Adding menu for Splits");
-            getMenuInflater().inflate(R.menu.splits_fragment_menu,menu);
+            getMenuInflater().inflate(R.menu.splits_fragment_menu, menu);
+        }else if (currentFragment instanceof GraphFragment){
+            Log.d(TAG,"Adding menu for graphs");
+            getMenuInflater().inflate(R.menu.graph_fragment_menu, menu);
         }
         //Inflate the main menu (Settings)
         getMenuInflater().inflate(R.menu.main,menu);
@@ -127,6 +154,9 @@ public class MainActivity extends FragmentActivity
             case R.id.splits_fragment_save_expense_item:
                 saveResultToDb();
                 return true;
+            case R.id.graph_action_bar_btn_change_target:
+                changeGraphTarget(item);
+                return true;
             case R.id.main_activity_main_menu_exit_item:
                 finish();
                 return true;
@@ -134,10 +164,36 @@ public class MainActivity extends FragmentActivity
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Calls the changeDisplayTarget method for the GraphFragment if this is the
+     * current fragment being displayed in order to change the display target of the
+     * fragment. Then it sets the corresponding icon to the menu item to display
+     * correct UI.
+     * @param item The menu item that triggered this function and where correct next icon will be
+     *             set
+     */
+    private void changeGraphTarget(MenuItem item) {
+        if (!(currentFragment instanceof GraphFragment)){
+            Log.w(TAG,"Click on change graph target. but not Current GraphFragment found");
+            return;
+        }
+        GraphFragment frag = ((GraphFragment)currentFragment);
+        int disp = frag.getDisplayTarget();
+        frag.changeDisplayTarget( ( disp == CHART_TARGET) ? TABLE_TARGET :
+                CHART_TARGET
+        );
+        item.setIcon( (disp == CHART_TARGET) ? R.drawable.chart : R.drawable.table);
+    }
+
+    /**
+     * Calls the saveResultToDb method for the SplitsFragment if this is the
+     * current fragment in order to store the result of the split to db.
+     */
     private void saveResultToDb() {
         if (!(currentFragment instanceof SplitsFragment)){
             Log.w(TAG,"Click on save result but current fragment is not Splits. " +
                     "Ignoring Check this");
+            return;
         }
         SplitsFragment frag = (SplitsFragment) currentFragment;
         String msg = frag.saveResultToDb(this);
@@ -159,5 +215,68 @@ public class MainActivity extends FragmentActivity
         Log.d(TAG,"Invalidating options Menu");
         currentFragment = fragment;
         invalidateOptionsMenu();
+    }
+
+    /***
+     * This method is designed to check when the application starts for the
+     * first time on a new version and display the relative changeLog to the
+     * user in order to let him/her know the changes applied in the version.
+     *
+     * @return the AlertDialog class that should be shown in case the initial
+     *         message needs to be displayed, null otherwise
+     */
+    protected AlertDialog checkInitialDisplay() {
+        try {
+            PackageInfo pkgInfo;
+            pkgInfo = getApplicationContext()
+                    .getPackageManager()
+                    .getPackageInfo(getApplicationContext().getPackageName(), 0);
+            int versionCode = pkgInfo.versionCode;
+            int lastVersion = PreferenceManager.getDefaultSharedPreferences(
+                    this).getInt(LAST_VERSION_RUN, 0);
+            if (lastVersion < versionCode) // if last version is less than the
+            // current version of the manifest
+            {
+                // Show the initial Dialog
+                int CLResourceId = getResources().getIdentifier(
+                        "changelog_" + versionCode, "array",
+                        "org.blanco.lacuenta");
+                if (CLResourceId > 0) {
+                    String lines[] = getResources()
+                            .getStringArray(CLResourceId);
+                    StringBuilder text = new StringBuilder();
+                    for (String line : lines)
+                        text.append(line).append("\n");
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.setCancelable(false);
+                    builder.setPositiveButton(getString(R.string.str_ok),
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog,
+                                                    int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    builder.setMessage(text.toString());
+                    builder.setTitle(R.string.change_log_dialog_title);
+
+                    // Store the last run version on the preferences
+                    PreferenceManager.getDefaultSharedPreferences(this).edit()
+                            .putInt(LAST_VERSION_RUN, versionCode).commit();
+                    return builder.create();
+                } else {
+                    Log.i(TAG,
+                            "Error retrieving resource id, 0 returned for change_log"
+                                    + versionCode);
+                    return null;
+                }
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.e(TAG, "could not check the version of the app", e);
+        } catch (NullPointerException e){
+            Log.w(TAG, "could not check the version of the app. NullPointerEx");
+        }
+        return null;
     }
 }

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="app_name">La Cuenta</string>
+    <string name="TxtBillTotal">Bill Total</string>
+    <string name="TxtTip">Tip</string>
+    <string name="TxtPeople">People</string>
+    <string name="BtnCalculate">Calculate</string>
+    <string name="TxtResult">Result</string>
+    <string name="StrExit">Exit</string>
+    <string name="StrSettings">Settings</string>
+    <string name="settings_activity_txt_save_prefs">Save</string>
+    <string name="settings_activity_txt_show_res_dialog">Dialog</string>
+    <string name="restart_application">Please Restart The Applicaiton!!!!</string>
+    <string name="settings_activity_txt_say_result_out_loud">Say it out loud</string>
+    <string name="main_activity_main_menu_save_expense_item">Save Expense</string>
+    <string name="record">Record: </string>
+    <string name="created">Created</string>
+    <string name="no_calculus_done_yet_msg">No tip split has been requested yet.</string>
+    <string name="splits_table_header_total">Total</string>
+    <string name="splits_table_header_tip">Tip</string>
+    <string name="splits_table_header_people">People</string>
+    <string name="splits_table_header_date">Date</string>
+    <string name="splits_table_header_result">Expense</string>
+    <string name="delete_msg">Delete</string>
+    <string name="splits_table_footer_total">Records:</string>
+    <string name="splits_table_footer_tips_text">Tips:</string>
+    <string name="splits_table_footer_expenses_text">Total Expenses:</string>
+    <string name="data_loaded_msg">Data Loaded</string>
+    <string name="loading_data_dialog_title">Loading...</string>
+    <string name="loading_data_dialog_msg">Loading Expenses</string>
+    <string name="splits_table_row_empty">No data Found!!!
+        <br></br>
+        Please search again</string>
+    <string name="splits_main_menu_week_item">Week</string>
+    <string name="splits_main_menu_today_item">Today</string>
+    <string name="splits_main_menu_month_item">Month</string>
+    <string name="main_activity_main_menu_expenses_item">Expenses</string>
+    <string name="expenses_label">Expenses</string>
+    <string name="money_sign">$</string>
+    <string name="records_label">Records</string>
+    <string name="splits_activity_main_menu_table_item">Table</string>
+    <string name="splits_activity_main_menu_chart_item">Chart</string>
+    <string name="tips">Tips</string>
+    <string name="splits">Expenses</string>
+    <string name="average">Average</string>
+    <string name="settings_activity_txt_save_prefs_desc">Save the values of the controls</string>
+    <string name="settings_activity_txt_show_res_dialog_desc">Show the result on a dialog</string>
+    <string name="settings_activity_txt_say_out_loud_desc">Say the result out loud</string>
+    <string name="settings_activity_controls_pref_cat">Controls</string>
+    <string name="settings_activity_result_pref_cat">Result</string>
+    <string name="change_log_dialog_title">Changes</string>
+    <string name="str_ok">Ok</string>
+    <string name="settings_activity_contact_developer">Email the Developer</string>
+    <string name="contact_developer_act_email">E-Mail:</string>
+    <string name="contact_developer_act_name">Name:</string>
+    <string name="contact_developer_act_message">Message</string>
+    <string name="str_cancel">Cancel</string>
+    <string name="settings_activity_developer_cat">Developer</string>
+    <string name="header_page_0">Calculator</string>
+    <string name="header_page_1">Previous Results</string>
+    <string name="str_error_calling_save_expense">Error saving the actual expense</string>
+
+    <string-array name="main_drawer_options">
+        <item>Calculate</item>
+        <item>Chart</item>
+    </string-array>
+</resources>

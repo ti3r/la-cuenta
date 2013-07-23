@@ -33,11 +33,5 @@
                      android:cropToPadding="true" android:padding="1dip"
                      android:layout_height="wrap_content" />
 
-        <ImageButton android:id="@+id/graph_action_bar_btn_change_target"
-                     android:layout_width="wrap_content" android:layout_height="wrap_content"
-                     android:src="@drawable/chart" android:background="#00FFFFFF"
-                     android:cropToPadding="true" android:paddingLeft="25dip"
-                     android:padding="1dip"	android:layout_gravity="right" />
-
     </LinearLayout>
 </LinearLayout>

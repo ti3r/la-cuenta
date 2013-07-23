@@ -63,7 +63,7 @@ public class GraphFragment extends Fragment {
     private ImageButton btnWeek = null;
     private ImageButton btnMonth = null;
     private LinearLayout mainLayout = null;
-    private ImageButton btnChangeTarget = null;
+    //private ImageButton btnChangeTarget = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -116,15 +116,15 @@ public class GraphFragment extends Fragment {
             }
         });
 
-        btnChangeTarget = (ImageButton) view
-                .findViewById(R.id.graph_action_bar_btn_change_target);
-        btnChangeTarget.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeDisplayTarget((displayTarget == CHART_TARGET) ? TABLE_TARGET
-                        : CHART_TARGET);
-            }
-        });
+        //btnChangeTarget = (ImageButton) view
+        //       .findViewById(R.id.graph_action_bar_btn_change_target);
+        //btnChangeTarget.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View v) {
+        //        changeDisplayTarget((displayTarget == CHART_TARGET) ? TABLE_TARGET
+        //                : CHART_TARGET);
+        //    }
+        //});
     }
 
     public void loadData() {
@@ -172,7 +172,7 @@ public class GraphFragment extends Fragment {
         }
     }
 
-    private void changeDisplayTarget(int chartTarget) {
+    public void changeDisplayTarget(int chartTarget) {
         boolean executeLoad = (displayTarget != chartTarget);
         displayTarget = chartTarget;
         if (executeLoad) {
@@ -180,11 +180,15 @@ public class GraphFragment extends Fragment {
             int id = -1;
             id = (CHART_TARGET == displayTarget) ? R.drawable.table
                     : R.drawable.chart;
-            btnChangeTarget.setImageDrawable(getResources().getDrawable(id));
-            btnChangeTarget.invalidate();
+            //btnChangeTarget.setImageDrawable(getResources().getDrawable(id));
+            //btnChangeTarget.invalidate();
         }
     }
 
+    /**
+     * Sets the passed view as the results view for the fragment
+     * @param view The view to be set as Results View
+     */
     public void setResultsView(View view) {
         view.setTag("resultsView");
         View v = mainLayout.findViewWithTag("resultsView");
@@ -193,6 +197,17 @@ public class GraphFragment extends Fragment {
             mainLayout.removeView(v);
         }
         mainLayout.addView(view);
+    }
+
+    /**
+     * Returns the value for the current display target. It can be one of the
+     * following constants value
+     * TABLE_TARGET = 0;
+     * CHART_TARGET = 1;
+     * @return Value of display target property.
+     */
+    public int getDisplayTarget() {
+        return displayTarget;
     }
 
     // @Override
