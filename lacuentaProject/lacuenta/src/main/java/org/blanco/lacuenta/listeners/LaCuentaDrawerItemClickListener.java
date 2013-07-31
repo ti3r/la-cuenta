@@ -18,6 +18,7 @@
  */
 package org.blanco.lacuenta.listeners;
 
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
@@ -51,9 +52,7 @@ public class LaCuentaDrawerItemClickListener implements AdapterView.OnItemClickL
     DrawerLayout mDrawerLayout;
     /** ListView view containing the Navigation Drawer Options */
     ListView mDrawerOpts;
-    /** Listener used to communicate fragments swap results to the outside world */
-    LaCuentaFragmentChangedListener mListener;
-    /** Map to hold meta-information about the fragments being swapped by this class */
+     /** Map to hold meta-information about the fragments being swapped by this class */
     Map<String,FragmentSwapHolder> mFragmentsSwapMap = new TreeMap<String,FragmentSwapHolder>();
 
     /**
@@ -61,30 +60,14 @@ public class LaCuentaDrawerItemClickListener implements AdapterView.OnItemClickL
      * @param fragmentManager The FragmentManager used to swap fragments
      * @param drawerLayout The DrawerLayout of the app in order to react (close) drawer when done
      * @param drawerOpts The ListView view with the list of available options for the drawer
-     * @param listener The LaCuentaFragmentChangedListener listener to communicate results to the
-     *                 outside world
      */
     public LaCuentaDrawerItemClickListener(FragmentManager fragmentManager,
                                           DrawerLayout drawerLayout,
-                                          ListView drawerOpts,
-                                          LaCuentaFragmentChangedListener listener) {
+                                          ListView drawerOpts) {
         this.mFragmentManager = fragmentManager;
         this.mDrawerLayout = drawerLayout;
         this.mDrawerOpts = drawerOpts;
-        this.mListener = listener;
-    }
 
-    /**
-     * Constructor attaching the ncessesary parameters to work and a null events listener
-     * It cals this(fragmentManager,drawerLayout,drawerOpts,null)
-     * @param fragmentManager The FragmentManager used to swap fragments
-     * @param drawerLayout The DrawerLayout of the app in order to react (close) drawer when done
-     * @param drawerOpts The ListView view with the list of available options for the drawer
-     */
-    public LaCuentaDrawerItemClickListener(FragmentManager fragmentManager,
-                                           DrawerLayout drawerLayout,
-                                           ListView drawerOpts) {
-        this(fragmentManager,drawerLayout,drawerOpts,null);
     }
 
     @Override
@@ -108,7 +91,9 @@ public class LaCuentaDrawerItemClickListener implements AdapterView.OnItemClickL
         if (mFragmentsSwapMap.containsKey(fragmentName)){
             fragmentHolder = mFragmentsSwapMap.get(fragmentName);
         }else{
-            Fragment fragment = (i == 0)? new SplitsFragment() : new GraphFragment();
+            Fragment fragment = (i == 0)?
+                    new SplitsFragment() :
+                    new GraphFragment();
             fragmentHolder = new FragmentSwapHolder(fragment,fragmentName);
             mFragmentsSwapMap.put(fragmentName,fragmentHolder);
         }
@@ -131,17 +116,6 @@ public class LaCuentaDrawerItemClickListener implements AdapterView.OnItemClickL
         }
         mFragmentManager.beginTransaction().replace(R.id.main_content,
                 fragment).commit();
-        //Communicate the change to the outside world
-        if (mListener != null)
-            mListener.onFragmentChanged(fragment);
-    }
-
-    /**
-     * Sets the current LaCuentaFragmentChangedListener listener for this class.
-     * @param mListener the LaCuentaFragmentChangedListener listener to set
-     */
-    public void setmListener(LaCuentaFragmentChangedListener mListener) {
-        this.mListener = mListener;
     }
 
     /**
@@ -150,7 +124,8 @@ public class LaCuentaDrawerItemClickListener implements AdapterView.OnItemClickL
      * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>
      * @version 1.0 07/16/2013
      */
-    public interface LaCuentaFragmentChangedListener{
+    @Deprecated
+    public interface LaCuentaFragmentChangedListener extends Parcelable{
         /**
          * Callback method used when the content fragment has been swapped successfully
          */

@@ -25,6 +25,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Parcel;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
@@ -48,8 +49,7 @@ import static org.blanco.lacuenta.fragments.GraphFragment.*;
 /**
  * Main activity of the app.
  */
-public class MainActivity extends FragmentActivity
-        implements LaCuentaDrawerItemClickListener.LaCuentaFragmentChangedListener {
+public class MainActivity extends FragmentActivity {
 
     /**Tag property to be used with logs */
     public static final String TAG = "LaCuenta";
@@ -75,6 +75,14 @@ public class MainActivity extends FragmentActivity
         prepareActionDrawer();
         if (savedInstanceState == null) //If no saved bundle. Launch main fragment. (new start)
             launchSplitsSwap();
+    }
+
+    @Override
+    public void onAttachFragment(Fragment fragment) {
+        Log.d(TAG,"Set current fragment to: "+currentFragment);
+        currentFragment = fragment;
+        Log.d(TAG,"Invalidating options Menu");
+        invalidateOptionsMenu();
     }
 
     @Override
@@ -121,14 +129,14 @@ public class MainActivity extends FragmentActivity
         drawerOpts.setAdapter(adapter);
 
         listener = new LaCuentaDrawerItemClickListener(getSupportFragmentManager(),drawerLayout,
-                drawerOpts, this);
+                drawerOpts);
         drawerOpts.setOnItemClickListener(listener);
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
+        Log.d(TAG,"Creating options menu. Value of current fragment: "+currentFragment);
         //Inflate the custom menu for the fragments
         if (currentFragment instanceof SplitsFragment){
             Log.d(TAG,"Adding menu for Splits");
@@ -210,13 +218,6 @@ public class MainActivity extends FragmentActivity
         startActivity(settsIntent);
     }
 
-    @Override
-    public void onFragmentChanged(Fragment fragment) {
-        Log.d(TAG,"Invalidating options Menu");
-        currentFragment = fragment;
-        invalidateOptionsMenu();
-    }
-
     /***
      * This method is designed to check when the application starts for the
      * first time on a new version and display the relative changeLog to the
@@ -279,4 +280,5 @@ public class MainActivity extends FragmentActivity
         }
         return null;
     }
+
 }

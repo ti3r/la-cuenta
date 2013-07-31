@@ -22,8 +22,10 @@ import org.blanco.lacuenta.R;
 import org.blanco.lacuenta.SettingsActivity;
 import org.blanco.lacuenta.db.entities.Split;
 import org.blanco.lacuenta.listeners.CalculateClickListener;
+import org.blanco.lacuenta.listeners.LaCuentaDrawerItemClickListener;
 import org.blanco.lacuenta.misc.NumPad;
 import org.blanco.lacuenta.misc.ResultReceiversFactory;
+import static org.blanco.lacuenta.MainActivity.TAG;
 
 import android.app.Activity;
 import android.content.ContentUris;
@@ -34,6 +36,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.text.method.DigitsKeyListener;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -113,6 +116,7 @@ public class SplitsFragment extends Fragment {
 
     @Override
     public void onStart() {
+        super.onStart();
         boolean savePrefs = PreferenceManager.getDefaultSharedPreferences(
                 getActivity()).getBoolean(
                 SettingsActivity.SAVE_PREFS_SETTING_NAME, false);
@@ -128,7 +132,6 @@ public class SplitsFragment extends Fragment {
                         SettingsActivity.SHOW_RES_DIALOG_SETTING_NAME, false);
         this.txtResult.setVisibility((showResOnDialog) ? View.GONE
                 : View.VISIBLE);
-        super.onStart();
     }
 
     @Override
