@@ -12,7 +12,7 @@
   </component>
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_CUSTOM_FILTER" value="org.blanco" />
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="DEBUG" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="345517f9-dd50-466e-9594-37ab27e5f8ba" name="Default" comment="" />
@@ -78,21 +78,7 @@
     <favorites_list name="lacuenta" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lacuenta/src/main/java/org/blanco/lacuenta/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="126" column="63" selection-start="4586" selection-end="4586" vertical-scroll-proportion="0.48920864" vertical-offset="1598" max-vertical-offset="3689">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4508#4516#0" expanded="true" />
-                <element signature="method#checkInitialDisplay#0;class#MainActivity#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -142,9 +128,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/lacuenta/src/main/res/menu/graph_fragment_menu.xml" />
-        <option value="$PROJECT_DIR$/lacuenta/src/main/java/org/blanco/lacuenta/fragments/GraphFragment.java" />
-        <option value="$PROJECT_DIR$/lacuenta/src/main/res/layout/main_layout.xml" />
         <option value="$PROJECT_DIR$/lacuenta/src/main/res/values-en/strings.xml" />
         <option value="$PROJECT_DIR$/lacuenta/src/main/res/values-pt/strings.xml" />
         <option value="$PROJECT_DIR$/lacuenta/src/main/res/values/strings.xml" />
@@ -156,8 +139,11 @@
         <option value="$PROJECT_DIR$/lacuenta/src/main/java/org/blanco/lacuenta/fragments/SplitsFragment.java" />
         <option value="$PROJECT_DIR$/lacuenta/src/main/java/org/blanco/lacuenta/listeners/LaCuentaDrawerItemClickListener.java" />
         <option value="$PROJECT_DIR$/lacuenta/src/main/res/layout/la_cuenta_simple_list_item_choise.xml" />
-        <option value="$PROJECT_DIR$/lacuenta/src/main/java/org/blanco/lacuenta/MainActivity.java" />
         <option value="$PROJECT_DIR$/lacuenta/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/lacuenta/src/main/res/layout/drawer_list_item_chart.xml" />
+        <option value="$PROJECT_DIR$/lacuenta/src/main/res/layout/drawer_list_item_splits.xml" />
+        <option value="$PROJECT_DIR$/lacuenta/src/main/java/org/blanco/lacuenta/misc/LaCuentaActionDrawerAdapter.java" />
+        <option value="$PROJECT_DIR$/lacuenta/src/main/java/org/blanco/lacuenta/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -216,98 +202,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lacuenta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lacuentaProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lacuenta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lacuenta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lacuentaProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lacuenta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lacuenta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lacuentaProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lacuenta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lacuenta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lacuentaProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lacuenta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -346,6 +240,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\layout" />
       <recent name="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res" />
       <recent name="C:\workspace\dev\la-cuenta\lacuentaProject\lacuenta\src\main\res\values-en" />
     </key>
@@ -519,7 +414,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -539,8 +434,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24230146" sideWeight="0.75468487" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24531516" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24230146" sideWeight="0.713799" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28620103" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -636,41 +531,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lacuenta/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="21" selection-start="4168" selection-end="4168" vertical-scroll-proportion="0.55409837" vertical-offset="936" max-vertical-offset="1241">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lacuenta/src/main/res/values/change_log_descriptions.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="36" selection-start="917" selection-end="917" vertical-scroll-proportion="0.6257862" vertical-offset="209" max-vertical-offset="629">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lacuenta/src/main/res/values-pt/change_log_descriptions.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="36" selection-start="912" selection-end="912" vertical-scroll-proportion="0.6257862" vertical-offset="209" max-vertical-offset="629">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lacuenta/src/main/res/values-en/change_log_descriptions.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="38" selection-start="871" selection-end="871" vertical-scroll-proportion="1.0754716" vertical-offset="66" max-vertical-offset="629">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lacuenta/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="26" selection-start="197" selection-end="197" vertical-scroll-proportion="0.10691824" vertical-offset="34" max-vertical-offset="748">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lacuenta/src/main/res/layout-land/main_layout.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="40" column="8" selection-start="2245" selection-end="2245" vertical-scroll-proportion="0.6357143" vertical-offset="502" max-vertical-offset="833">
@@ -702,27 +562,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lacuenta/src/main/java/org/blanco/lacuenta/listeners/LaCuentaDrawerItemClickListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="0" selection-start="4830" selection-end="4830" vertical-scroll-proportion="0.69304556" vertical-offset="1462" max-vertical-offset="2091">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lacuenta/src/main/java/org/blanco/lacuenta/fragments/SplitsFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="32" selection-start="5502" selection-end="5502" vertical-scroll-proportion="3.8729017" vertical-offset="357" max-vertical-offset="3213">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7171#7197#0" expanded="true" />
-            <element signature="e#7301#7328#0" expanded="true" />
-            <element signature="e#7400#7444#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/R.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="558" column="32" selection-start="40202" selection-end="40202" vertical-scroll-proportion="0.33333334" vertical-offset="9330" max-vertical-offset="33371">
@@ -750,13 +589,82 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lacuenta/src/main/java/org/blanco/lacuenta/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/../../android/frameworks/base/core/java/android/widget/ListView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="63" selection-start="4586" selection-end="4586" vertical-scroll-proportion="0.48920864" vertical-offset="1598" max-vertical-offset="3689">
+        <state line="462" column="0" selection-start="16143" selection-end="16143" vertical-scroll-proportion="0.0" vertical-offset="7048" max-vertical-offset="62254">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../android/frameworks/base/core/java/android/widget/AbsListView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2176" column="0" selection-start="73442" selection-end="73442" vertical-scroll-proportion="0.0" vertical-offset="35727" max-vertical-offset="109650">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lacuenta/src/main/res/drawable/money.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lacuenta/src/main/java/org/blanco/lacuenta/misc/LaCuentaActionDrawerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="107" column="40" selection-start="3287" selection-end="3287" vertical-scroll-proportion="0.705036" vertical-offset="1525" max-vertical-offset="2244">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lacuenta/src/main/java/org/blanco/lacuenta/listeners/LaCuentaDrawerItemClickListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="0" selection-start="4067" selection-end="4067" vertical-scroll-proportion="-0.63069546" vertical-offset="1674" max-vertical-offset="2091">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4508#4516#0" expanded="true" />
-            <element signature="method#checkInitialDisplay#0;class#MainActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lacuenta/src/main/java/org/blanco/lacuenta/fragments/SplitsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="133" column="32" selection-start="5502" selection-end="5502" vertical-scroll-proportion="3.3764987" vertical-offset="564" max-vertical-offset="3213">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lacuenta/src/main/res/layout/drawer_list_item_chart.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="46" selection-start="920" selection-end="920" vertical-scroll-proportion="0.95408165" vertical-offset="0" max-vertical-offset="527">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lacuenta/src/main/res/layout/drawer_list_item_splits.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="33" selection-start="874" selection-end="874" vertical-scroll-proportion="0.91071427" vertical-offset="0" max-vertical-offset="527">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lacuenta/src/main/java/org/blanco/lacuenta/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="231" column="49" selection-start="8873" selection-end="8873" vertical-scroll-proportion="9.417266" vertical-offset="0" max-vertical-offset="4913">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3575#3860#0" expanded="true" />
+            <element signature="e#3849#3850#0" expanded="true" />
+            <element signature="e#10123#10149#0" expanded="true" />
           </folding>
         </state>
       </provider>

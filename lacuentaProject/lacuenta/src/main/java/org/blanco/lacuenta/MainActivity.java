@@ -25,7 +25,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Parcel;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
@@ -35,16 +34,16 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.CheckedTextView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import org.blanco.lacuenta.fragments.GraphFragment;
 import org.blanco.lacuenta.fragments.SplitsFragment;
 import org.blanco.lacuenta.listeners.LaCuentaDrawerItemClickListener;
+import org.blanco.lacuenta.misc.LaCuentaActionDrawerAdapter;
 
-import static org.blanco.lacuenta.fragments.GraphFragment.*;
+import static org.blanco.lacuenta.fragments.GraphFragment.CHART_TARGET;
+import static org.blanco.lacuenta.fragments.GraphFragment.TABLE_TARGET;
 
 /**
  * Main activity of the app.
@@ -79,9 +78,9 @@ public class MainActivity extends FragmentActivity {
 
     @Override
     public void onAttachFragment(Fragment fragment) {
-        Log.d(TAG,"Set current fragment to: "+currentFragment);
+        Log.d(TAG, "Set current fragment to: " + currentFragment);
         currentFragment = fragment;
-        Log.d(TAG,"Invalidating options Menu");
+        Log.d(TAG, "Invalidating options Menu");
         invalidateOptionsMenu();
     }
 
@@ -93,6 +92,9 @@ public class MainActivity extends FragmentActivity {
         super.onStart();
     }
 
+    /**
+     * Launch the initial fragment when app start.
+     */
     private void launchSplitsSwap() {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -102,8 +104,6 @@ public class MainActivity extends FragmentActivity {
                 View v =
                     drawerOpts.getAdapter().getView(0,null,null);
                 Log.d(TAG, String.valueOf(v));
-                CheckedTextView v2 = (CheckedTextView) v;
-                v2.setChecked(true);
             }
         },100);
 
@@ -113,7 +113,8 @@ public class MainActivity extends FragmentActivity {
      * Prepares the action drawer for the application.
      */
     private void prepareActionDrawer() {
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        if (getActionBar() != null)
+            getActionBar().setDisplayHomeAsUpEnabled(true);
 
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.main_drawer_layout);
 
@@ -123,8 +124,10 @@ public class MainActivity extends FragmentActivity {
         drawerLayout.setDrawerListener(mDrawerToggle);
 
         drawerOpts = (ListView) findViewById(R.id.main_drawer_list);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_single_choice,
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+//                android.R.layout.simple_list_item_single_choice,
+//                getResources().getStringArray(R.array.main_drawer_options));
+        LaCuentaActionDrawerAdapter adapter = new LaCuentaActionDrawerAdapter(this,
                 getResources().getStringArray(R.array.main_drawer_options));
         drawerOpts.setAdapter(adapter);
 
