@@ -30,18 +30,19 @@
  */
 package org.blanco.lacuenta.db;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-import static org.blanco.lacuenta.MainActivity.TAG;
+import static org.blanco.lacuenta.dos.MainActivity.TAG;
 
 /**
  * <p>
@@ -71,7 +72,7 @@ import static org.blanco.lacuenta.MainActivity.TAG;
 public class LaCuentaDBHelper extends SQLiteOpenHelper {
 
 	// Android's default system path for your application's database.
-	private static String DB_PATH = "/data/data/org.blanco.lacuenta/databases/";
+	private static String DB_PATH = "/data/data/org.blanco.lacuenta.dos/databases/";
 
 	private static String DB_NAME = "lacuenta.db";
 

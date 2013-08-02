@@ -18,11 +18,6 @@
  */
 package org.blanco.lacuenta.fragments;
 
-import org.blanco.lacuenta.R;
-import org.blanco.lacuenta.db.dataloaders.AbstractSplitsDataLoader;
-import org.blanco.lacuenta.db.dataloaders.SplitsChartDataLoader;
-import org.blanco.lacuenta.db.dataloaders.SplitsDataLoader;
-
 import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -33,6 +28,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+
+import org.blanco.lacuenta.dos.R;
+import org.blanco.lacuenta.db.dataloaders.AbstractSplitsDataLoader;
+import org.blanco.lacuenta.db.dataloaders.SplitsChartDataLoader;
+import org.blanco.lacuenta.db.dataloaders.SplitsDataLoader;
 
 /***
  * Fragment that will present the user the splits that have been stored in the

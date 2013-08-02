@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.blanco.lacuenta"
+    package="org.blanco.lacuenta.dos"
     android:versionCode="11"
     android:versionName="2.0" >
 
@@ -8,13 +8,16 @@
         android:minSdkVersion="14"
         android:targetSdkVersion="16" />
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="org.blanco.lacuenta.MainActivity"
+            android:name="org.blanco.lacuenta.dos.MainActivity"
             android:windowSoftInputMode="stateAlwaysHidden|adjustNothing"
             android:label="@string/app_name" >
             <intent-filter>
@@ -33,6 +36,11 @@
         <provider
                 android:authorities="org.blanco.lacuenta.db.splitscontentprovider"
                 android:name="org.blanco.lacuenta.db.SPLITSContentProvider"/>
+
+
+        <activity android:name="com.google.ads.AdActivity"
+                  android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+
     </application>
 
 </manifest>

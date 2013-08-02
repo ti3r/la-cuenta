@@ -18,13 +18,13 @@
  */
 package org.blanco.lacuenta.receivers;
 
-import java.text.DecimalFormat;
-
-import org.blanco.lacuenta.R;
-
 import android.content.Context;
 import android.util.Log;
 import android.widget.TextView;
+
+import org.blanco.lacuenta.dos.R;
+
+import java.text.DecimalFormat;
 
 /***
  * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>

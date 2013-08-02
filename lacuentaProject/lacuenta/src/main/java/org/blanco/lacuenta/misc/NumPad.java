@@ -18,8 +18,6 @@
  */
 package org.blanco.lacuenta.misc;
 
-import org.blanco.lacuenta.R;
-
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -28,6 +26,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
+
+import org.blanco.lacuenta.dos.R;
 
 /**
  * Class that represents a num pad containig the keys 0-9 point and clear

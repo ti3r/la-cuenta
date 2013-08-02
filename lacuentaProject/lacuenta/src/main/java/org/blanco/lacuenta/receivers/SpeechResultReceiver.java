@@ -18,14 +18,14 @@
  */
 package org.blanco.lacuenta.receivers;
 
-import java.text.NumberFormat;
-import java.util.HashMap;
-import java.util.Locale;
-
 import android.content.Context;
 import android.media.AudioManager;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
+
+import java.text.NumberFormat;
+import java.util.HashMap;
+import java.util.Locale;
 
 /***
  * Class that implements the ResultReceiver Interface in order to 

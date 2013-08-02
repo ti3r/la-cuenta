@@ -18,15 +18,15 @@
  */
 package org.blanco.lacuenta.db.entities;
 
-import java.util.Calendar;
-
-import org.blanco.lacuenta.db.SPLITSContentProvider;
-
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
+
+import org.blanco.lacuenta.db.SPLITSContentProvider;
+
+import java.util.Calendar;
 
 /***
  * 

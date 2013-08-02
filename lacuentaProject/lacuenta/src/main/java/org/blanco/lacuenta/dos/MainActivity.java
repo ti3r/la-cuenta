@@ -16,7 +16,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.blanco.lacuenta;
+package org.blanco.lacuenta.dos;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -37,6 +37,8 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import org.blanco.lacuenta.dos.R;
+import org.blanco.lacuenta.SettingsActivity;
 import org.blanco.lacuenta.fragments.GraphFragment;
 import org.blanco.lacuenta.fragments.SplitsFragment;
 import org.blanco.lacuenta.listeners.LaCuentaDrawerItemClickListener;
@@ -57,6 +59,7 @@ public class MainActivity extends FragmentActivity {
      * preference name where the last version will be stored.
      */
     private static final String LAST_VERSION_RUN = "app_last_version_run_setting";
+    public static final String MY_ADD_UNITID = "a151facc271fd9f";
 
     /** Toggle object for the open close of the drawer */
     ActionBarDrawerToggle mDrawerToggle = null;

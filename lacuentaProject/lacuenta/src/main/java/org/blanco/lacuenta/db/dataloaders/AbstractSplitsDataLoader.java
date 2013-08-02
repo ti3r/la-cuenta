@@ -18,14 +18,14 @@
  */
 package org.blanco.lacuenta.db.dataloaders;
 
+import android.database.Cursor;
+import android.os.AsyncTask;
+import android.view.View;
+
 import org.blanco.lacuenta.db.SPLITSContentProvider;
 import org.blanco.lacuenta.db.entities.Split;
 import org.blanco.lacuenta.fragments.GraphFragment;
 import org.blanco.lacuenta.misc.CalendarUtilities;
-
-import android.database.Cursor;
-import android.os.AsyncTask;
-import android.view.View;
 
 /***
  * Basic class that will handle the data loading process for the SplitsActivity

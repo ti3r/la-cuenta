@@ -18,15 +18,6 @@
  */
 package org.blanco.lacuenta.db.dataloaders;
 
-import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-
-import org.blanco.lacuenta.R;
-import org.blanco.lacuenta.db.entities.Split;
-import org.blanco.lacuenta.fragments.GraphFragment;
-
 import android.database.Cursor;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
@@ -34,6 +25,15 @@ import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+
+import org.blanco.lacuenta.dos.R;
+import org.blanco.lacuenta.db.entities.Split;
+import org.blanco.lacuenta.fragments.GraphFragment;
+
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 /***
  * This class will load splits stored in the database based on the passed load

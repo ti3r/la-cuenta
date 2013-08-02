@@ -27,7 +27,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import org.blanco.lacuenta.R;
+import org.blanco.lacuenta.dos.R;
 import org.blanco.lacuenta.fragments.GraphFragment;
 import org.blanco.lacuenta.fragments.SplitsFragment;
 import org.blanco.lacuenta.misc.FragmentSwapHolder;
@@ -35,7 +35,7 @@ import org.blanco.lacuenta.misc.FragmentSwapHolder;
 import java.util.Map;
 import java.util.TreeMap;
 
-import static org.blanco.lacuenta.MainActivity.TAG;
+import static org.blanco.lacuenta.dos.MainActivity.TAG;
 /**
  * Item Click listener that will handle the drawer items selection and execute
  * the correct fragment.

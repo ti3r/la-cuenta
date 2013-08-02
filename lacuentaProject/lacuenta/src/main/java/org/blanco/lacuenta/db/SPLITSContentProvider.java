@@ -30,10 +30,6 @@
  */
 package org.blanco.lacuenta.db;
 
-import java.util.HashMap;
-
-import org.blanco.lacuenta.db.entities.Split;
-
 import android.content.ContentProvider;
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -44,6 +40,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.text.TextUtils;
+
+import org.blanco.lacuenta.db.entities.Split;
+
+import java.util.HashMap;
 
 public class SPLITSContentProvider extends ContentProvider {
 

@@ -18,8 +18,11 @@
  */
 package org.blanco.lacuenta.db.dataloaders;
 
-import java.util.ArrayList;
-import java.util.List;
+import android.database.Cursor;
+import android.graphics.Color;
+import android.os.Looper;
+import android.util.Log;
+import android.view.View;
 
 import org.achartengine.ChartFactory;
 import org.achartengine.GraphicalView;
@@ -28,15 +31,12 @@ import org.achartengine.model.CategorySeries;
 import org.achartengine.model.XYMultipleSeriesDataset;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
-import org.blanco.lacuenta.R;
+import org.blanco.lacuenta.dos.R;
 import org.blanco.lacuenta.db.entities.Split;
 import org.blanco.lacuenta.fragments.GraphFragment;
 
-import android.database.Cursor;
-import android.graphics.Color;
-import android.os.Looper;
-import android.util.Log;
-import android.view.View;
+import java.util.ArrayList;
+import java.util.List;
 
 /***
  * Class that will load the splits from database and build a lines chart to

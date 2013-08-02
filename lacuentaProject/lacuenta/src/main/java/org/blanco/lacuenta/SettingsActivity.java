@@ -23,7 +23,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
-
+import org.blanco.lacuenta.dos.R;
 /***
  * @author Alexandro Blanco <ti3r.bubblenet@gmail.com> Class that will extends
  *         the Activity class in order to present an Interface to the User to

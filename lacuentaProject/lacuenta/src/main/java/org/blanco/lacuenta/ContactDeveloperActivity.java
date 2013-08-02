@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import org.blanco.lacuenta.dos.R;
 
 public class ContactDeveloperActivity extends Activity
 	implements View.OnClickListener{

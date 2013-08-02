@@ -18,12 +18,12 @@
  */
 package org.blanco.lacuenta.misc;
 
-import java.text.DateFormat;
-import java.util.Calendar;
+import android.util.Log;
 
 import org.blanco.lacuenta.fragments.GraphFragment;
 
-import android.util.Log;
+import java.text.DateFormat;
+import java.util.Calendar;
 
 /***
  * Static Class that will help to establish the low and high limits of the

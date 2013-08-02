@@ -18,15 +18,6 @@
  */
 package org.blanco.lacuenta.fragments;
 
-import org.blanco.lacuenta.R;
-import org.blanco.lacuenta.SettingsActivity;
-import org.blanco.lacuenta.db.entities.Split;
-import org.blanco.lacuenta.listeners.CalculateClickListener;
-import org.blanco.lacuenta.listeners.LaCuentaDrawerItemClickListener;
-import org.blanco.lacuenta.misc.NumPad;
-import org.blanco.lacuenta.misc.ResultReceiversFactory;
-import static org.blanco.lacuenta.MainActivity.TAG;
-
 import android.app.Activity;
 import android.content.ContentUris;
 import android.content.Context;
@@ -36,15 +27,21 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.text.method.DigitsKeyListener;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import org.blanco.lacuenta.dos.R;
+import org.blanco.lacuenta.SettingsActivity;
+import org.blanco.lacuenta.db.entities.Split;
+import org.blanco.lacuenta.listeners.CalculateClickListener;
+import org.blanco.lacuenta.misc.NumPad;
+import org.blanco.lacuenta.misc.ResultReceiversFactory;
 /**
  * The Fragment that will handle all the calculus of a split.
  *
@@ -56,17 +53,24 @@ import android.widget.TextView;
  */
 public class SplitsFragment extends Fragment {
 
+
+    RelativeLayout.LayoutParams adLayoutParams;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        adLayoutParams = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.MATCH_PARENT);
+        adLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mainLayout = inflater.inflate(R.layout.main_layout, null);
+        mainLayout = (RelativeLayout) inflater.inflate(R.layout.main_layout, null);
         // save the sate of the GUI components
         initComponents();
+
         return mainLayout;
     }
 
@@ -186,7 +190,7 @@ public class SplitsFragment extends Fragment {
     }
 
     /* Class members */
-    View mainLayout = null;
+    RelativeLayout mainLayout = null;
     /* GUI Components */
     EditText edtTotal = null;
     Button btnCalculate = null;

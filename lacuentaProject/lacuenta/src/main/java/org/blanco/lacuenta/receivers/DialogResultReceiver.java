@@ -18,13 +18,13 @@
  */
 package org.blanco.lacuenta.receivers;
 
-import java.text.NumberFormat;
-import java.util.Locale;
-
-import org.blanco.lacuenta.R;
-
 import android.content.Context;
 import android.widget.Toast;
+
+import org.blanco.lacuenta.dos.R;
+
+import java.text.NumberFormat;
+import java.util.Locale;
 
 /***
  * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>

@@ -18,16 +18,15 @@
  */
 package org.blanco.lacuenta.listeners;
 
-import java.util.List;
-
-
-import org.blanco.lacuenta.db.entities.Split;
-import org.blanco.lacuenta.receivers.ResultReceiver;
-
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import org.blanco.lacuenta.db.entities.Split;
+import org.blanco.lacuenta.receivers.ResultReceiver;
+
+import java.util.List;
 
 /***
  * @author Alexandro Blanco <ti3r.bubblenet@gmail.com>

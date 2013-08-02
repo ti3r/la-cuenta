@@ -18,9 +18,9 @@
  */
 package org.blanco.lacuenta.misc;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
+import android.content.Context;
+import android.preference.PreferenceManager;
+import android.widget.TextView;
 
 import org.blanco.lacuenta.SettingsActivity;
 import org.blanco.lacuenta.receivers.DialogResultReceiver;
@@ -28,9 +28,9 @@ import org.blanco.lacuenta.receivers.ResultReceiver;
 import org.blanco.lacuenta.receivers.SpeechResultReceiver;
 import org.blanco.lacuenta.receivers.TextViewResultReceiver;
 
-import android.content.Context;
-import android.preference.PreferenceManager;
-import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 /**
  * The class in charge of creating the result receivers that will be attached to
